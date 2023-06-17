@@ -13,6 +13,6 @@ mixin AppDataPreferencesMixin on AppData {
     // Get an instance of [SharedPreferences] for retrieving stored data.
     final userPrefs = await SharedPreferences.getInstance();
 
-    test = userPrefs.getString('test') ?? 'From SharedPreferences.';
+    test = userPrefs.getString('test');
   }
 }

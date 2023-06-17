@@ -2,23 +2,26 @@
 import 'package:kar_kam_1/app_data/app_data.dart';
 
 mixin AppDataManagerMixin on AppData {
-  /// Updates fields in [AppData] with [newValue] using [identifier] to
+  /// Updates fields in [AppData] with [value] using [identifier] to
   /// determine which field to change.
   @override
   void change({
     bool? force,
     required String identifier,
-    var newValue,
+    var value,
     bool? notify,
   }) {
     if (force ?? false) {
-      setMap?[identifier]?.call(newValue);
+      // If [force] is null or false.
+      setMap?[identifier]?.call(value);
     } else {
-      getMap?[identifier] ?? setMap?[identifier]?.call(newValue);
+      // If [force] is true.
+      getMap?[identifier] ?? setMap?[identifier]?.call(value);
     }
 
     // Notify listeners only if instructed to do so. Default is NOT to notify.
     if (notify ?? false) {
+      // If [notify] is null or false.
       notifyListeners();
     }
   }
@@ -29,9 +32,10 @@ mixin AppDataManagerMixin on AppData {
   /// [force] overrides existing values.
   @override
   void setDefaults({bool? force}) {
+    // Set test.
     change(
       identifier: 'test',
-      newValue: 'test default value.',
+      value: 'test default value.',
     );
   }
 }
