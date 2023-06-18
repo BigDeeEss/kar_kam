@@ -9,11 +9,11 @@ import 'package:kar_kam_1/app_data/app_data_manager_mixin.dart';
 class AppDataPreferenceService extends AppData
     with AppDataManagerMixin, AppDataPreferencesMixin {
   AppDataPreferenceService() {
-    print('1, test = $test');
+    // Initialise [AppData.getMap] and [AppData.setMap].
     super.initialise();
-    print('2, test = $test');
+
+    // Initialise [AppData.fields].
     initialise();
-    print('3, test = $test');
   }
 
   /// A blocking function (note the await keyword applied to [getPrefs]) that
@@ -26,7 +26,7 @@ class AppDataPreferenceService extends AppData
     // Apply defaults to null prefs.
     setDefaults();
 
-    // Signal that all [AppData] fields are non-null.
+    // Signal that [AppData.fields] are non-null.
     GetItService.signalReady<AppData>(this);
   }
 }

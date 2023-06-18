@@ -15,11 +15,10 @@ abstract class AppData extends ChangeNotifier {
 
   /// Updates fields in [AppData] with [newValue] using [identifier] to
   /// determine which field to change.
-  void change({
-    bool? force,
+  void update({
+    bool? notify,
     required String identifier,
     var value,
-    bool? notify,
   });
 
   /// Initialises [getMap] and [setMap].

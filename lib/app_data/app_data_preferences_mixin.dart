@@ -9,10 +9,12 @@ mixin AppDataPreferencesMixin on AppData {
   //   test = 'Another instance of initialise.';
   // }
 
+  /// Loads user prefs from file.
   Future<void> getPrefs() async {
     // Get an instance of [SharedPreferences] for retrieving stored data.
     final userPrefs = await SharedPreferences.getInstance();
 
+    // Load data.
     test = userPrefs.getString('test');
   }
 }

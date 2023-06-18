@@ -12,7 +12,7 @@ void main() {
   // register an instance of [AppDataPreferenceService].
   //
   // The constructor for [AppDataPreferenceService] loads preferences from
-  // file and/or apply defaults.
+  // file and/or applies defaults.
   GetItService.register<AppData>(AppDataPreferenceService());
 
   // Run the app.

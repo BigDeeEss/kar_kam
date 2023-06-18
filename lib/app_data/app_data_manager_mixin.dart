@@ -1,23 +1,20 @@
 // Import project-specific files.
 import 'package:kar_kam_1/app_data/app_data.dart';
 
+/// Maintains [AppData].
 mixin AppDataManagerMixin on AppData {
   /// Updates fields in [AppData] with [value] using [identifier] to
-  /// determine which field to change.
+  /// determine which field to change
+  ///
+  /// [force] will cause an update regardless of h
   @override
-  void change({
-    bool? force,
+  void update({
+    bool? notify,
     required String identifier,
     var value,
-    bool? notify,
   }) {
-    if (force ?? false) {
-      // If [force] is null or false.
-      setMap?[identifier]?.call(value);
-    } else {
-      // If [force] is true.
-      getMap?[identifier] ?? setMap?[identifier]?.call(value);
-    }
+    // Get current value, and if null, set it to [value].
+    getMap?[identifier] ?? setMap?[identifier]?.call(value);
 
     // Notify listeners only if instructed to do so. Default is NOT to notify.
     if (notify ?? false) {
@@ -33,7 +30,7 @@ mixin AppDataManagerMixin on AppData {
   @override
   void setDefaults({bool? force}) {
     // Set test.
-    change(
+    update(
       identifier: 'test',
       value: 'test default value.',
     );
