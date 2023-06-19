@@ -23,14 +23,7 @@ abstract class AppData extends ChangeNotifier {
     };
 
     setMap = {
-      // 'test': (String? value) => test = value,
-      'test': (String? value) {
-        print('AppData, setMap execution.');
-        print('AppData, setMap, value = $value');
-        print('AppData, setMap, test = $test');
-        test = value;
-        print('AppData, setMap, test = $test');
-      },
+      'test': (String? value) => test = value,
     };
   }
 

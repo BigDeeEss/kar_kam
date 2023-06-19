@@ -12,10 +12,7 @@ mixin AppDataManagerMixin on AppData {
     var value,
   }) {
     // Set [AppData.field] identified by string to value.
-    print('AppDataManagerMixin, update, value = $value');
-    print('AppDataManagerMixin, update, test = $test');
     setMap?[string]?.call(value);
-    print('AppDataManagerMixin, update, test = $test');
 
     // Notify listeners only if instructed to do so. Default is NOT to notify.
     if (notify ?? false) {
