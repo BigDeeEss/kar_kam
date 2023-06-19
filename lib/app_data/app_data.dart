@@ -13,9 +13,6 @@ abstract class AppData extends ChangeNotifier {
   /// instance, 'test' to '(String? value) => test = value'.
   Map<String, Function>? setMap;
 
-  /// Loads user prefs from file.
-  // Future<void> getPrefs();
-
   /// Initialises [getMap] and [setMap].
   void initialise() {
     getMap = {
@@ -26,12 +23,6 @@ abstract class AppData extends ChangeNotifier {
       'test': (String? value) => test = value,
     };
   }
-
-  // /// Sets [AppData] field values to defaults if null.
-  // void setDefaults();
-  //
-  // /// Save [AppData] field values (user prefs) to file.
-  // Future<void> setPrefs();
 
   /// Updates fields in [AppData] with [newValue] using [identifier] to
   /// determine which field to change.
