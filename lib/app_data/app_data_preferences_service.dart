@@ -20,11 +20,13 @@ class AppDataPreferenceService extends AppData
   /// loads user preferences from file and sets null fields to default values.
   @override
   void initialise() async {
-    // Load user prefs from file.
+    // Load user preferences from file.
     await getPrefs();
 
-    // Apply defaults to null prefs.
+    // Apply defaults to null user preferences.
     setDefaults();
+
+    setPrefs();
 
     // Signal that [AppData.fields] are non-null.
     GetItService.signalReady<AppData>(this);

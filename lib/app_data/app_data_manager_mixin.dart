@@ -5,16 +5,17 @@ import 'package:kar_kam_1/app_data/app_data.dart';
 mixin AppDataManagerMixin on AppData {
   /// Updates fields in [AppData] with [value] using [identifier] to
   /// determine which field to change
-  ///
-  /// [force] will cause an update regardless of h
   @override
   void update({
     bool? notify,
-    required String identifier,
+    required String string,
     var value,
   }) {
-    // Get current value, and if null, set it to [value].
-    getMap?[identifier] ?? setMap?[identifier]?.call(value);
+    // Set [AppData.field] identified by string to value.
+    print('AppDataManagerMixin, update, value = $value');
+    print('AppDataManagerMixin, update, test = $test');
+    setMap?[string]?.call(value);
+    print('AppDataManagerMixin, update, test = $test');
 
     // Notify listeners only if instructed to do so. Default is NOT to notify.
     if (notify ?? false) {
@@ -23,15 +24,14 @@ mixin AppDataManagerMixin on AppData {
     }
   }
 
-
   /// Sets [AppData] field values to defaults if null.
   ///
   /// [force] overrides existing values.
-  @override
-  void setDefaults({bool? force}) {
+  // @override
+  void setDefaults() {
     // Set test.
     update(
-      identifier: 'test',
+      string: 'test',
       value: 'test default value.',
     );
   }
