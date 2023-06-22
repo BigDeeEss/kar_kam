@@ -11,8 +11,27 @@ mixin AppDataPreferencesMixin on AppData {
     // for retrieving stored data.
     userPrefs ?? await SharedPreferences.getInstance();
 
-    // Load data.
-    update(string: string, value: userPrefs?.getString(string));
+    // Get user preference from file and upload to [AppData].
+    try {
+      // Attempt to get bool from file.
+      update(string: string, value: userPrefs?.getBool(string));
+      return;
+    } catch (_) {}
+    try {
+      // Attempt to get double from file.
+      update(string: string, value: userPrefs?.getDouble(string));
+      return;
+    } catch (_) {}
+    try {
+      // Attempt to get string from file.
+      update(string: string, value: userPrefs?.getString(string));
+      return;
+    } catch (_) {}
+    try {
+      // Attempt to get a list of strings from file.
+      update(string: string, value: userPrefs?.getStringList(string));
+      return;
+    } catch (_) {}
   }
 
   /// Loads all user preferences from file.

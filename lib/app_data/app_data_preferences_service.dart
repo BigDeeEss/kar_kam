@@ -1,10 +1,10 @@
 // Import external packages.
-import 'package:kar_kam/app_data/get_it_service.dart';
 
 // Import project-specific packages.
 import 'package:kar_kam/app_data/app_data.dart';
 import 'package:kar_kam/app_data/app_data_preferences_mixin.dart';
 import 'package:kar_kam/app_data/app_data_manager_mixin.dart';
+import 'package:kar_kam/app_data/get_it_service.dart';
 
 class AppDataPreferenceService extends AppData
     with AppDataManagerMixin, AppDataPreferencesMixin {
@@ -20,12 +20,11 @@ class AppDataPreferenceService extends AppData
   /// loads user preferences from file and sets null fields to default values.
   @override
   void initialise() async {
-    // Load user preferences from file.
-    await getPrefs();
-
     // Apply defaults to null user preferences.
     setDefaults();
 
+    // Load user preferences from file.
+    await getPrefs();
     setPrefs();
 
     // Signal that [AppData.fields] are non-null.
