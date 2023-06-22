@@ -28,8 +28,29 @@ mixin AppDataManagerMixin on AppData {
   void setDefaults() {
     // Set test.
     update(
+<<<<<<< HEAD
       string: 'test',
       value: 'test default value.',
+=======
+      string: 'testString',
+      value: 'testString default value again!',
+    );
+    update(
+      string: 'testDouble',
+      value: 1.2345,
+    );
+    update(
+      string: 'testInt',
+      value: 12345,
+    );
+    update(
+      string: 'testBool',
+      value: true,
+    );
+    update(
+      string: 'testStringList',
+      value: ['testString', 'default', 'value', 'again!'],
+>>>>>>> 2ff4809 (Update default values.)
     );
   }
 }

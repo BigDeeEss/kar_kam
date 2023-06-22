@@ -20,7 +20,15 @@ class KarKam extends StatelessWidget with GetItMixin{
         useMaterial3: true,
       ),
       home: Center(
-        child: Text(test!),
+        child: Column(
+          children: [
+            Text('$testString'),
+            Text('$testDouble!'),
+            Text('$testInt!'),
+            Text('$testBool!'),
+            Text('$testStringList'),
+          ]
+        ),
       ),
     );
   }
