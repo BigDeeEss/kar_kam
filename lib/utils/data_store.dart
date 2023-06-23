@@ -1,4 +1,4 @@
-//  Import flutter packages.
+//  Import external packages.
 import 'package:flutter/material.dart';
 
 /// Stores data and makes it available to all of its descendants.
