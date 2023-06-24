@@ -10,16 +10,16 @@ import 'package:kar_kam/base_ui/base_ui.dart';
 
 /// App start point.
 void main() {
-  // Avoids 'The "instance" getter on the ServicesBinding binding mixin
-  // is only available once that binding has been initialized.' error.
-  WidgetsFlutterBinding.ensureInitialized();
-
-  // Use [GetItService] as the single point of access to [GetIt] and
-  // register an instance of [AppDataPreferenceService].
+  // // Avoids 'The "instance" getter on the ServicesBinding binding mixin
+  // // is only available once that binding has been initialized.' error.
+  // WidgetsFlutterBinding.ensureInitialized();
   //
-  // The constructor for [AppDataPreferenceService] loads preferences from
-  // file and/or applies defaults.
-  GetItService.register<AppData>(AppDataPreferenceService());
+  // // Use [GetItService] as the single point of access to [GetIt] and
+  // // register an instance of [AppDataPreferenceService].
+  // //
+  // // The constructor for [AppDataPreferenceService] loads preferences from
+  // // file and/or applies defaults.
+  // GetItService.register<AppData>(AppDataPreferenceService());
 
   // Run the app.
   runApp(KarKam());
@@ -36,6 +36,8 @@ class KarKam extends StatelessWidget with GetItMixin{
 
   @override
   Widget build(BuildContext context) {
+    GetItService.register<AppData>(AppDataPreferenceService());
+
     return MaterialApp(
       title: 'Kar Kam',
       theme: ThemeData(
