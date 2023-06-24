@@ -16,7 +16,13 @@ import 'package:kar_kam/utils/data_store.dart';
 ///  A combination of [BaseUI] and [_BaseUIView] calculate [baseUIViewRect]
 ///  which represents the available screen dimensions.
 class BaseUI extends StatelessWidget {
-  const BaseUI({super.key});
+  const BaseUI({
+    super.key,
+    // this.baseUISpec,
+  });
+
+  /// Defines the current layout of the UI..
+  // final BaseUISpec? baseUISpec;
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +40,7 @@ class BaseUI extends StatelessWidget {
         child: BaseUIView(
           key: baseUIViewKey,
           children: const [Placeholder()],
+          // children: baseUISpec,
         ),
       ),
     );
