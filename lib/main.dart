@@ -10,16 +10,22 @@ import 'package:kar_kam/base_ui/base_ui.dart';
 
 /// App start point.
 void main() {
-  // // Avoids 'The "instance" getter on the ServicesBinding binding mixin
-  // // is only available once that binding has been initialized.' error.
-  // WidgetsFlutterBinding.ensureInitialized();
+  // Avoids 'The "instance" getter on the ServicesBinding binding mixin
+  // is only available once that binding has been initialized.' error.
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Use [GetItService] as the single point of access to [GetIt] and
+  // register an instance of [AppDataPreferenceService].
   //
-  // // Use [GetItService] as the single point of access to [GetIt] and
-  // // register an instance of [AppDataPreferenceService].
-  // //
-  // // The constructor for [AppDataPreferenceService] loads preferences from
-  // // file and/or applies defaults.
-  // GetItService.register<AppData>(AppDataPreferenceService());
+  // The constructor for [AppDataPreferenceService] loads preferences from
+  // file and/or applies defaults.
+  //
+  // Note, it is possible to move the below call to within [build] in [Kar_Kam],
+  // but this doesn't support Hot Restart when connected to the SM A526B device.
+  //
+  // The above call WidgetsFlutterBinding.ensureInitialized() is required to
+  // successfully build the app on the SM A526B device.
+  GetItService.register<AppData>(AppDataPreferenceService());
 
   // Run the app.
   runApp(KarKam());
@@ -36,8 +42,6 @@ class KarKam extends StatelessWidget with GetItMixin{
 
   @override
   Widget build(BuildContext context) {
-    GetItService.register<AppData>(AppDataPreferenceService());
-
     return MaterialApp(
       title: 'Kar Kam',
       theme: ThemeData(
