@@ -1,8 +1,10 @@
 // Import external packages.
 import 'dart:developer';
 import 'package:flutter/material.dart';
+
 import 'package:kar_kam_1/app_data/app_data.dart';
 import 'package:kar_kam_1/app_data/get_it_service.dart';
+import 'package:kar_kam_1/base_ui/base_ui_layout.dart';
 import 'package:kar_kam_1/utils/data_store.dart';
 import 'package:kar_kam_1/utils/global_key_extension.dart';
 
@@ -12,22 +14,22 @@ import 'package:kar_kam_1/utils/global_key_extension.dart';
 class BaseUIView extends StatefulWidget {
   const BaseUIView({
     required Key key,
-    required this.children,
+    required this.baseUILayout,
   }) : super(key: key);
 
-  /// A list of widgets to build on the screen.
-  final List<Widget> children;
+  /// Defines the current layout of the UI..
+  final BaseUILayout? baseUILayout;
 
   @override
   State<BaseUIView> createState() => _BaseUIViewState();
 }
 
 class _BaseUIViewState extends State<BaseUIView> {
-  /// [children] is updated by [setState] in a post-frame callback.
+  /// [baseUILayout] is updated by [setState] in a post-frame callback.
   ///
-  /// [children] may depend on knowledge of [baseUIViewRect] which defines the
+  /// [baseUILayout] may depend on knowledge of [baseUIViewRect] which defines the
   /// bounding box for [BaseUIView], hence the reason for the two-part build.
-  List<Widget>? children;
+  BaseUILayout? baseUILayout;
 
   /// The available screen dimensions.
   Rect? baseUIViewRect;
@@ -74,10 +76,10 @@ class _BaseUIViewState extends State<BaseUIView> {
       );
 
       // Rebuild widget with [pageSpec.contents] instead of [Container].
-      if (children == null) {
+      if (baseUILayout == null) {
         setState(() {
           // children = widget.children;
-          children = [const BaseUIViewTest()];
+          baseUILayout = widget.baseUILayout;
         });
       }
     });
@@ -87,10 +89,7 @@ class _BaseUIViewState extends State<BaseUIView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        fit: StackFit.expand,
-        children: children ?? [Container()],
-      ),
+      body: baseUILayout?.contents,
       bottomNavigationBar: bottomAppBar,
     );
   }
