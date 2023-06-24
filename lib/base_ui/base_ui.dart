@@ -66,8 +66,14 @@ class _BaseUIViewState extends State<_BaseUIView> {
   /// bounding box for [_BaseUIView], hence the reason for the two-part build.
   List<Widget>? children;
 
+  /// The available screen dimensions.
   Rect? baseUIViewRect;
 
+  // An instance of [BottomAppBar], that is null to start and only properly
+  // instantiated within the post frame callback that is defined in [init].
+  BottomAppBar? bottomAppBar;
+
+  /// Calculates the height of [bottomAppBar] using [baseUIViewRect].
   double get bottomAppBarHeight {
     return MediaQuery.of(context).size.height - baseUIViewRect!.height;
   }
@@ -89,6 +95,12 @@ class _BaseUIViewState extends State<_BaseUIView> {
           DataStore.of<GlobalKey>(context, const ValueKey('baseUIViewKey'))
               .data
               .globalPaintBounds;
+
+      // Instantiate [bottomAppBar] field in [_BaseUIViewState].
+      bottomAppBar = BottomAppBar(
+        color: Theme.of(context).colorScheme.inversePrimary,
+        height: bottomAppBarHeight,
+      );
 
       // Upload [basePageViewRect] to the instance of [AppData]
       // registered with [GetItService].
@@ -116,10 +128,7 @@ class _BaseUIViewState extends State<_BaseUIView> {
         fit: StackFit.expand,
         children: children ?? [Container()],
       ),
-      bottomNavigationBar: (baseUIViewRect == null) ? null : BottomAppBar(
-        color: Theme.of(context).colorScheme.inversePrimary,
-        height: bottomAppBarHeight,
-      ),
+      bottomNavigationBar: bottomAppBar,
     );
   }
 }
