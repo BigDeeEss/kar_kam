@@ -39,10 +39,6 @@ class BaseUI extends StatelessWidget {
           children: const [Placeholder()],
         ),
       ),
-      bottomNavigationBar: BottomAppBar(
-        color: Theme.of(context).colorScheme.inversePrimary,
-        height: 60.0,
-      ),
     );
   }
 }
@@ -70,6 +66,12 @@ class _BaseUIViewState extends State<_BaseUIView> {
   /// bounding box for [_BaseUIView], hence the reason for the two-part build.
   List<Widget>? children;
 
+  Rect? baseUIViewRect;
+
+  double get bottomAppBarHeight {
+    return MediaQuery.of(context).size.height - baseUIViewRect!.height;
+  }
+
   @override
   void initState() {
     // [_BaseUIViewState] is built in two phases:
@@ -83,7 +85,7 @@ class _BaseUIViewState extends State<_BaseUIView> {
     // to provide.
     WidgetsBinding.instance.addPostFrameCallback((_) {
       // Calculate the available screen dimensions and store as [Rect].
-      Rect? baseUIViewRect =
+      baseUIViewRect =
           DataStore.of<GlobalKey>(context, const ValueKey('baseUIViewKey'))
               .data
               .globalPaintBounds;
@@ -109,9 +111,15 @@ class _BaseUIViewState extends State<_BaseUIView> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      fit: StackFit.expand,
-      children: children ?? [Container()],
+    return Scaffold(
+      body: Stack(
+        fit: StackFit.expand,
+        children: children ?? [Container()],
+      ),
+      bottomNavigationBar: (baseUIViewRect == null) ? null : BottomAppBar(
+        color: Theme.of(context).colorScheme.inversePrimary,
+        height: bottomAppBarHeight,
+      ),
     );
   }
 }
