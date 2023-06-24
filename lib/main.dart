@@ -10,6 +10,7 @@ import 'package:kar_kam/base_ui/base_ui.dart';
 
 /// App start point.
 void main() {
+  // WidgetsFlutterBinding.ensureInitialized();
   // Use [GetItService] as the single point of access to [GetIt] and
   // register an instance of [AppDataPreferenceService].
   //
