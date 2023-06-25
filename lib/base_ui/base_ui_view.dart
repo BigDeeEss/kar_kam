@@ -18,14 +18,15 @@ class BaseUIView extends StatefulWidget {
   }) : super(key: key);
 
   /// Defines the current layout of the UI..
-  final BaseUILayout? baseUILayout;
+  final BaseUILayout baseUILayout;
 
   @override
   State<BaseUIView> createState() => _BaseUIViewState();
 }
 
 class _BaseUIViewState extends State<BaseUIView> {
-  /// [baseUILayout] is updated by [setState] in a post-frame callback.
+  /// [baseUILayout] is updated with [widget.baseUILayout] by [setState]
+  /// in a post-frame callback.
   ///
   /// [baseUILayout] may depend on knowledge of [baseUIViewRect] which defines the
   /// bounding box for [BaseUIView], hence the reason for the two-part build.
@@ -78,8 +79,8 @@ class _BaseUIViewState extends State<BaseUIView> {
       // Rebuild widget with [pageSpec.contents] instead of [Container].
       if (baseUILayout == null) {
         setState(() {
-          // children = widget.children;
-          baseUILayout = widget.baseUILayout;
+          baseUILayout = BaseUILayoutTest;
+          // baseUILayout = widget.baseUILayout;
         });
       }
     });
@@ -95,9 +96,10 @@ class _BaseUIViewState extends State<BaseUIView> {
   }
 }
 
-/// Tests whether [baseUIViewRect] can be calculated.
-class BaseUIViewTest extends StatelessWidget {
-  const BaseUIViewTest({Key? key}) : super(key: key);
+
+/// Puts [Placeholder] on the screen and logs [baseUIViewRect].
+class BaseUILayoutTestContents extends StatelessWidget {
+  const BaseUILayoutTestContents({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -108,10 +110,17 @@ class BaseUIViewTest extends StatelessWidget {
             .globalPaintBounds;
 
     assert(baseUIViewRect != null,
-        'BaseUIViewTest, build...baseUIViewRect is null...');
+        'BaseUILayoutTestContents, build...baseUIViewRect is null...');
 
     // Print basePageViewRect for test purposes and return [Placeholder]..
-    log('BaseUIViewTest, build...basePageViewRect = $baseUIViewRect...');
+    log('BaseUILayoutTestContents, build...'
+        'basePageViewRect = $baseUIViewRect...');
     return const Placeholder();
   }
 }
+
+/// Tests whether [baseUIViewRect] can be calculated.
+BaseUILayout BaseUILayoutTest = const BaseUILayout(
+  title: 'BaseUILayoutTest',
+  contents: BaseUILayoutTestContents(),
+);
