@@ -3,10 +3,10 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 
 // Import project-specific files.
-import 'package:kar_kam_1/app_data/app_data.dart';
-import 'package:kar_kam_1/app_data/get_it_service.dart';
-import 'package:kar_kam_1/utils/data_store.dart';
-import 'package:kar_kam_1/utils/global_key_extension.dart';
+import 'package:kar_kam/app_data/app_data.dart';
+import 'package:kar_kam/app_data/get_it_service.dart';
+import 'package:kar_kam/utils/data_store.dart';
+import 'package:kar_kam/utils/global_key_extension.dart';
 
 /// Implements a generic page layout design.
 ///
