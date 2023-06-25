@@ -28,10 +28,6 @@ mixin AppDataManagerMixin on AppData {
   void setDefaults() {
     // Set test.
     update(
-<<<<<<< HEAD
-      string: 'test',
-      value: 'test default value.',
-=======
       string: 'testString',
       value: 'testString default value again!',
     );
@@ -50,7 +46,6 @@ mixin AppDataManagerMixin on AppData {
     update(
       string: 'testStringList',
       value: ['testString', 'default', 'value', 'again!'],
->>>>>>> 2ff4809 (Update default values.)
     );
   }
 }

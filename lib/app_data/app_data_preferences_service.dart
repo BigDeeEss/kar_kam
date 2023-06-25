@@ -1,5 +1,3 @@
-// Import external packages.
-
 // Import project-specific packages.
 import 'package:kar_kam/app_data/app_data.dart';
 import 'package:kar_kam/app_data/app_data_preferences_mixin.dart';
