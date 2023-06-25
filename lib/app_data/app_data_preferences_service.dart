@@ -1,10 +1,10 @@
 // Import external packages.
-import 'package:kar_kam_1/app_data/get_it_service.dart';
+import 'package:kar_kam/app_data/get_it_service.dart';
 
 // Import project-specific packages.
-import 'package:kar_kam_1/app_data/app_data.dart';
-import 'package:kar_kam_1/app_data/app_data_preferences_mixin.dart';
-import 'package:kar_kam_1/app_data/app_data_manager_mixin.dart';
+import 'package:kar_kam/app_data/app_data.dart';
+import 'package:kar_kam/app_data/app_data_preferences_mixin.dart';
+import 'package:kar_kam/app_data/app_data_manager_mixin.dart';
 
 class AppDataPreferenceService extends AppData
     with AppDataManagerMixin, AppDataPreferencesMixin {

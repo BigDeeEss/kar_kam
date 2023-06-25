@@ -1,5 +1,5 @@
 // Import project-specific files.
-import 'package:kar_kam_1/app_data/app_data.dart';
+import 'package:kar_kam/app_data/app_data.dart';
 
 /// Maintains [AppData].
 mixin AppDataManagerMixin on AppData {
