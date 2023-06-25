@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:kar_kam/base_ui/base_ui_layout.dart';
 import 'package:kar_kam/base_ui/base_ui_view.dart';
 import 'package:kar_kam/utils/data_store.dart';
-import 'package:kar_kam/utils/string_extension.dart';
 
 /// Implements a generic page layout design.
 ///
@@ -35,7 +34,7 @@ class BaseUI extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: baseUILayout?.title.toText,
+        title: Text(baseUILayout?.title ?? ''),
       ),
       body: DataStore<GlobalKey>(
         key: const ValueKey('baseUIViewKey'),
