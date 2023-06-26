@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'package:kar_kam/app_data/app_data.dart';
 import 'package:kar_kam/app_data/get_it_service.dart';
+import 'package:kar_kam/base_ui/base_ui.dart';
 import 'package:kar_kam/base_ui/base_ui_layout.dart';
 import 'package:kar_kam/utils/data_store.dart';
 import 'package:kar_kam/utils/global_key_extension.dart';
@@ -89,14 +90,26 @@ class _BaseUIViewState extends State<BaseUIView> {
 
   @override
   Widget build(BuildContext context) {
+    FloatingActionButton? floatingActionButton ;
+    if (baseUILayout?.fabTargetList != null) {
+      floatingActionButton = FloatingActionButton(
+        onPressed: (() {
+          log('_BaseUIViewState, build...executing onPressed.');
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(
+              builder: (BuildContext context) => BaseUI(
+                baseUILayout: baseUILayout!.fabTargetList![0],
+              ),
+            ),
+          );
+        }),
+      );
+    }
+
     return Scaffold(
       body: baseUILayout?.contents,
       bottomNavigationBar: bottomAppBar,
-      floatingActionButton: FloatingActionButton(
-        onPressed: (() {
-          log('_BaseUIViewState, build...executing onPressed.');
-        }),
-      ),
+      floatingActionButton: floatingActionButton,
     );
   }
 }
