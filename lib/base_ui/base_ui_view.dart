@@ -79,7 +79,7 @@ class _BaseUIViewState extends State<BaseUIView> {
       // Rebuild widget with [pageSpec.contents] instead of [Container].
       if (baseUILayout == null) {
         setState(() {
-          baseUILayout = BaseUILayoutTest;
+          baseUILayout = baseUILayoutTest;
           // baseUILayout = widget.baseUILayout;
         });
       }
@@ -115,12 +115,14 @@ class BaseUILayoutTestContents extends StatelessWidget {
     // Print basePageViewRect for test purposes and return [Placeholder]..
     log('BaseUILayoutTestContents, build...'
         'basePageViewRect = $baseUIViewRect...');
-    return const Placeholder();
+    return const Center(
+      child: Text('BaseUILayoutTestContents'),
+    );
   }
 }
 
 /// Tests whether [baseUIViewRect] can be calculated.
-BaseUILayout BaseUILayoutTest = const BaseUILayout(
+BaseUILayout baseUILayoutTest = const BaseUILayout(
   title: 'BaseUILayoutTest',
   contents: BaseUILayoutTestContents(),
 );
