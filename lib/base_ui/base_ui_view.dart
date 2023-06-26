@@ -79,8 +79,8 @@ class _BaseUIViewState extends State<BaseUIView> {
       // Rebuild widget with [pageSpec.contents] instead of [Container].
       if (baseUILayout == null) {
         setState(() {
-          baseUILayout = baseUILayoutTest;
-          // baseUILayout = widget.baseUILayout;
+          // baseUILayout = baseUILayoutTest;
+          baseUILayout = widget.baseUILayout;
         });
       }
     });
@@ -92,6 +92,11 @@ class _BaseUIViewState extends State<BaseUIView> {
     return Scaffold(
       body: baseUILayout?.contents,
       bottomNavigationBar: bottomAppBar,
+      floatingActionButton: FloatingActionButton(
+        onPressed: (() {
+          log('_BaseUIViewState, build...executing onPressed.');
+        }),
+      ),
     );
   }
 }

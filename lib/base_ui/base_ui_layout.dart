@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 /// Allows for the easy referencing of page content.
 class BaseUILayout {
   const BaseUILayout({
-    required this.title,
     required this.contents,
+    this.fabTargetList,
+    required this.title,
   });
 
   /// A [title] for each page/route.
@@ -13,4 +14,6 @@ class BaseUILayout {
 
   /// The [contents] associated with each page/route.
   final Widget contents;
+
+  final List<BaseUILayout>? fabTargetList;
 }
