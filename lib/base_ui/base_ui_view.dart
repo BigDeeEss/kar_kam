@@ -115,6 +115,7 @@ class BaseUILayoutTestContents extends StatelessWidget {
     // Print basePageViewRect for test purposes and return [Placeholder]..
     log('BaseUILayoutTestContents, build...'
         'basePageViewRect = $baseUIViewRect...');
+
     return const Center(
       child: Text('BaseUILayoutTestContents'),
     );
