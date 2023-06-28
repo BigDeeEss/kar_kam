@@ -96,7 +96,6 @@ class _BaseUIViewState extends State<BaseUIView> {
   }
 }
 
-
 /// Puts [Placeholder] on the screen and logs [baseUIViewRect].
 class BaseUILayoutTestContents extends StatelessWidget {
   const BaseUILayoutTestContents({Key? key}) : super(key: key);

@@ -12,7 +12,7 @@ import 'package:kar_kam/home/home.dart';
 /// [KarKam] is just a [StatelessWidget] wrapper for an instance of
 /// [FutureBuilder]. This implements a build dependency on the load of app
 /// data from fil.
-class KarKam extends StatelessWidget with GetItMixin{
+class KarKam extends StatelessWidget with GetItMixin {
   KarKam({super.key});
 
   @override
@@ -38,8 +38,12 @@ class KarKam extends StatelessWidget with GetItMixin{
               mainAxisAlignment: MainAxisAlignment.center,
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text('Initialising Kar Kam...',),
-                SizedBox(height: 16,),
+                Text(
+                  'Initialising Kar Kam...',
+                ),
+                SizedBox(
+                  height: 16,
+                ),
                 CircularProgressIndicator(),
               ],
             );
@@ -49,4 +53,3 @@ class KarKam extends StatelessWidget with GetItMixin{
     );
   }
 }
-
