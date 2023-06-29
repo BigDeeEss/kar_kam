@@ -10,7 +10,7 @@ class BaseUILayout {
   });
 
   /// The [contents] associated with each page/route.
-  final Widget contents;
+  final List<Widget> contents;
 
   final List<String>? fabTargetList;
 

@@ -6,7 +6,7 @@ import 'package:kar_kam/base_ui/base_ui_layout.dart';
 
 /// Home layout.
 BaseUILayout settings = BaseUILayout(
-  contents: Container(),
+  contents: <Widget>[Container()],
   fabTargetList: <String>['home'],
   title: 'Settings',
 );

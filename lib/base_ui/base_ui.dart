@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 
 // Import project-specific files.
 import 'package:kar_kam/base_ui/base_ui_layout.dart';
+import 'package:kar_kam/base_ui/base_ui_view.dart';
 import 'package:kar_kam/home/home.dart';
 import 'package:kar_kam/settings/settings.dart';
+import 'package:kar_kam/utils/data_store.dart';
 
 /// Implements a generic page layout design.
 ///
@@ -34,7 +36,8 @@ class BaseUI extends StatelessWidget {
   Widget build(BuildContext context) {
     // Required for calculating [baseUIViewRect], the available screen
     // dimensions via the use of [GlobalKeyExtension.globalPaintBounds].
-    // GlobalKey baseUIViewKey = GlobalKey();
+    GlobalKey baseUIViewKey = GlobalKey();
+    GlobalKey fabKey = GlobalKey();
 
     return Scaffold(
       appBar: AppBar(
@@ -42,6 +45,7 @@ class BaseUI extends StatelessWidget {
         title: Text(baseUILayout?.title ?? ''),
       ),
       floatingActionButton: FloatingActionButton(
+        key: fabKey,
         onPressed: (() {
           Navigator.of(context).pushReplacement(
             MaterialPageRoute(
@@ -53,15 +57,20 @@ class BaseUI extends StatelessWidget {
           );
         }),
       ),
-      // body: DataStore<GlobalKey>(
-      //   key: const ValueKey('baseUIViewKey'),
-      //   data: baseUIViewKey,
-      //   child: BaseUIView(
-      //     key: baseUIViewKey,
-      //     baseUILayout: baseUILayout,
-      //     // children: baseUISpec,
-      //   ),
-      // ),
+      body: DataStore<GlobalKey>(
+        key: const ValueKey('baseUIViewKey'),
+        data: baseUIViewKey,
+        child: DataStore<GlobalKey>(
+          key: const ValueKey('fabKey'),
+          data: fabKey,
+          child: BaseUIView(
+            key: baseUIViewKey,
+            baseUILayout: baseUILayout,
+            // children: baseUISpec,
+          ),
+        ),
+
+      ),
     );
   }
 }
