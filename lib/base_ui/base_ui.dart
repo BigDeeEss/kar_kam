@@ -29,6 +29,8 @@ class BaseUI extends StatelessWidget {
   Widget build(BuildContext context) {
     // Required for calculating [baseUIViewRect], the available screen
     // dimensions via the use of [GlobalKeyExtension.globalPaintBounds].
+    //
+    // [baseUIViewRect] is calculated in [BaseUIView].
     GlobalKey baseUIViewKey = GlobalKey();
 
     return Scaffold(
@@ -39,11 +41,9 @@ class BaseUI extends StatelessWidget {
       body: DataStore<GlobalKey>(
         key: const ValueKey('baseUIViewKey'),
         data: baseUIViewKey,
-        // child: Container(),
         child: BaseUIView(
           key: baseUIViewKey,
-          // baseUIContents: baseUIContents,
-          // children: baseUISpec,
+          baseUIContents: baseUIContents,
         ),
       ),
     );

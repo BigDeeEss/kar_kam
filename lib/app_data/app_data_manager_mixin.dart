@@ -26,26 +26,17 @@ mixin AppDataManagerMixin on AppData {
   /// [force] overrides existing values.
   // @override
   void setDefaults() {
-    // Set test.
-    update(
-      string: 'testString',
-      value: 'testString default value again!',
-    );
-    update(
-      string: 'testDouble',
-      value: 1.2345,
-    );
-    update(
-      string: 'testInt',
-      value: 12345,
-    );
-    update(
-      string: 'testBool',
-      value: true,
-    );
-    update(
-      string: 'testStringList',
-      value: ['testString', 'default', 'value', 'again!'],
-    );
+    // [defaultValues.keys] can't be null in a for-in loop.
+    //
+    // This check allows for the null-check operator to be used below.
+    assert(defaultValues?.keys != null);
+
+    // Iterate over elements in defaultValues and set [AppData] field values.
+    //
+    // The null-check operator can be used here because of the assertions in
+    // the [initialise] function bound to [AppData].
+    for (final string in defaultValues!.keys) {
+      setMap![string]!.call(defaultValues![string]);
+    }
   }
 }

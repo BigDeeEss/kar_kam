@@ -1,27 +1,45 @@
 // Import external packages.
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 
 /// Stores app data.
 abstract class AppData extends ChangeNotifier {
-  String? test;
+  /// Whether [BoxedContainer] draws bounding boxes or not.
+  bool? drawLayoutBounds;
 
-  /// A map that relates a string representation of field to the corresponding
-  /// getter. So, for instance, 'test' to 'AppData.test'.
+  /// A map that relates a string representation of a field within [AppData]
+  /// to it's corresponding default value.
+  Map<String, dynamic>? defaultValues;
+
+  /// A map that relates a string representation of a field within [AppData]
+  /// to the corresponding getter. So, for instance, 'test' to 'AppData.test'.
   Map<String, dynamic>? getMap;
 
-  /// A map that relates a string to a function that sets fields. So, for
-  /// instance, 'test' to '(String? value) => test = value'.
+  /// A map that relates a string representation of a field within [AppData]
+  /// to a function that sets fields. So, for instance,
+  /// 'test' to '(String? value) => test = value'.
   Map<String, Function>? setMap;
 
   /// Initialises [getMap] and [setMap].
   void initialise() {
+    defaultValues = {
+      'drawLayoutBounds': true,
+    };
+
     getMap = {
-      'test': test,
+      'drawLayoutBounds': drawLayoutBounds,
     };
 
     setMap = {
-      'test': (String? value) => test = value,
+      'drawLayoutBounds': (bool? value) => drawLayoutBounds = value,
     };
+
+    // Check the list of keys in [defaultValues] and [getMap] are identical.
+    assert(listEquals<String>(defaultValues?.keys.toList(growable: false),
+        getMap?.keys.toList(growable: false)));
+
+    // Check the list of keys in [defaultValues] and [setMap] are identical.
+    assert(listEquals<String>(defaultValues?.keys.toList(growable: false),
+        setMap?.keys.toList(growable: false)));
   }
 
   /// Updates fields in [AppData] with [newValue] using [identifier] to

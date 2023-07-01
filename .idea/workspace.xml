@@ -4,21 +4,24 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="398c2f1d-d59b-4632-b499-7ce03f824c85" name="Changes" comment="">
+    <list default="true" id="398c2f1d-d59b-4632-b499-7ce03f824c85" name="Changes" comment="Rename BaseUILayout to BaseUIContents.">
+      <change afterPath="$PROJECT_DIR$/lib/utils/boxed_container.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/.filecache" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/.filecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/app.dill" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/app.dill" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/gen_dart_plugin_registrant.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/gen_dart_plugin_registrant.stamp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/kernel_snapshot.d" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/kernel_snapshot.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/outputs.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/outputs.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/c985e37f6f4f816f21c985d98b192fa1/gen_dart_plugin_registrant.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/build/c985e37f6f4f816f21c985d98b192fa1/gen_dart_plugin_registrant.stamp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/linux/x64/debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/build/linux/x64/debug/build.ninja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/kar_kam_android.iml" beforeDir="false" afterPath="$PROJECT_DIR$/android/kar_kam_android.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app_data/app_data.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app_data/app_data.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app_data/app_data_manager_mixin.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app_data/app_data_manager_mixin.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app_data/app_data_preferences_mixin.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app_data/app_data_preferences_mixin.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/base_ui/base_ui.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/base_ui/base_ui.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/base_ui/base_ui_layout.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/base_ui/base_ui_contents.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/base_ui/base_ui_contents.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/base_ui/base_ui_contents.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/base_ui/base_ui_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/base_ui/base_ui_view.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/home/home.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/home/home.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/settings/settings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/settings/settings.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,19 +44,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "cidr.known.project.marker": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "io.flutter.reload.alreadyRun": "true",
-    "settings.editor.selected.configurable": "flutter.settings",
-    "show.migrate.to.gradle.popup": "false"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/damon/StudioProjects/kar_kam/lib/utils&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;flutter.settings&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/utils" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
       <option name="filePath" value="$PROJECT_DIR$/lib/main.dart" />
@@ -69,6 +78,14 @@
       <option name="presentableId" value="Default" />
       <updated>1688223376031</updated>
     </task>
+    <task id="LOCAL-00001" summary="Rename BaseUILayout to BaseUIContents.">
+      <created>1688225219501</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1688225219505</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -81,5 +98,20 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Rename BaseUILayout to BaseUIContents." />
+    <option name="LAST_COMMIT_MESSAGE" value="Rename BaseUILayout to BaseUIContents." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/main.dart</url>
+          <line>28</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -8,4 +8,5 @@ import 'package:kar_kam/base_ui/base_ui_contents.dart';
 BaseUIContents home = BaseUIContents(
   title: 'Home',
   contents: Container(),
+  floatingActionButtonTargetList: <String>['settings'],
 );

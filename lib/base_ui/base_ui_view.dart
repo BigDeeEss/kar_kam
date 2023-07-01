@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:kar_kam/app_data/app_data.dart';
 import 'package:kar_kam/app_data/get_it_service.dart';
 import 'package:kar_kam/base_ui/base_ui_contents.dart';
+import 'package:kar_kam/utils/boxed_container.dart';
 import 'package:kar_kam/utils/data_store.dart';
 import 'package:kar_kam/utils/global_key_extension.dart';
 
@@ -42,7 +43,10 @@ class _BaseUIViewState extends State<BaseUIView> {
   /// Calculates the height of [bottomAppBar] using [baseUIViewRect].
   double get bottomAppBarHeight {
     // [baseUIViewRect] is nullable whereas the result from MediaQuery can't be.
+    //
     // Use [Rect.zero] when [baseUIViewRect] is null.
+    //
+    // Note that [baseUIViewRect] does not include [bottomAppBar].
     return MediaQuery
         .of(context)
         .size
@@ -89,7 +93,8 @@ class _BaseUIViewState extends State<BaseUIView> {
       // otherwise [bottomAppBar] will not be built.
       if (baseUIContents == null) {
         setState(() {
-          baseUIContents = widget.baseUIContents;
+          // baseUIContents = widget.baseUIContents;
+          baseUIContents = testBaseUIContents;
         });
       }
     });
@@ -98,16 +103,27 @@ class _BaseUIViewState extends State<BaseUIView> {
 
   @override
   Widget build(BuildContext context) {
+
+
+    // A second instance of [Scaffold] purely for adding [bottomAppBar].
     return Scaffold(
       body: baseUIContents?.contents,
       bottomNavigationBar: bottomAppBar,
+      // floatingActionButton: BoxedContainer(
+      //   child: FloatingActionButton(
+      //     onPressed: (() {}),
+      //   ),
+      // ),
+      floatingActionButton: FloatingActionButton(
+          onPressed: (() {}),
+        ),
     );
   }
 }
 
 
 /// Tests whether [baseUIViewRect] can be calculated.
-BaseUIContents TestBaseUIContents = const BaseUIContents(
+BaseUIContents testBaseUIContents = const BaseUIContents(
   title: 'TestBaseUIContents',
   contents: _TestBaseUIContents(),
 );
