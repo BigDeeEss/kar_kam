@@ -51,7 +51,7 @@ class KarKam extends StatelessWidget with GetItMixin{
           if (snapshot.hasData) {
             // For the 'has data' case, when the load of app settings
             // is complete, continue with building BasePage.
-            return BaseUI(baseUILayout: home);
+            return BaseUI(baseUIContents: home);
           } else {
             // For the 'has no data' case, where the load of app settings
             // is still in progress, present a progress indicator.

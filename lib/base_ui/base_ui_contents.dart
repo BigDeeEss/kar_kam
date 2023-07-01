@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 
 /// Allows for the easy referencing of page content.
-class BaseUILayout {
-  const BaseUILayout({
+class BaseUIContents {
+  const BaseUIContents({
     required this.title,
     required this.contents,
   });

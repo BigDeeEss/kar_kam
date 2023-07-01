@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'package:kar_kam/app_data/app_data.dart';
 import 'package:kar_kam/app_data/get_it_service.dart';
-import 'package:kar_kam/base_ui/base_ui_layout.dart';
+import 'package:kar_kam/base_ui/base_ui_contents.dart';
 import 'package:kar_kam/utils/data_store.dart';
 import 'package:kar_kam/utils/global_key_extension.dart';
 
@@ -14,23 +14,23 @@ import 'package:kar_kam/utils/global_key_extension.dart';
 class BaseUIView extends StatefulWidget {
   const BaseUIView({
     required Key key,
-    this.baseUILayout,
+    this.baseUIContents,
   }) : super(key: key);
 
   /// Defines the current layout of the UI..
-  final BaseUILayout? baseUILayout;
+  final BaseUIContents? baseUIContents;
 
   @override
   State<BaseUIView> createState() => _BaseUIViewState();
 }
 
 class _BaseUIViewState extends State<BaseUIView> {
-  /// [baseUILayout] is updated with [widget.baseUILayout], if it is non-null,
+  /// [baseUIContents] is updated with [widget.baseUIContents], if it is non-null,
   /// by [setState] in a post-frame callback.
   ///
-  /// [baseUILayout] may depend on knowledge of [baseUIViewRect] which defines
+  /// [baseUIContents] may depend on knowledge of [baseUIViewRect] which defines
   /// the bounding box for [BaseUIView], hence the the two-part build.
-  BaseUILayout? baseUILayout;
+  BaseUIContents? baseUIContents;
 
   /// The available screen dimensions.
   Rect? baseUIViewRect;
@@ -52,11 +52,11 @@ class _BaseUIViewState extends State<BaseUIView> {
   @override
   void initState() {
     // [BaseUIViewState] is built in two phases:
-    //    (i) with [baseUILayout], which is null initially, and then
-    //    (ii) with [baseUILayout] = [widget.baseUILayout], initiated by
+    //    (i) with [baseUIContents], which is null initially, and then
+    //    (ii) with [baseUIContents] = [widget.baseUIContents], initiated by
     //    the following post-frame callback, and which may also be null.
     //
-    // [BaseUIViewState] is built in two phases because [baseUILayout] may
+    // [BaseUIViewState] is built in two phases because [baseUIContents] may
     // require knowledge of the available screen dimensions which this widget
     // attempts to provide.
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -85,12 +85,11 @@ class _BaseUIViewState extends State<BaseUIView> {
       // );
 
       // Rebuild widget with [pageSpec.contents] instead of [Container].
-      // Need to force a rebuild even if [widget.baseUILayout] is null,
+      // Need to force a rebuild even if [widget.baseUIContents] is null,
       // otherwise [bottomAppBar] will not be built.
-      if (baseUILayout == null) {
+      if (baseUIContents == null) {
         setState(() {
-          // baseUILayout = baseUILayoutTest;
-          baseUILayout = widget.baseUILayout;
+          baseUIContents = widget.baseUIContents;
         });
       }
     });
@@ -100,17 +99,24 @@ class _BaseUIViewState extends State<BaseUIView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: baseUILayout?.contents,
+      body: baseUIContents?.contents,
       bottomNavigationBar: bottomAppBar,
     );
   }
 }
 
 
+/// Tests whether [baseUIViewRect] can be calculated.
+BaseUIContents TestBaseUIContents = const BaseUIContents(
+  title: 'TestBaseUIContents',
+  contents: _TestBaseUIContents(),
+);
+
+
 /// An example [BaseUI] contents for test purposes.
 /// Puts [Placeholder] on the screen and logs [baseUIViewRect].
-class BaseUILayoutTestContents extends StatelessWidget {
-  const BaseUILayoutTestContents({Key? key}) : super(key: key);
+class _TestBaseUIContents extends StatelessWidget {
+  const _TestBaseUIContents({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -122,21 +128,15 @@ class BaseUILayoutTestContents extends StatelessWidget {
             .globalPaintBounds;
 
     assert(baseUIViewRect != null,
-    'BaseUILayoutTestContents, build...baseUIViewRect is null...');
+    'TestBaseUIContents, build...baseUIViewRect is null...');
 
     // Print [basePageViewRect] for test purposes and return [Placeholder]..
-    log('BaseUILayoutTestContents, build...'
+    log('TestBaseUIContents, build...'
         'basePageViewRect = $baseUIViewRect...');
 
     // An example [BaseUI] contents for test purposes.
     return const Center(
-      child: Text('BaseUILayoutTestContents'),
+      child: Text('TestBaseUIContents'),
     );
   }
 }
-
-/// Tests whether [baseUIViewRect] can be calculated.
-BaseUILayout baseUILayoutTest = const BaseUILayout(
-  title: 'BaseUILayoutTest',
-  contents: BaseUILayoutTestContents(),
-);

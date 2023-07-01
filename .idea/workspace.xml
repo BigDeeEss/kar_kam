@@ -4,7 +4,22 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="398c2f1d-d59b-4632-b499-7ce03f824c85" name="Changes" comment="" />
+    <list default="true" id="398c2f1d-d59b-4632-b499-7ce03f824c85" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/.filecache" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/.filecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/app.dill" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/app.dill" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/gen_dart_plugin_registrant.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/gen_dart_plugin_registrant.stamp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/kernel_snapshot.d" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/kernel_snapshot.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/outputs.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/outputs.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/c985e37f6f4f816f21c985d98b192fa1/gen_dart_plugin_registrant.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/build/c985e37f6f4f816f21c985d98b192fa1/gen_dart_plugin_registrant.stamp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/linux/x64/debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/build/linux/x64/debug/build.ninja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/base_ui/base_ui.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/base_ui/base_ui.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/base_ui/base_ui_layout.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/base_ui/base_ui_contents.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/base_ui/base_ui_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/base_ui/base_ui_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/home/home.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/home/home.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,6 +33,9 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2RyXcVK1b9zIPFe8WyW7IPc19jT" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -28,8 +46,10 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
+    "io.flutter.reload.alreadyRun": "true",
     "settings.editor.selected.configurable": "flutter.settings",
     "show.migrate.to.gradle.popup": "false"
   }
