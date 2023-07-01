@@ -19,11 +19,11 @@ import 'package:kar_kam/utils/data_store.dart';
 class BaseUI extends StatelessWidget {
   const BaseUI({
     super.key,
-    required this.baseUILayout,
+    this.baseUILayout,
   });
 
   /// Defines the current layout of the UI..
-  final BaseUILayout baseUILayout;
+  final BaseUILayout? baseUILayout;
 
   @override
   Widget build(BuildContext context) {
@@ -34,16 +34,17 @@ class BaseUI extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(baseUILayout.title),
+        title: Text(baseUILayout?.title ?? ''),
       ),
       body: DataStore<GlobalKey>(
         key: const ValueKey('baseUIViewKey'),
         data: baseUIViewKey,
-        child: BaseUIView(
-          key: baseUIViewKey,
-          baseUILayout: baseUILayout,
-          // children: baseUISpec,
-        ),
+        child: Container(),
+        // child: BaseUIView(
+        //   key: baseUIViewKey,
+        //   baseUILayout: baseUILayout,
+        //   // children: baseUISpec,
+        // ),
       ),
     );
   }
