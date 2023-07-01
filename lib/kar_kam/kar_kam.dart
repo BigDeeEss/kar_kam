@@ -1,6 +1,5 @@
 // Import external packages.
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:get_it_mixin/get_it_mixin.dart';
 
@@ -29,16 +28,14 @@ class KarKam extends StatelessWidget with GetItMixin {
         future: GetItService.allReady(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            log('KarKam, build...load complete.');
-
             // For the 'has data' case, when the load of app settings
             // is complete, continue with building BasePage.
+            log('KarKam, build...load complete.');
             return BaseUI(baseUILayout: home);
           } else {
-            log('KarKam, build...loading.');
-
             // For the 'has no data' case, where the load of app settings
             // is still in progress, present a progress indicator.
+            log('KarKam, build...loading.');
             return const Column(
               // ToDo: Create screen contents for when initialising add data.
               mainAxisAlignment: MainAxisAlignment.center,

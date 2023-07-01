@@ -1,9 +1,10 @@
 // Import external packages.
 import 'dart:developer';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 // Import project-specific files.
-import 'package:kar_kam/base_ui/base_ui_layout.dart';
+import 'package:kar_kam/base_ui/base_ui_contents.dart';
 import 'package:kar_kam/utils/data_store.dart';
 import 'package:kar_kam/utils/global_key_extension.dart';
 
@@ -14,7 +15,7 @@ class BaseUIView extends StatefulWidget {
   });
 
   /// Defines the current layout of the UI..
-  final BaseUILayout? baseUILayout;
+  final BaseUIContents? baseUILayout;
 
   @override
   State<BaseUIView> createState() => _BaseUIViewState();
@@ -27,7 +28,7 @@ class _BaseUIViewState extends State<BaseUIView> {
   /// [baseUILayout] may depend on knowledge of [fabRect], which defines the
   /// bounding box for the [FloatingActionButton],that is built within
   /// [BaseUI], hence the reason for the two-part build.
-  BaseUILayout? baseUILayout;
+  BaseUIContents? baseUILayout;
 
   /// The FAB rect.
   Rect? fabRect;
@@ -64,7 +65,6 @@ class _BaseUIViewState extends State<BaseUIView> {
   }
 }
 
-
 /// Puts [Placeholder] on the screen and logs [baseUIViewRect].
 class BaseUILayoutTestContents extends StatelessWidget {
   const BaseUILayoutTestContents({Key? key}) : super(key: key);
@@ -73,15 +73,22 @@ class BaseUILayoutTestContents extends StatelessWidget {
   Widget build(BuildContext context) {
     // Get [baseUIViewRect] (from [DataStore] in [BaseUI]).
     GlobalKey? baseUIViewKey =
-        DataStore.of<GlobalKey>(context, const ValueKey('baseUIViewKey'))
+        DataStore
+            .of<GlobalKey>(context, const ValueKey('baseUIViewKey'))
             .data;
     Rect? baseUIViewRect = baseUIViewKey.globalPaintBounds;
 
     // Get [fabRect] (from [DataStore] in [BaseUI]).
     GlobalKey? fabKey =
-        DataStore.of<GlobalKey>(context, const ValueKey('fabKey'))
+        DataStore
+            .of<GlobalKey>(context, const ValueKey('fabKey'))
             .data;
     Rect? fabRect = fabKey.globalPaintBounds;
+
+    ValueListenable<ScaffoldGeometry> geometry = Scaffold.geometryOf(context);
+    // var test = geometry.value;
+    // var test = Scaffold.of(context).floatingActionButtonArea;
+    // Rect? newFabRect = geometry.value.floatingActionButtonArea;//?.translate(0.0, bottomNavigationBarTop * -1.0);
 
     // assert(baseUIViewRect != null,
     //     'BaseUILayoutTestContents, build...baseUIViewRect is null...');
@@ -102,14 +109,11 @@ class BaseUILayoutTestContents extends StatelessWidget {
   }
 }
 
-
 /// Tests whether [baseUIViewRect] can be calculated.
-BaseUILayout baseUILayoutTest = const BaseUILayout(
+BaseUIContents baseUILayoutTest = const BaseUIContents(
   title: 'BaseUILayoutTest',
   contents: <Widget>[BaseUILayoutTestContents()],
 );
-
-
 
 // // Import external packages.
 // import 'dart:developer';
@@ -117,7 +121,7 @@ BaseUILayout baseUILayoutTest = const BaseUILayout(
 //
 // import 'package:kar_kam/app_data/app_data.dart';
 // import 'package:kar_kam/app_data/get_it_service.dart';
-// import 'package:kar_kam/base_ui/base_ui_layout.dart';
+// import 'package:kar_kam/base_ui/base_ui_contents.dart';
 // import 'package:kar_kam/utils/data_store.dart';
 // import 'package:kar_kam/utils/global_key_extension.dart';
 //

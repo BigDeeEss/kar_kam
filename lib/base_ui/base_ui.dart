@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Import project-specific files.
-import 'package:kar_kam/base_ui/base_ui_layout.dart';
+import 'package:kar_kam/base_ui/base_ui_contents.dart';
 import 'package:kar_kam/base_ui/base_ui_view.dart';
 import 'package:kar_kam/home/home.dart';
 import 'package:kar_kam/settings/settings.dart';
@@ -25,9 +25,9 @@ class BaseUI extends StatelessWidget {
   });
 
   /// Defines the current layout of the UI..
-  final BaseUILayout? baseUILayout;
+  final BaseUIContents? baseUILayout;
 
-  final Map<String, BaseUILayout> fabTargetToBaseUILayout = {
+  final Map<String, BaseUIContents> fabTargetToBaseUILayout = {
     'home': home,
     'settings': settings,
   };
