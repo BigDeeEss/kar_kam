@@ -39,12 +39,12 @@ class BaseUI extends StatelessWidget {
       body: DataStore<GlobalKey>(
         key: const ValueKey('baseUIViewKey'),
         data: baseUIViewKey,
-        child: Container(),
-        // child: BaseUIView(
-        //   key: baseUIViewKey,
-        //   baseUILayout: baseUILayout,
-        //   // children: baseUISpec,
-        // ),
+        // child: Container(),
+        child: BaseUIView(
+          key: baseUIViewKey,
+          // baseUILayout: baseUILayout,
+          // children: baseUISpec,
+        ),
       ),
     );
   }
