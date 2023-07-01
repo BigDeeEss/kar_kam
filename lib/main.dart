@@ -1,4 +1,4 @@
-
+// Import external packages.
 import 'package:flutter/material.dart';
 import 'package:get_it_mixin/get_it_mixin.dart';
 
@@ -11,10 +11,6 @@ import 'package:kar_kam/home/home.dart';
 
 /// App start point.
 void main() {
-  // Avoids 'The "instance" getter on the ServicesBinding binding mixin
-  // is only available once that binding has been initialized.' error.
-  WidgetsFlutterBinding.ensureInitialized();
-
   // Use [GetItService] as the single point of access to [GetIt] and
   // register an instance of [AppDataPreferenceService].
   //
