@@ -4,28 +4,27 @@ import 'package:get_it_mixin/get_it_mixin.dart';
 
 // Import project-specific files.
 import 'package:kar_kam/app_data/app_data.dart';
-import 'package:kar_kam/app_data/app_data_preferences_service.dart';
+import 'package:kar_kam/app_data/app_data_preference_service.dart';
 import 'package:kar_kam/app_data/get_it_service.dart';
 import 'package:kar_kam/base_ui/base_ui.dart';
 import 'package:kar_kam/home/home.dart';
 
 /// App start point.
 void main() {
-  // Avoids 'The "instance" getter on the ServicesBinding binding mixin
-  // is only available once that binding has been initialized.' error.
+  // Avoids an error with error message: 'The "instance" getter on the
+  // ServicesBinding binding mixin is only available once that binding
+  // has been initialized.'
   WidgetsFlutterBinding.ensureInitialized();
 
   // Use [GetItService] as the single point of access to [GetIt] and
-  // register an instance of [AppDataPreferenceService].
+  // register an instance of [AppData] using the extension,
+  // [AppDataPreferenceService].
   //
   // The constructor for [AppDataPreferenceService] loads preferences from
   // file and/or applies defaults.
   //
   // Note, it is possible to move the below call to within [build] in [Kar_Kam],
   // but this doesn't support Hot Restart when connected to the SM A526B device.
-  //
-  // The above call WidgetsFlutterBinding.ensureInitialized() is required to
-  // successfully build the app on the SM A526B device.
   GetItService.register<AppData>(AppDataPreferenceService());
 
   // Run the app.
@@ -36,8 +35,9 @@ void main() {
 /// [KarKam] is the root widget of this application.
 ///
 /// [KarKam] is just a [StatelessWidget] wrapper for an instance of
-/// [FutureBuilder]. This implements a build dependency on the load of app
-/// data from fil.
+/// [FutureBuilder].
+///
+/// [FutureBuilder] implements a build dependency that sources stored app data.
 class KarKam extends StatelessWidget with GetItMixin{
   KarKam({super.key});
 

@@ -30,7 +30,7 @@ class BaseUI extends StatelessWidget {
     // Required for calculating [baseUIViewRect], the available screen
     // dimensions via the use of [GlobalKeyExtension.globalPaintBounds].
     //
-    // [baseUIViewRect] is calculated in [BaseUIView].
+    // [baseUIViewRect] is calculated in [BaseUIView.initState].
     GlobalKey baseUIViewKey = GlobalKey();
 
     return Scaffold(

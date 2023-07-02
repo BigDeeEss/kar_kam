@@ -1,33 +1,33 @@
 // Import project-specific packages.
 import 'package:kar_kam/app_data/app_data.dart';
-import 'package:kar_kam/app_data/app_data_preferences_mixin.dart';
+import 'package:kar_kam/app_data/app_data_preference_mixin.dart';
 import 'package:kar_kam/app_data/app_data_manager_mixin.dart';
 import 'package:kar_kam/app_data/get_it_service.dart';
 
+
+/// Implements an app data preference service.
 class AppDataPreferenceService extends AppData
-    with AppDataManagerMixin, AppDataPreferencesMixin {
+    with AppDataManagerMixin, AppDataPreferenceMixin {
   AppDataPreferenceService() {
-    // Initialise [AppData.getMap] and [AppData.setMap].
+    // Initialise [AppData.defaultsMap], [AppData.getMap] and [AppData.setMap].
     super.initialise();
 
-    // Initialise [AppData.fields].
+    // Initialise all [AppData.field] values.
     initialise();
   }
 
-  /// A blocking function (note the await keyword applied to [getPrefs]) that
+  /// A blocking function (note the await keyword applied to [loadPrefs]) that
   /// loads user preferences from file and sets null fields to default values.
   @override
   void initialise() async {
     // Apply defaults to null user preferences.
-    prn('initialise');
     setDefaults();
-    prn('initialise');
 
     // Load user preferences from file.
-    await getPrefs();
-    prn('initialise');
-    setPrefs();
-    prn('initialise');
+    await loadPrefs();
+
+    // Set new user preferences.
+    savePrefs();
 
     // Signal that [AppData.fields] are non-null.
     GetItService.signalReady<AppData>(this);

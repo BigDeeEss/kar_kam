@@ -1,49 +1,47 @@
 // Import external packages.
-import 'dart:developer';
-
 import 'package:shared_preferences/shared_preferences.dart';
 
 // Import project-specific files.
 import 'package:kar_kam/app_data/app_data.dart';
 
-mixin AppDataPreferencesMixin on AppData {
+/// Loads and saves user preference data.
+mixin AppDataPreferenceMixin on AppData {
   /// Loads a user preference from file.
-  Future<void> getPref(String string, [SharedPreferences? userPrefs]) async {
+  Future<void> loadPref(String string, [SharedPreferences? userPrefs]) async {
     // If [userPrefs] is null then get an instance of [SharedPreferences]
     // for retrieving stored data.
     userPrefs ?? await SharedPreferences.getInstance();
 
-    // Get user preference from file and upload to [AppData].
+    // Load user preference from file and upload to [AppData].
     try {
-      // Attempt to get bool from file.
+      // Attempt to load bool from file.
       update(string: string, value: userPrefs?.getBool(string));
       return;
     } catch (_) {}
     try {
-      // Attempt to get a double from file.
+      // Attempt to load a double from file.
       update(string: string, value: userPrefs?.getDouble(string));
       return;
     } catch (_) {}
     try {
-      // Attempt to get an integer from file.
+      // Attempt to load an integer from file.
       update(string: string, value: userPrefs?.getInt(string));
       return;
     } catch (_) {}
     try {
-      // Attempt to get a string from file.
+      // Attempt to load a string from file.
       update(string: string, value: userPrefs?.getString(string));
       return;
     } catch (_) {}
     try {
-      // Attempt to get a list of strings from file.
+      // Attempt to load a list of strings from file.
       update(string: string, value: userPrefs?.getStringList(string));
       return;
     } catch (_) {}
   }
 
   /// Loads all user preferences from file.
-  // @override
-  Future<void> getPrefs() async {
+  Future<void> loadPrefs() async {
     // Get an instance of [SharedPreferences] for retrieving stored data.
     final SharedPreferences userPrefs = await SharedPreferences.getInstance();
 
@@ -52,24 +50,21 @@ mixin AppDataPreferencesMixin on AppData {
     // This check allows for the null-check operator to be used below.
     assert(setMap?.keys != null);
 
-    // Iterate over keys in [setMap] and save [AppData] field values to file.
+    // Iterate over keys in [setMap] and save [AppData.field] values to file.
     //
     // The null-check operator can be used here because of the assertions in
     // the [initialise] function bound to [AppData].
     for (final string in setMap!.keys) {
-      getPref(string, userPrefs);
+      loadPref(string, userPrefs);
     }
   }
 
-  /// Save [AppData] field values (user preferences) to file.
-  Future<void> setPref(
+  /// Save a user preference to file.
+  Future<void> savePref(
       String string, var value, [SharedPreferences? userPrefs]) async {
     // If [userPrefs] is null then get an instance of [SharedPreferences]
     // for retrieving stored data.
     userPrefs ?? await SharedPreferences.getInstance();
-
-    log('AppDataPreferencesMixin, setPref, string = $string');
-    log('AppDataPreferencesMixin, setPref, value = $value');
 
     // Save user preference to file.
     try {
@@ -100,8 +95,8 @@ mixin AppDataPreferencesMixin on AppData {
     assert(false);
   }
 
-  /// Save [AppData] field values (user preferences) to file.
-  Future<void> setPrefs() async {
+  /// Save all user preferences to file.
+  Future<void> savePrefs() async {
     // Get an instance of [SharedPreferences] for retrieving stored data.
     final SharedPreferences userPrefs = await SharedPreferences.getInstance();
 
@@ -115,7 +110,7 @@ mixin AppDataPreferencesMixin on AppData {
     // The null-check operator can be used here because of the assertions in
     // the [initialise] function bound to [AppData].
     for (final string in getMap!.keys) {
-      setPref(string, getMap![string].call(), userPrefs);
+      savePref(string, getMap![string].call(), userPrefs);
     }
   }
 }

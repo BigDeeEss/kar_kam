@@ -9,7 +9,7 @@ import 'package:kar_kam/utils/boxed_container.dart';
 import 'package:kar_kam/utils/data_store.dart';
 import 'package:kar_kam/utils/global_key_extension.dart';
 
-/// Builds [children] in two parts in order to offer a way for widgets
+/// Builds [baseUIContents] in two parts in order to offer a way for widgets
 /// further down the widget tree to get the available screen dimensions
 /// via [key] and [GlobalKeyExtension.globalPaintBounds].
 class BaseUIView extends StatefulWidget {
@@ -18,7 +18,7 @@ class BaseUIView extends StatefulWidget {
     this.baseUIContents,
   }) : super(key: key);
 
-  /// Defines the current layout of the UI..
+  /// The UI contents for this instance of [BaseUIView].
   final BaseUIContents? baseUIContents;
 
   @override
@@ -26,11 +26,11 @@ class BaseUIView extends StatefulWidget {
 }
 
 class _BaseUIViewState extends State<BaseUIView> {
-  /// [baseUIContents] is updated with [widget.baseUIContents], if it is non-null,
-  /// by [setState] in a post-frame callback.
+  /// [baseUIContents] is updated with [widget.baseUIContents], if it is
+  /// non-null, by [setState] in a post-frame callback.
   ///
-  /// [baseUIContents] may depend on knowledge of [baseUIViewRect] which defines
-  /// the bounding box for [BaseUIView], hence the the two-part build.
+  /// [baseUIContents] may depend on knowledge of [baseUIViewRect] which
+  /// defines the bounding box for [BaseUIView], hence the the two-part build.
   BaseUIContents? baseUIContents;
 
   /// The available screen dimensions.
@@ -42,11 +42,8 @@ class _BaseUIViewState extends State<BaseUIView> {
 
   /// Calculates the height of [bottomAppBar] using [baseUIViewRect].
   double get bottomAppBarHeight {
-    // [baseUIViewRect] is nullable whereas the result from MediaQuery can't be.
-    //
-    // Use [Rect.zero] when [baseUIViewRect] is null.
-    //
-    // Note that [baseUIViewRect] does not include [bottomAppBar].
+    // [baseUIViewRect] is nullable so substitute [Rect.zero] when
+    // [baseUIViewRect] is null.
     return MediaQuery
         .of(context)
         .size
@@ -88,13 +85,12 @@ class _BaseUIViewState extends State<BaseUIView> {
       //   notify: false,
       // );
 
-      // Rebuild widget with [pageSpec.contents] instead of [Container].
-      // Need to force a rebuild even if [widget.baseUIContents] is null,
-      // otherwise [bottomAppBar] will not be built.
+      // Rebuild widget with [widget.baseUIContents]. A rebuild is necessary
+      // as otherwise [bottomAppBar] will not be built.
       if (baseUIContents == null) {
         setState(() {
-          // baseUIContents = widget.baseUIContents;
-          baseUIContents = testBaseUIContents;
+          baseUIContents = widget.baseUIContents;
+          // baseUIContents = testBaseUIContents;
         });
       }
     });
@@ -103,8 +99,6 @@ class _BaseUIViewState extends State<BaseUIView> {
 
   @override
   Widget build(BuildContext context) {
-
-
     // A second instance of [Scaffold] purely for adding [bottomAppBar].
     return Scaffold(
       body: baseUIContents?.contents,
@@ -129,7 +123,7 @@ BaseUIContents testBaseUIContents = const BaseUIContents(
 );
 
 
-/// An example [BaseUI] contents for test purposes.
+/// An example instance of [BaseUIContents] purely for test purposes.
 /// Puts [Placeholder] on the screen and logs [baseUIViewRect].
 class _TestBaseUIContents extends StatelessWidget {
   const _TestBaseUIContents({Key? key}) : super(key: key);
@@ -146,11 +140,12 @@ class _TestBaseUIContents extends StatelessWidget {
     assert(baseUIViewRect != null,
     'TestBaseUIContents, build...baseUIViewRect is null...');
 
-    // Print [basePageViewRect] for test purposes and return [Placeholder]..
+    // Print [basePageViewRect] for test purposes.
     log('TestBaseUIContents, build...'
         'basePageViewRect = $baseUIViewRect...');
 
-    // An example [BaseUI] contents for test purposes.
+    // Prints some test data at the top of the UI.
+    //
     return Center(
       child: Column(
         children: <Widget>[

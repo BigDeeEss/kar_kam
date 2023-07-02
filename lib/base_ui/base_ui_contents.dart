@@ -12,6 +12,7 @@ class BaseUIContents {
   /// The [contents] associated with each page/route.
   final Widget contents;
 
+  /// Prototype FAB specifier.
   final List<String>? floatingActionButtonTargetList;
 
   /// A [title] for each page/route.

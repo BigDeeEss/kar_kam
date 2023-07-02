@@ -7,28 +7,30 @@ abstract class AppData extends ChangeNotifier {
   /// Whether [BoxedContainer] draws bounding boxes or not.
   bool? drawLayoutBounds;
 
+  // ToDo: remove test data.
   bool? testBool;
   double? testDouble;
   int? testInt;
   String? testString;
   List<String>? testStringList;
 
-  /// A map that relates a string representation of a field within [AppData]
+  /// A map that relates a string representation of [AppData.field]
   /// to it's corresponding default value.
-  Map<String, dynamic>? defaultValues;
+  Map<String, dynamic>? defaultsMap;
 
-  /// A map that relates a string representation of a field within [AppData]
+  /// A map that relates a string representation of [AppData.field]
   /// to the corresponding getter. So, for instance, 'test' to 'AppData.test'.
   Map<String, dynamic>? getMap;
 
-  /// A map that relates a string representation of a field within [AppData]
+  /// A map that relates a string representation of [AppData.field]
   /// to a function that sets fields. So, for instance,
   /// 'test' to '(String? value) => test = value'.
   Map<String, Function>? setMap;
 
   /// Initialises [getMap] and [setMap].
   void initialise() {
-    defaultValues = {
+    // ToDo: remove references to test data.
+    defaultsMap = {
       'drawLayoutBounds': true,
       'testBool': true,
       'testDouble': 1.2345,
@@ -37,6 +39,7 @@ abstract class AppData extends ChangeNotifier {
       'testStringList': ['testString', 'again'],
     };
 
+    // ToDo: remove references to test data.
     getMap = {
       'drawLayoutBounds': () => drawLayoutBounds,
       'testBool': () => testBool,
@@ -46,6 +49,7 @@ abstract class AppData extends ChangeNotifier {
       'testStringList': () => testStringList,
     };
 
+    // ToDo: remove references to test data.
     setMap = {
       'drawLayoutBounds': (bool? value) => drawLayoutBounds = value,
       'testBool': (bool? value) => testBool = value,
@@ -55,17 +59,17 @@ abstract class AppData extends ChangeNotifier {
       'testStringList': (List<String>? value) => testStringList = value,
     };
 
-    // Check that [defaults.keys] is non-null.
+    // Check that [defaultsMap.keys] is non-null.
     //
     // Required because [listEquals] returns true if both lists are null.
-    assert(defaultValues?.keys != null);
+    assert(defaultsMap?.keys != null);
 
-    // Check the list of keys in [defaultValues] and [getMap] are identical.
-    assert(listEquals<String>(defaultValues?.keys.toList(growable: false),
+    // Check the list of keys in [defaultsMap] and [getMap] are identical.
+    assert(listEquals<String>(defaultsMap?.keys.toList(growable: false),
         getMap?.keys.toList(growable: false)));
 
-    // Check the list of keys in [defaultValues] and [setMap] are identical.
-    assert(listEquals<String>(defaultValues?.keys.toList(growable: false),
+    // Check the list of keys in [defaultsMap] and [setMap] are identical.
+    assert(listEquals<String>(defaultsMap?.keys.toList(growable: false),
         setMap?.keys.toList(growable: false)));
   }
 
@@ -77,9 +81,16 @@ abstract class AppData extends ChangeNotifier {
     var value,
   });
 
+  /// A diagnostic print of all [AppData.field] values.
   void prn(String funcName) {
+    // Print calling function for ease of removing debug [prn] calls.
     log('AppData, prn, called from $funcName.');
+
+    // [getMap.keys] can't be null in a for-in loop.
+    //
+    // This check allows for the null-check operator to be used below.
     assert(getMap?.keys != null);
+
     for (final string in getMap!.keys) {
       log('AppData, prn, $string = ${getMap![string].call()}');
     }
