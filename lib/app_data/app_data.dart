@@ -1,4 +1,5 @@
 // Import external packages.
+import 'dart:developer';
 import 'package:flutter/foundation.dart';
 
 /// Stores app data.
@@ -26,12 +27,23 @@ abstract class AppData extends ChangeNotifier {
     };
 
     getMap = {
-      'drawLayoutBounds': drawLayoutBounds,
+      'drawLayoutBounds': () => drawLayoutBounds,
     };
 
     setMap = {
       'drawLayoutBounds': (bool? value) => drawLayoutBounds = value,
+      // 'drawLayoutBounds': (bool? value) {
+      //   print('setMap, value = $value');
+      //   print('setMap, drawLayoutBounds = $drawLayoutBounds');
+      //   drawLayoutBounds = value;
+      //   print('setMap, drawLayoutBounds = $drawLayoutBounds');
+      // },
     };
+
+    // Check that [defaults.keys] is non-null.
+    //
+    // Required because [listEquals] returns true if both lists are null.
+    assert(defaultValues?.keys != null);
 
     // Check the list of keys in [defaultValues] and [getMap] are identical.
     assert(listEquals<String>(defaultValues?.keys.toList(growable: false),
@@ -49,4 +61,12 @@ abstract class AppData extends ChangeNotifier {
     required String string,
     var value,
   });
+
+  void prn(String funcName) {
+    log('AppData, prn, called from $funcName.');
+    assert(getMap?.keys != null);
+    for (final string in getMap!.keys) {
+      log('AppData, prn, $string = ${getMap![string].call()}');
+    }
+  }
 }

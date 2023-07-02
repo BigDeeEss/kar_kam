@@ -1,4 +1,6 @@
 // Import external packages.
+import 'dart:developer';
+
 import 'package:shared_preferences/shared_preferences.dart';
 
 // Import project-specific files.
@@ -52,12 +54,6 @@ mixin AppDataPreferencesMixin on AppData {
     for (final string in setMap!.keys) {
       getPref(string, userPrefs);
     }
-
-    // Load data using [getPref] and providing [userPrefs] for speed.
-    getPref(
-      'test',
-      userPrefs,
-    );
   }
 
   /// Save [AppData] field values (user preferences) to file.
@@ -66,6 +62,9 @@ mixin AppDataPreferencesMixin on AppData {
     // If [userPrefs] is null then get an instance of [SharedPreferences]
     // for retrieving stored data.
     userPrefs ?? await SharedPreferences.getInstance();
+
+    log('AppDataPreferencesMixin, setPref, string = $string');
+    log('AppDataPreferencesMixin, setPref, value = $value');
 
     // Save user preference to file.
     try {
@@ -88,6 +87,7 @@ mixin AppDataPreferencesMixin on AppData {
       userPrefs?.setStringList(string, value);
       return;
     } catch (_) {}
+    assert(false);
   }
 
   /// Save [AppData] field values (user preferences) to file.
@@ -100,12 +100,12 @@ mixin AppDataPreferencesMixin on AppData {
     // This check allows for the null-check operator to be used below.
     assert(getMap?.keys != null);
 
-    // Iterate over keys in [getMap] and save [AppData] field values to file.
+    // Iterate over [getMap.keys] and save [AppData] field values to file.
     //
     // The null-check operator can be used here because of the assertions in
     // the [initialise] function bound to [AppData].
     for (final string in getMap!.keys) {
-      setPref(string, getMap![string], userPrefs);
+      setPref(string, getMap![string].call(), userPrefs);
     }
   }
 }

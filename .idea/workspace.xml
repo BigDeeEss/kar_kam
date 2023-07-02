@@ -5,23 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="398c2f1d-d59b-4632-b499-7ce03f824c85" name="Changes" comment="Rename BaseUILayout to BaseUIContents.">
-      <change afterPath="$PROJECT_DIR$/lib/utils/boxed_container.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/.filecache" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/.filecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/app.dill" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/app.dill" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/kernel_snapshot.d" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/kernel_snapshot.d" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/kar_kam_android.iml" beforeDir="false" afterPath="$PROJECT_DIR$/android/kar_kam_android.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app_data/app_data.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app_data/app_data.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app_data/app_data_manager_mixin.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app_data/app_data_manager_mixin.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app_data/app_data_preferences_mixin.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app_data/app_data_preferences_mixin.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/base_ui/base_ui.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/base_ui/base_ui.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/base_ui/base_ui_contents.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/base_ui/base_ui_contents.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/base_ui/base_ui_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/base_ui/base_ui_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/home/home.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/home/home.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/settings/settings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/settings/settings.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app_data/app_data_preferences_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app_data/app_data_preferences_service.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +101,7 @@
         <line-breakpoint enabled="true" type="Dart">
           <url>file://$PROJECT_DIR$/lib/main.dart</url>
           <line>28</line>
-          <option name="timeStamp" value="1" />
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
