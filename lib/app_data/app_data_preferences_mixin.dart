@@ -20,12 +20,17 @@ mixin AppDataPreferencesMixin on AppData {
       return;
     } catch (_) {}
     try {
-      // Attempt to get double from file.
+      // Attempt to get a double from file.
       update(string: string, value: userPrefs?.getDouble(string));
       return;
     } catch (_) {}
     try {
-      // Attempt to get string from file.
+      // Attempt to get an integer from file.
+      update(string: string, value: userPrefs?.getInt(string));
+      return;
+    } catch (_) {}
+    try {
+      // Attempt to get a string from file.
       update(string: string, value: userPrefs?.getString(string));
       return;
     } catch (_) {}
@@ -68,17 +73,22 @@ mixin AppDataPreferencesMixin on AppData {
 
     // Save user preference to file.
     try {
-      // Attempt to save bool to file.
+      // Attempt to save a bool to file.
       userPrefs?.setBool(string, value);
       return;
     } catch (_) {}
     try {
-      // Attempt to save double to file.
+      // Attempt to save a double to file.
       userPrefs?.setDouble(string, value);
       return;
     } catch (_) {}
     try {
-      // Attempt to save string to file.
+      // Attempt to save an integer to file.
+      userPrefs?.setInt(string, value);
+      return;
+    } catch (_) {}
+    try {
+      // Attempt to save a string to file.
       userPrefs?.setString(string, value);
       return;
     } catch (_) {}

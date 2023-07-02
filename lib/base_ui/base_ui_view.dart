@@ -151,8 +151,17 @@ class _TestBaseUIContents extends StatelessWidget {
         'basePageViewRect = $baseUIViewRect...');
 
     // An example [BaseUI] contents for test purposes.
-    return const Center(
-      child: Text('TestBaseUIContents'),
+    return Center(
+      child: Column(
+        children: <Widget>[
+          const Text('TestBaseUIContents'),
+          Text(GetItService.instance<AppData>().testBool.toString()),
+          Text(GetItService.instance<AppData>().testDouble.toString()),
+          Text(GetItService.instance<AppData>().testInt.toString()),
+          Text(GetItService.instance<AppData>().testString.toString()),
+          Text(GetItService.instance<AppData>().testStringList.toString()),
+        ],
+      ),
     );
   }
 }

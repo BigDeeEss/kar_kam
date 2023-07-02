@@ -4,16 +4,15 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="398c2f1d-d59b-4632-b499-7ce03f824c85" name="Changes" comment="Rename BaseUILayout to BaseUIContents.">
+    <list default="true" id="398c2f1d-d59b-4632-b499-7ce03f824c85" name="Changes" comment="Correct AppDataPreferencesMixin.&#10;&#10;Convert getMap and setMap to Map&lt;String, Function&gt; and use .call() and .call(value) respectively to execute. &#10;&#10;The setting of a drawLayoutBounds default appears to be working, but check.">
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/.filecache" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/.filecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/app.dill" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/app.dill" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/kernel_snapshot.d" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/kernel_snapshot.d" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app_data/app_data.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app_data/app_data.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app_data/app_data_manager_mixin.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app_data/app_data_manager_mixin.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app_data/app_data_preferences_mixin.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app_data/app_data_preferences_mixin.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app_data/app_data_preferences_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app_data/app_data_preferences_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/base_ui/base_ui_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/base_ui/base_ui_view.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +76,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688225219505</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Correct AppDataPreferencesMixin.&#10;&#10;Convert getMap and setMap to Map&lt;String, Function&gt; and use .call() and .call(value) respectively to execute. &#10;&#10;The setting of a drawLayoutBounds default appears to be working, but check.">
+      <created>1688290191814</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1688290191814</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -93,7 +99,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Rename BaseUILayout to BaseUIContents." />
-    <option name="LAST_COMMIT_MESSAGE" value="Rename BaseUILayout to BaseUIContents." />
+    <MESSAGE value="Correct AppDataPreferencesMixin.&#10;&#10;Convert getMap and setMap to Map&lt;String, Function&gt; and use .call() and .call(value) respectively to execute. &#10;&#10;The setting of a drawLayoutBounds default appears to be working, but check." />
+    <option name="LAST_COMMIT_MESSAGE" value="Correct AppDataPreferencesMixin.&#10;&#10;Convert getMap and setMap to Map&lt;String, Function&gt; and use .call() and .call(value) respectively to execute. &#10;&#10;The setting of a drawLayoutBounds default appears to be working, but check." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -7,6 +7,12 @@ abstract class AppData extends ChangeNotifier {
   /// Whether [BoxedContainer] draws bounding boxes or not.
   bool? drawLayoutBounds;
 
+  bool? testBool;
+  double? testDouble;
+  int? testInt;
+  String? testString;
+  List<String>? testStringList;
+
   /// A map that relates a string representation of a field within [AppData]
   /// to it's corresponding default value.
   Map<String, dynamic>? defaultValues;
@@ -24,20 +30,29 @@ abstract class AppData extends ChangeNotifier {
   void initialise() {
     defaultValues = {
       'drawLayoutBounds': true,
+      'testBool': true,
+      'testDouble': 1.2345,
+      'testInt': 12345,
+      'testString': 'testString',
+      'testStringList': ['testString', 'again'],
     };
 
     getMap = {
       'drawLayoutBounds': () => drawLayoutBounds,
+      'testBool': () => testBool,
+      'testDouble': () => testDouble,
+      'testInt': () => testInt,
+      'testString': () => testString,
+      'testStringList': () => testStringList,
     };
 
     setMap = {
       'drawLayoutBounds': (bool? value) => drawLayoutBounds = value,
-      // 'drawLayoutBounds': (bool? value) {
-      //   print('setMap, value = $value');
-      //   print('setMap, drawLayoutBounds = $drawLayoutBounds');
-      //   drawLayoutBounds = value;
-      //   print('setMap, drawLayoutBounds = $drawLayoutBounds');
-      // },
+      'testBool': (bool? value) => testBool = value,
+      'testDouble': (double? value) => testDouble = value,
+      'testInt': (int? value) => testInt = value,
+      'testString': (String? value) => testString = value,
+      'testStringList': (List<String>? value) => testStringList = value,
     };
 
     // Check that [defaults.keys] is non-null.
