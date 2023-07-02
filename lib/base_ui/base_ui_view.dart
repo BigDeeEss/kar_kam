@@ -103,14 +103,14 @@ class _BaseUIViewState extends State<BaseUIView> {
     return Scaffold(
       body: baseUIContents?.contents,
       bottomNavigationBar: bottomAppBar,
-      // floatingActionButton: BoxedContainer(
-      //   child: FloatingActionButton(
-      //     onPressed: (() {}),
-      //   ),
-      // ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: BoxedContainer(
+        child: FloatingActionButton(
           onPressed: (() {}),
         ),
+      ),
+      // floatingActionButton: FloatingActionButton(
+      //     onPressed: (() {}),
+      //   ),
     );
   }
 }
