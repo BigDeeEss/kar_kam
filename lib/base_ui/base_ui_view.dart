@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 
 import 'package:kar_kam/app_data/app_data.dart';
 import 'package:kar_kam/app_data/get_it_service.dart';
+import 'package:kar_kam/base_ui/base_ui.dart';
 import 'package:kar_kam/base_ui/base_ui_contents.dart';
+import 'package:kar_kam/kar_kam/kar_kam_ui_contents.dart';
 import 'package:kar_kam/utils/boxed_container.dart';
 import 'package:kar_kam/utils/data_store.dart';
 import 'package:kar_kam/utils/global_key_extension.dart';
@@ -105,12 +107,17 @@ class _BaseUIViewState extends State<BaseUIView> {
       bottomNavigationBar: bottomAppBar,
       floatingActionButton: BoxedContainer(
         child: FloatingActionButton(
-          onPressed: (() {}),
+          onPressed: (() {
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(
+                builder: (BuildContext context) => BaseUI(
+                  baseUIContents: baseUIContents.,
+                ),
+              ),
+            );
+          }),
         ),
       ),
-      // floatingActionButton: FloatingActionButton(
-      //     onPressed: (() {}),
-      //   ),
     );
   }
 }
