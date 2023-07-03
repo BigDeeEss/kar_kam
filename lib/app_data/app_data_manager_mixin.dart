@@ -3,7 +3,7 @@ import 'package:kar_kam/app_data/app_data.dart';
 
 /// Maintains [AppData].
 mixin AppDataManagerMixin on AppData {
-  /// Updates fields in [AppData] with [value] using [identifier] to
+  /// Updates fields in [AppData] with [value] using [string] to
   /// determine which field to change
   @override
   void update({
@@ -11,41 +11,36 @@ mixin AppDataManagerMixin on AppData {
     required String string,
     var value,
   }) {
-    // Set [AppData.field] identified by string to value.
-    setMap?[string]?.call(value);
+    if (value != null) {
+      // Set [AppData.field], identified by string, to value.
+      setMap?[string]?.call(value);
 
-    // Notify listeners only if instructed to do so. Default is NOT to notify.
-    if (notify ?? false) {
-      // If [notify] is null or false.
-      notifyListeners();
+      // Notify listeners only if instructed to do so. Default is to notify.
+      if (notify ?? true) {
+        // If [notify] is true.
+        notifyListeners();
+      }
     }
   }
 
-  /// Sets [AppData] field values to defaults if null.
-  ///
-  /// [force] overrides existing values.
-  // @override
+  /// Sets [AppData] field values to default valuess if null.
   void setDefaults() {
-    // Set test.
-    update(
-      string: 'testString',
-      value: 'testString default value again!',
-    );
-    update(
-      string: 'testDouble',
-      value: 1.2345,
-    );
-    update(
-      string: 'testInt',
-      value: 12345,
-    );
-    update(
-      string: 'testBool',
-      value: true,
-    );
-    update(
-      string: 'testStringList',
-      value: ['testString', 'default', 'value', 'again!'],
-    );
+    // [defaultsMap.keys] can't be null in a for-in loop.
+    //
+    // This check allows for the null-check operator to be used below.
+    assert(defaultsMap?.keys != null);
+
+    // Iterate over [defaultsMap.keys] and set [AppData] field values.
+    //
+    // The null-check operator can be used here because of the assertions in
+    // the [initialise] function bound to [AppData].
+    for (final string in defaultsMap!.keys) {
+      try {
+        setMap![string]?.call(defaultsMap![string]);
+      } catch (_) {
+        throw UnsupportedError(
+            'AppDataManagerMixin, setDefaults...setMap fail.');
+      }
+    }
   }
 }
