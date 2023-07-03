@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:kar_kam/app_data/app_data.dart';
 import 'package:kar_kam/app_data/app_data_preference_service.dart';
 import 'package:kar_kam/app_data/get_it_service.dart';
+import 'package:kar_kam/kar_kam/kar_kam.dart';
 
 /// App start point.
 void main() {
