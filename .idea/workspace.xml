@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="398c2f1d-d59b-4632-b499-7ce03f824c85" name="Changes" comment="Reconfigure key-value pairs for routeMap.">
+    <list default="true" id="398c2f1d-d59b-4632-b499-7ce03f824c85" name="Changes" comment="Add _SettingsUIContents, a new StatefulWidget in settings_ui_contents.dart.">
+      <change afterPath="$PROJECT_DIR$/lib/settings/settings_ui_list_tile.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/settings/settings_ui_contents.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/settings/settings_ui_contents.dart" afterDir="false" />
     </list>
@@ -98,7 +99,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688497501428</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add _SettingsUIContents, a new StatefulWidget in settings_ui_contents.dart.">
+      <created>1688497883457</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1688497883457</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -118,7 +126,8 @@
     <MESSAGE value="Add testBool, testDouble, testInt, testString and testStringList to AppData and print to screen values in _TestBaseUIContents.&#10;&#10;AppDataPreferenceService has been tested and appears to be working. Without the functionality to change AppData field values via the app itself, the .json file that contains the shared_preference information was edited between app builds to simulate this. On rebuild the app displayed the new data." />
     <MESSAGE value="Disable instantiation of bottomAppBar in _BaseUIViewState.&#10;&#10;routeMap in base_ui_route_map.dart modified so that keys are Strings.&#10;&#10;This commit builds and runs as expected." />
     <MESSAGE value="Reconfigure key-value pairs for routeMap." />
-    <option name="LAST_COMMIT_MESSAGE" value="Reconfigure key-value pairs for routeMap." />
+    <MESSAGE value="Add _SettingsUIContents, a new StatefulWidget in settings_ui_contents.dart." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add _SettingsUIContents, a new StatefulWidget in settings_ui_contents.dart." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
