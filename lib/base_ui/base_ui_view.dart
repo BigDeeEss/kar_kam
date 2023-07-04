@@ -132,9 +132,9 @@ class _BaseUIViewState extends State<BaseUIView> {
 
 
 /// Tests whether [baseUIViewRect] can be calculated.
-BaseUIContents testBaseUIContents = const BaseUIContents(
+BaseUIContents testBaseUIContents = BaseUIContents(
   title: 'TestBaseUIContents',
-  contents: _TestBaseUIContents(),
+  contents: const _TestBaseUIContents(),
 );
 
 

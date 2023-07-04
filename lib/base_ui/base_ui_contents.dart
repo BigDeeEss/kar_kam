@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 /// Allows for the easy referencing of page content.
 class BaseUIContents {
-  const BaseUIContents({
+  BaseUIContents({
     required this.contents,
     this.floatingActionButton,
     this.floatingActionButtonTargetList,
