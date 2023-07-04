@@ -5,6 +5,6 @@ import 'package:kar_kam/kar_kam/kar_kam_ui_contents.dart';
 import 'package:kar_kam/settings/settings_ui_contents.dart';
 
 Map<String, BaseUIContents> routeMap = {
-  settingsUIContents.title: settingsUIContents,
-  karKamUIContents.title: karKamUIContents,
+  'settingsUIContents': settingsUIContents,
+  'karKamUIContents': karKamUIContents,
 };

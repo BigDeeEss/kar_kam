@@ -71,13 +71,13 @@ class _BaseUIViewState extends State<BaseUIView> {
               .globalPaintBounds;
 
       // Instantiate [bottomAppBar] field in [BaseUIViewState].
-      bottomAppBar = BottomAppBar(
-        color: Theme
-            .of(context)
-            .colorScheme
-            .inversePrimary,
-        height: bottomAppBarHeight,
-      );
+      // bottomAppBar = BottomAppBar(
+      //   color: Theme
+      //       .of(context)
+      //       .colorScheme
+      //       .inversePrimary,
+      //   height: bottomAppBarHeight,
+      // );
 
       // // Upload [basePageViewRect] to the instance of [AppData]
       // // registered with [GetItService].
@@ -107,7 +107,7 @@ class _BaseUIViewState extends State<BaseUIView> {
       if (baseUIContents!.floatingActionButtonTargetList != null) {
         fab = BoxedContainer(
           child: FloatingActionButton(
-            onPressed: (() {
+            onPressed: () {
               Navigator.of(context).pushReplacement(
                 MaterialPageRoute(
                   builder: (BuildContext context) => BaseUI(
@@ -115,7 +115,7 @@ class _BaseUIViewState extends State<BaseUIView> {
                   ),
                 ),
               );
-            }),
+            },
           ),
         );
       }
