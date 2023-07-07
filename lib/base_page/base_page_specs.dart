@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 class BasePageSpecs {
   BasePageSpecs({
     required this.contents,
-    this.floatingActionButton,
     this.floatingActionButtonTargetList,
     required this.title,
   });
@@ -15,8 +14,6 @@ class BasePageSpecs {
 
   /// Prototype FAB specifier.
   final List<String>? floatingActionButtonTargetList;
-
-  final Widget? floatingActionButton;
 
   /// A [title] for each page/route.
   final String title;

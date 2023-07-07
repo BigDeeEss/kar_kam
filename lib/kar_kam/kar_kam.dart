@@ -10,10 +10,8 @@ import 'package:kar_kam/settings/settings_ui_contents.dart';
 
 /// [KarKam] is the root widget of this application.
 ///
-/// [KarKam] is just a [StatelessWidget] wrapper for an instance of
-/// [FutureBuilder].
-///
-/// [FutureBuilder] implements a dependency that sources stored app data.
+/// [KarKam] is just a [StatelessWidget] wrapper for [FutureBuilder] which
+/// implements an app dependency that sources stored app data from file.
 class KarKam extends StatelessWidget with GetItMixin{
   KarKam({super.key});
 

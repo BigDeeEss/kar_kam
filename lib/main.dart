@@ -13,7 +13,7 @@ void main() {
   // ServicesBinding binding mixin is only available once that binding
   // has been initialized.'
   //
-  // Required by shared_preferences.
+  // Required by [shared_preferences].
   WidgetsFlutterBinding.ensureInitialized();
 
   // Use [GetItService] as the single point of access to [GetIt] and
