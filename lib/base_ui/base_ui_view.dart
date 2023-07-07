@@ -42,15 +42,22 @@ class _BaseUIViewState extends State<BaseUIView> {
   // properly instantiated within the post frame callback defined in [init].
   BottomAppBar? bottomAppBar;
 
+  // An instance of [FloatingActionButton], that is null to start with and only
+  // properly instantiated within the post frame callback defined in [init].
+  Widget? floatingActionButton;
+
+  GlobalKey newkey = GlobalKey();
+  double? babheight;
+
   /// Calculates the height of [bottomAppBar] using [baseUIViewRect].
-  double get bottomAppBarHeight {
-    // [baseUIViewRect] is nullable so substitute [Rect.zero] when
-    // [baseUIViewRect] is null.
-    return MediaQuery
-        .of(context)
-        .size
-        .height - ((baseUIViewRect) ?? Rect.zero).height;
-  }
+  // double appBarHeight(BuildContext context) {
+  //   // [baseUIViewRect] is nullable so substitute [Rect.zero] when
+  //   // [baseUIViewRect] is null.
+  //   return MediaQuery
+  //       .of(context)
+  //       .size
+  //       .height;// - ((baseUIViewRect) ?? Rect.zero).height;
+  // }
 
   @override
   void initState() {
@@ -70,13 +77,14 @@ class _BaseUIViewState extends State<BaseUIView> {
               .data
               .globalPaintBounds;
 
+      babheight = newkey?.globalPaintBounds?.size.height;
       // Instantiate [bottomAppBar] field in [BaseUIViewState].
       // bottomAppBar = BottomAppBar(
       //   color: Theme
       //       .of(context)
       //       .colorScheme
       //       .inversePrimary,
-      //   height: bottomAppBarHeight,
+      //   height: 10,
       // );
 
       // // Upload [basePageViewRect] to the instance of [AppData]
@@ -101,11 +109,10 @@ class _BaseUIViewState extends State<BaseUIView> {
 
   @override
   Widget build(BuildContext context) {
-    Widget? fab;
-
     if (baseUIContents != null) {
+      // Instantiate [floatingActionButton] field in [BaseUIViewState].
       if (baseUIContents!.floatingActionButtonTargetList != null) {
-        fab = BoxedContainer(
+        floatingActionButton = BoxedContainer(
           child: FloatingActionButton(
             onPressed: () {
               Navigator.of(context).pushReplacement(
@@ -122,10 +129,25 @@ class _BaseUIViewState extends State<BaseUIView> {
     }
 
     // A second instance of [Scaffold] purely for adding [bottomAppBar].
+    return Material(
+      child: Scaffold(
+        appBar: AppBar(key:newkey),
+        body: baseUIContents?.contents,
+        // bottomNavigationBar: bottomAppBar,
+        bottomNavigationBar: BottomAppBar(),
+          // height: 10,
+        // ),
+        floatingActionButton: floatingActionButton,
+      ),
+    );
     return Scaffold(
+      appBar: AppBar(key:newkey),
       body: baseUIContents?.contents,
-      bottomNavigationBar: bottomAppBar,
-      floatingActionButton: fab,
+      // bottomNavigationBar: bottomAppBar,
+      bottomNavigationBar: BottomAppBar(),
+        // height: 10,
+      // ),
+      floatingActionButton: floatingActionButton,
     );
   }
 }

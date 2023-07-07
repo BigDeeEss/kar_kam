@@ -5,9 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="398c2f1d-d59b-4632-b499-7ce03f824c85" name="Changes" comment="Add _SettingsUIContents, a new StatefulWidget in settings_ui_contents.dart.">
-      <change afterPath="$PROJECT_DIR$/lib/settings/settings_ui_list_tile.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/.filecache" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/.filecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/app.dill" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/app.dill" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/kernel_snapshot.d" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/kernel_snapshot.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/settings/settings_ui_contents.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/settings/settings_ui_contents.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/base_ui/base_ui.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/base_ui/base_ui.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/base_ui/base_ui_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/base_ui/base_ui_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/kar_kam/kar_kam_ui_contents.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/kar_kam/kar_kam_ui_contents.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/data_store.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/data_store.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,24 +144,29 @@
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint type="Dart">
-          <url>file://$PROJECT_DIR$/lib/base_ui/base_ui.dart</url>
-          <line>33</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint type="Dart">
           <url>file://$PROJECT_DIR$/lib/base_ui/base_ui_view.dart</url>
-          <line>105</line>
+          <line>111</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint type="Dart">
           <url>file://$PROJECT_DIR$/lib/base_ui/base_ui_view.dart</url>
-          <line>66</line>
+          <line>73</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
+        <line-breakpoint type="Dart">
           <url>file://$PROJECT_DIR$/lib/app_data/app_data_preference_service.dart</url>
           <line>12</line>
           <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint type="Dart">
+          <url>file://$PROJECT_DIR$/lib/base_ui/base_ui.dart</url>
+          <line>62</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint type="Dart">
+          <url>file://$PROJECT_DIR$/lib/base_ui/base_ui.dart</url>
+          <line>58</line>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

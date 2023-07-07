@@ -5,28 +5,28 @@ import 'package:flutter/material.dart';
 class DataStore<T> extends StatelessWidget {
   const DataStore({
     required Key key,
-    required this.child,
+    this.child,
     required this.data,
   }) : super(key: key);
 
   /// The immediate descendant of [DataStore].
-  final Widget child;
+  final Widget? child;
 
-  /// Is passed to [DataStoreService] and made available to all descendants.
+  /// Is passed to [_DataStoreService] and made available to all descendants.
   final T data;
 
   /// Allow all descendant widgets of [DataStore] to access [data].
-  static DataStoreService<T> of<T>(BuildContext context, Key key) {
+  static _DataStoreService<T> of<T>(BuildContext context, Key key) {
     // Get instance of [DataStoreService<T>] immediately above the location
     // in the widget tree where [of] is called.
-    DataStoreService<T>? result =
-        context.dependOnInheritedWidgetOfExactType<DataStoreService<T>>();
+    _DataStoreService<T>? result =
+        context.dependOnInheritedWidgetOfExactType<_DataStoreService<T>>();
 
     // Using 'is' in what follows promotes result to type [DataStoreService<T>]
     // so that the comparison 'key != result.key' makes sense and can be made.
     //
     // Without 'is' [result.key] is not specific.
-    if (result is DataStoreService<T>) {
+    if (result is _DataStoreService<T>) {
       if (key != result.key) {
         // If keys do not match then continue search up the widget tree.
         result = DataStore.of<T>(result.context, key);
@@ -46,18 +46,18 @@ class DataStore<T> extends StatelessWidget {
   Widget build(BuildContext context) {
     // Insert an instance of [DataStoreService] before [child] so that
     // descendant widgets can access data via [of].
-    return DataStoreService<T>(
+    return _DataStoreService<T>(
       key: key,
       context: context,
       data: data,
-      child: child,
+      child: child ?? Container(),
     );
   }
 }
 
 /// Allows descendant widgets to access [data].
-class DataStoreService<T> extends InheritedWidget {
-  const DataStoreService({
+class _DataStoreService<T> extends InheritedWidget {
+  const _DataStoreService({
     Key? key,
     required Widget child,
     required this.context,
@@ -65,7 +65,7 @@ class DataStoreService<T> extends InheritedWidget {
   }) : super(key: key, child: child);
 
   /// Required for extending the the search for further instances of
-  /// [DataStoreService] up the widget tree.
+  /// [_DataStoreService] up the widget tree.
   final BuildContext context;
 
   /// Is made accessible to descendant widgets via [DataStore.of<T>].
@@ -73,5 +73,5 @@ class DataStoreService<T> extends InheritedWidget {
 
   /// Notifies listenable objects of updates to [data].
   @override
-  bool updateShouldNotify(DataStoreService<T> old) => data != old.data;
+  bool updateShouldNotify(_DataStoreService<T> old) => data != old.data;
 }
