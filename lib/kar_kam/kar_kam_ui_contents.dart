@@ -2,10 +2,10 @@
 import 'package:flutter/material.dart';
 
 // Import project-specific files.
-import 'package:kar_kam/base_ui/base_ui_contents.dart';
+import 'package:kar_kam/base_page/base_page_specs.dart';
 
 /// Home layout.
-BaseUIContents karKamUIContents = BaseUIContents(
+BasePageSpecs karKamUIContents = BasePageSpecs(
   title: 'KarKam',
   contents: Center(
     child: FloatingActionButton(

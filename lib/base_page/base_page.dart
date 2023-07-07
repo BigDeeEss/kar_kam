@@ -1,42 +1,41 @@
 // Import external packages.
 import 'dart:developer';
 import 'package:flutter/material.dart';
+import 'package:kar_kam/base_page/base_page_route_map.dart';
 
 // Import project-specific files.
-import 'package:kar_kam/base_ui/base_ui_contents.dart';
+import 'package:kar_kam/base_page/base_page_specs.dart';
 import 'package:kar_kam/utils/boxed_container.dart';
 import 'package:kar_kam/utils/global_key_extension.dart';
 
-import 'base_ui_route_map.dart';
-
 /// Implements a generic page layout design.
 ///
-/// [BaseUI] presents a similar screen layout for each page with:
+/// [BasePage] presents a similar screen layout for each page with:
 ///     1. an AppBar at the top with a title,
 ///     2. specific screen contents including buttons for navigation
 ///        and functionality, and
 ///     3. a bottom navigation bar.
-class BaseUI extends StatefulWidget {
-  const BaseUI({
+class BasePage extends StatefulWidget {
+  const BasePage({
     super.key,
-    this.baseUIContents,
+    this.basePageSpecs,
   });
 
   /// Defines the current layout of the UI, including buttons for navigation
   /// and functionality and specific functionality such as video capture,
   /// settings and file management.
-  final BaseUIContents? baseUIContents;
+  final BasePageSpecs? basePageSpecs;
 
   @override
-  State<BaseUI> createState() => _BaseUIState();
+  State<BasePage> createState() => _BasePageState();
 }
 
-class _BaseUIState extends State<BaseUI> {
+class _BasePageState extends State<BasePage> {
   Widget? floatingActionButton;
   GlobalKey appBarKey = GlobalKey();
   GlobalKey floatingActionButtonKey = GlobalKey();
   GlobalKey BoxedContainerKey = GlobalKey();
-  BaseUIContents? baseUIContents;
+  BasePageSpecs? baseUIContents;
 
   /// Calculates the height of [bottomAppBar] using [baseUIViewRect].
   double get bottomAppBarHeight {
@@ -73,7 +72,7 @@ class _BaseUIState extends State<BaseUI> {
       // );
       if (baseUIContents == null) {
         setState(() {
-          baseUIContents = widget.baseUIContents;
+          baseUIContents = widget.basePageSpecs;
         });
       }
     });
@@ -94,7 +93,7 @@ class _BaseUIState extends State<BaseUI> {
       appBar: AppBar(
         key: appBarKey,
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.baseUIContents?.title ?? ''),
+        title: Text(widget.basePageSpecs?.title ?? ''),
       ),
       body: baseUIContents?.contents,
       floatingActionButton: BoxedContainer(
@@ -105,8 +104,8 @@ class _BaseUIState extends State<BaseUI> {
           onPressed: () {
             Navigator.of(context).pushReplacement(
               MaterialPageRoute(
-                builder: (BuildContext context) => BaseUI(
-                  baseUIContents: routeMap[
+                builder: (BuildContext context) => BasePage(
+                  basePageSpecs: basePageRouteMap[
                       baseUIContents!.floatingActionButtonTargetList![0]],
                 ),
               ),
