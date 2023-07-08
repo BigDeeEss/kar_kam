@@ -11,7 +11,7 @@ BasePageSpecs filesPageSpecs = BasePageSpecs(
     child: Text('Files'),
   ),
   floatingActionButtonTargetList: <String>[
-    'karKamUIContents',
+    'karKamPageSpecs',
     'settingsPageSpecs',
   ],
 );

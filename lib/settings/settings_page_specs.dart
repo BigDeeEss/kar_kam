@@ -10,7 +10,7 @@ BasePageSpecs settingsPageSpecs = BasePageSpecs(
   title: 'Settings',
   contents: const _SettingsPageSpecs(),
   floatingActionButtonTargetList: <String>[
-    'karKamUIContents',
+    'karKamPageSpecs',
     'filesPageSpecs',
   ],
 );
