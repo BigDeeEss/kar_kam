@@ -5,7 +5,7 @@ import 'package:get_it_mixin/get_it_mixin.dart';
 // Import project-specific files.
 import 'package:kar_kam/app_data/get_it_service.dart';
 import 'package:kar_kam/base_page/base_page.dart';
-import 'package:kar_kam/settings/settings_ui_contents.dart';
+import 'package:kar_kam/settings/settings_page_specs.dart';
 
 
 /// [KarKam] is the root widget of this application.
@@ -29,7 +29,7 @@ class KarKam extends StatelessWidget with GetItMixin{
           if (snapshot.hasData) {
             // For the 'has data' case, when the load of app settings
             // is complete, continue with building BasePage.
-            return BasePage(basePageSpecs: settingsUIContents);
+            return BasePage(basePageSpecs: settingsPageSpecs);
           } else {
             // For the 'has no data' case, where the load of app settings
             // is still in progress, present a progress indicator.
