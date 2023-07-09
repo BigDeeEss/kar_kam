@@ -51,37 +51,54 @@ class _BasePageState extends State<BasePage> {
   Widget fabArray(BuildContext context) {
     List<Widget> fabArray = [];
 
-    BasePageSpecs? pageSpecs = basePageSpecs;
-    if (pageSpecs is BasePageSpecs) {
-      for (int i = 0; i <
-          pageSpecs.floatingActionButtonTargetList!.length; i++) {
-
-        print(pageSpecs.floatingActionButtonTargetList);
-
+    List<String>? floatingActionButtonTargetList =
+        basePageSpecs?.floatingActionButtonTargetList;
+    if (floatingActionButtonTargetList is List<String>) {
+      for (final string in floatingActionButtonTargetList) {
         fabArray.add(
           FloatingActionButton(
             heroTag: null,
+            child: basePageRouteMap[string]?[1],
             onPressed: () {
-              print(context);
-              print(basePageRouteMap[pageSpecs.floatingActionButtonTargetList![i]]);
               Navigator.of(context).pushReplacement(
                 MaterialPageRoute(
-                  builder: (BuildContext context) =>
-                    BasePage(
-                      basePageSpecs: basePageRouteMap[
-                          pageSpecs.floatingActionButtonTargetList![i]
-                      ],
-                    ),
+                  builder: (BuildContext context) => BasePage(
+                    basePageSpecs: basePageRouteMap[string]?[0],
+                  ),
                 ),
               );
             },
           ),
         );
       }
+      // for (int i = 0; i <
+      //     pageSpecs.floatingActionButtonTargetList!.length; i++) {
+      //   fabArray.add(
+      //     FloatingActionButton(
+      //       heroTag: null,
+      //       onPressed: () {
+      //         print(context);
+      //         print(basePageRouteMap[pageSpecs
+      //             .floatingActionButtonTargetList![i]]);
+      //         Navigator.of(context).pushReplacement(
+      //           MaterialPageRoute(
+      //             builder: (BuildContext context) =>
+      //                 BasePage(
+      //                   basePageSpecs: basePageRouteMap[
+      //                   pageSpecs.floatingActionButtonTargetList![i]
+      //                   ],
+      //                 ),
+      //           ),
+      //         );
+      //       },
+      //     ),
+      //   );
+      // }
     }
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
+      mainAxisSize: MainAxisSize.min,
       children: fabArray,
     );
   }
@@ -108,17 +125,13 @@ class _BasePageState extends State<BasePage> {
   @override
   Widget build(BuildContext context) {
     log('_BasePageState, build...B = ${bottomAppBarKey.globalPaintBounds}');
-    log('_BasePageState, build...F = ${floatingActionButtonKey
-        .globalPaintBounds}');
+    log('_BasePageState, build...F = ${floatingActionButtonKey.globalPaintBounds}');
     log('_BasePageState, build...A = ${appBarKey.globalPaintBounds}');
 
     return Scaffold(
       appBar: AppBar(
         key: appBarKey,
-        backgroundColor: Theme
-            .of(context)
-            .colorScheme
-            .inversePrimary,
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(basePageSpecs?.title ?? ''),
       ),
       bottomNavigationBar: BottomAppBar(

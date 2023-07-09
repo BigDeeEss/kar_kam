@@ -80,6 +80,12 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "font_awesome_flutter",
+      "rootUri": "file:///home/damon/.pub-cache/hosted/pub.dev/font_awesome_flutter-10.5.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "functional_listener",
       "rootUri": "file:///home/damon/.pub-cache/hosted/pub.dev/functional_listener-2.3.1",
       "packageUri": "lib/",
@@ -183,7 +189,7 @@
     },
     {
       "name": "shared_preferences_foundation",
-      "rootUri": "file:///home/damon/.pub-cache/hosted/pub.dev/shared_preferences_foundation-2.3.0",
+      "rootUri": "file:///home/damon/.pub-cache/hosted/pub.dev/shared_preferences_foundation-2.3.1",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
@@ -278,7 +284,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-07-03T19:57:15.699558Z",
+  "generated": "2023-07-09T08:42:37.565951Z",
   "generator": "pub",
   "generatorVersion": "3.0.5"
 }
