@@ -1,11 +1,9 @@
 // Import external packages.
-import 'dart:developer';
 import 'package:flutter/material.dart';
-import 'package:kar_kam/base_page/base_page_route_map.dart';
 
 // Import project-specific files.
+import 'package:kar_kam/base_page/base_page_button_array.dart';
 import 'package:kar_kam/base_page/base_page_specs.dart';
-import 'package:kar_kam/utils/boxed_container.dart';
 import 'package:kar_kam/utils/global_key_extension.dart';
 
 /// Implements a generic page layout design.
@@ -18,13 +16,12 @@ import 'package:kar_kam/utils/global_key_extension.dart';
 class BasePage extends StatefulWidget {
   const BasePage({
     super.key,
-    this.basePageSpecs,
+    required this.basePageSpecs,
   });
 
-  /// Defines the current layout of the UI, including buttons for navigation
-  /// and functionality and specific functionality such as video capture,
-  /// settings and file management.
-  final BasePageSpecs? basePageSpecs;
+  /// Defines the current UI layout, including specs for buttons and specific
+  /// functionality such as video capture, settings and file management.
+  final BasePageSpecs basePageSpecs;
 
   @override
   State<BasePage> createState() => _BasePageState();
@@ -33,133 +30,47 @@ class BasePage extends StatefulWidget {
 class _BasePageState extends State<BasePage> {
   GlobalKey appBarKey = GlobalKey();
   GlobalKey bottomAppBarKey = GlobalKey();
-  GlobalKey floatingActionButtonKey = GlobalKey();
-
-  /// Defines the current layout of the UI, including buttons for navigation
-  /// and functionality and specific functionality such as video capture,
-  /// settings and file management.
-  BasePageSpecs? basePageSpecs;
+  GlobalKey basePageButtonArrayKey = GlobalKey();
+  
+  BottomAppBar? bottomAppBar;
 
   /// Calculates the height of [bottomAppBar].
   double get bottomAppBarHeight {
-    // [appBarKey.globalPaintBounds] is nullable so substitute [Rect.zero]
-    // when necessary.
-    Rect rect = appBarKey.globalPaintBounds ?? Rect.zero;
-    return rect.height;
-  }
-
-  Widget fabArray(BuildContext context) {
-    List<Widget> fabArray = [];
-
-    List<String>? floatingActionButtonTargetList =
-        basePageSpecs?.floatingActionButtonTargetList;
-    if (floatingActionButtonTargetList is List<String>) {
-      for (final string in floatingActionButtonTargetList) {
-        fabArray.add(
-          FloatingActionButton(
-            heroTag: null,
-            child: basePageRouteMap[string]?[1],
-            onPressed: () {
-              Navigator.of(context).pushReplacement(
-                MaterialPageRoute(
-                  builder: (BuildContext context) => BasePage(
-                    basePageSpecs: basePageRouteMap[string]?[0],
-                  ),
-                ),
-              );
-            },
-          ),
-        );
-      }
-      // for (int i = 0; i <
-      //     pageSpecs.floatingActionButtonTargetList!.length; i++) {
-      //   fabArray.add(
-      //     FloatingActionButton(
-      //       heroTag: null,
-      //       onPressed: () {
-      //         print(context);
-      //         print(basePageRouteMap[pageSpecs
-      //             .floatingActionButtonTargetList![i]]);
-      //         Navigator.of(context).pushReplacement(
-      //           MaterialPageRoute(
-      //             builder: (BuildContext context) =>
-      //                 BasePage(
-      //                   basePageSpecs: basePageRouteMap[
-      //                   pageSpecs.floatingActionButtonTargetList![i]
-      //                   ],
-      //                 ),
-      //           ),
-      //         );
-      //       },
-      //     ),
-      //   );
-      // }
-    }
-
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.end,
-      mainAxisSize: MainAxisSize.min,
-      children: fabArray,
-    );
+    // [appBarKey.globalPaintBounds] is nullable so substitute 0.0 if necessary.
+    return appBarKey.globalPaintBounds?.height ?? 0.0;
   }
 
   @override
   void initState() {
     // [_BasePageState] is built in two phases:
-    //    (i) with [basePageSpecs], which is null initially, and then
-    //    (ii) with [basePageSpecs] = [widget.basePageSpecs], which may also
-    //    be null, initiated by the following post-frame callback.
-    //
-    // [_BasePageState] is built in two phases because [basePageSpecs] may
-    // require knowledge of the [FloatingActionButton] locations.
+    //    (i) with [bottomAppBar], which is null initially, and then
+    //    (ii) with [bottomAppBar] with height given by [bottomAppBarHeight].
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (basePageSpecs == null) {
-        setState(() {
-          basePageSpecs = widget.basePageSpecs;
-        });
-      }
+      setState(() {
+        bottomAppBar = BottomAppBar(
+          key: bottomAppBarKey,
+          height: bottomAppBarHeight,
+        );
+      });
     });
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    log('_BasePageState, build...B = ${bottomAppBarKey.globalPaintBounds}');
-    log('_BasePageState, build...F = ${floatingActionButtonKey.globalPaintBounds}');
-    log('_BasePageState, build...A = ${appBarKey.globalPaintBounds}');
-
+    // Uses [appBarKey], [basePageButtonArrayKey] and [bottomAppBarKey].
     return Scaffold(
       appBar: AppBar(
         key: appBarKey,
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(basePageSpecs?.title ?? ''),
+        title: widget.basePageSpecs.titleWidget,
       ),
-      bottomNavigationBar: BottomAppBar(
-        key: bottomAppBarKey,
-        height: bottomAppBarHeight,
+      body: widget.basePageSpecs.contents,
+      bottomNavigationBar: bottomAppBar,
+      floatingActionButton: BasePageButtonArray(
+        key: basePageButtonArrayKey,
+        basePageSpecs: widget.basePageSpecs,
       ),
-      floatingActionButton: BoxedContainer(
-        child: fabArray(context),
-      ),
-      // floatingActionButton: BoxedContainer(
-      //   // ToDo: make FloatinActionButton a list generated by
-      //   // [basePageSpecs.floatingActionButtonTargetList]
-      //   child: FloatingActionButton(
-      //     heroTag: basePageSpecs?.floatingActionButtonTargetList![0] ?? 'test',
-      //     key: floatingActionButtonKey,
-      //     onPressed: () {
-      //       Navigator.of(context).pushReplacement(
-      //         MaterialPageRoute(
-      //           builder: (BuildContext context) => BasePage(
-      //             basePageSpecs: basePageRouteMap[
-      //                 basePageSpecs?.floatingActionButtonTargetList![0]],
-      //           ),
-      //         ),
-      //       );
-      //     },
-      //   ),
-      // ),
-      body: basePageSpecs?.contents,
     );
   }
 }

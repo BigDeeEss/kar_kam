@@ -6,8 +6,8 @@ class BasePageSpecs {
   BasePageSpecs({
     required this.contents,
     this.floatingActionButtonTargetList,
-    required this.title,
-  });
+    required String title,
+  }) : titleWidget = Text(title);
 
   /// The [contents] associated with each page/route.
   final Widget contents;
@@ -16,5 +16,5 @@ class BasePageSpecs {
   final List<String>? floatingActionButtonTargetList;
 
   /// A [title] for each page/route.
-  final String title;
+  final Widget titleWidget;
 }
