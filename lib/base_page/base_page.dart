@@ -31,8 +31,12 @@ class _BasePageState extends State<BasePage> {
   GlobalKey appBarKey = GlobalKey();
   GlobalKey bottomAppBarKey = GlobalKey();
   GlobalKey basePageButtonArrayKey = GlobalKey();
-  
+
+  // If not null, an instance of [BottomAppBar] to include in [Scaffold].
   BottomAppBar? bottomAppBar;
+
+  // If not null, an instance of [BasePageButtonArray] to include in [Scaffold].
+  Widget? fabArray;
 
   /// Calculates the height of [bottomAppBar].
   double get bottomAppBarHeight {
@@ -58,6 +62,18 @@ class _BasePageState extends State<BasePage> {
 
   @override
   Widget build(BuildContext context) {
+    // A copy of [widget.basePageSpecs.floatingActionButtonTargetList]
+    // so that it can be promoted from [String?] to [String].
+    List<String>? floatingActionButtonTargetList =
+        widget.basePageSpecs.floatingActionButtonTargetList;
+
+    if (floatingActionButtonTargetList is List<String>) {
+      fabArray = BasePageButtonArray(
+        key: basePageButtonArrayKey,
+        buttonArrayTargetList: floatingActionButtonTargetList,
+      );
+    }
+
     // Uses [appBarKey], [basePageButtonArrayKey] and [bottomAppBarKey].
     return Scaffold(
       appBar: AppBar(
@@ -67,10 +83,7 @@ class _BasePageState extends State<BasePage> {
       ),
       body: widget.basePageSpecs.contents,
       bottomNavigationBar: bottomAppBar,
-      floatingActionButton: BasePageButtonArray(
-        key: basePageButtonArrayKey,
-        basePageSpecs: widget.basePageSpecs,
-      ),
+      floatingActionButton: fabArray,
     );
   }
 }

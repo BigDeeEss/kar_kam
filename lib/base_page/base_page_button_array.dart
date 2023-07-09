@@ -3,47 +3,55 @@ import 'package:flutter/material.dart';
 import 'package:kar_kam/base_page/base_page.dart';
 import 'package:kar_kam/base_page/base_page_route_map.dart';
 
-// Import project-specific files.
-import 'package:kar_kam/base_page/base_page_specs.dart';
-
 class BasePageButtonArray extends StatelessWidget {
-  const BasePageButtonArray({super.key, required this.basePageSpecs});
+  const BasePageButtonArray({
+    super.key,
+    required this.buttonArrayTargetList,
+  });
 
-  /// Defines the current UI layout, including specs for [BasePageButtonArray].
-  final BasePageSpecs basePageSpecs;
+  /// Defines page transitions for each button in [BasePageButtonArray].
+  final List<String> buttonArrayTargetList;
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> fabArray = [];
+    // Generate an iterable using [Iterable.generate()].
+    Iterable<Widget> buttonArray =
+        Iterable.generate(buttonArrayTargetList.length, (index) {
+      return FloatingActionButton(
+        heroTag: null,
+        child: basePageRouteMap[buttonArrayTargetList[index]]?[1],
+        onPressed: () {
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(
+              builder: (BuildContext context) => BasePage(
+                basePageSpecs: basePageRouteMap[buttonArrayTargetList[index]]
+                    ?[0],
+              ),
+            ),
+          );
+        },
+      );
+    });
 
-    List<String>? floatingActionButtonTargetList =
-        basePageSpecs.floatingActionButtonTargetList;
-
-    if (floatingActionButtonTargetList is List<String>) {
-      for (final string in floatingActionButtonTargetList) {
-        fabArray.add(
-          FloatingActionButton(
-            heroTag: null,
-            child: basePageRouteMap[string]?[1],
-            onPressed: () {
-              Navigator.of(context).pushReplacement(
-                MaterialPageRoute(
-                  builder: (BuildContext context) => BasePage(
-                    basePageSpecs: basePageRouteMap[string]?[0],
-                  ),
-                ),
-              );
-            },
-          ),
-        );
-      }
-    }
-
+    // Convert to an instance of [Column] using [intersperseWithSizedBox].
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
       mainAxisSize: MainAxisSize.min,
       // verticalDirection: VerticalDirection.up,
-      children: fabArray,
+      children: intersperseWithSizedBox(buttonArray).toList(),
     );
+  }
+
+  /// Inserts a [SizedBox] between each element of [iterable].
+  /// Code modifies https://pub.dev/packages/intersperse/versions.
+  Iterable<Widget> intersperseWithSizedBox(Iterable<Widget> iterable) sync* {
+    final iterator = iterable.iterator;
+    if (iterator.moveNext()) {
+      yield iterator.current;
+      while (iterator.moveNext()) {
+        yield const SizedBox.square(dimension: 20.0);
+        yield iterator.current;
+      }
+    }
   }
 }
