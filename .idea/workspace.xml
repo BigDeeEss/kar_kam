@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="398c2f1d-d59b-4632-b499-7ce03f824c85" name="Changes" comment="Abstract out fabArray function as BasePageButtonArray.">
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/.filecache" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/.filecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/app.dill" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/app.dill" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/kernel_snapshot.d" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/kernel_snapshot.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
+    <list default="true" id="398c2f1d-d59b-4632-b499-7ce03f824c85" name="Changes" comment="Update BasePageButtonArray using Iterable and a modification of the Dart Intersperse package to insert a SizedBox between each element.&#10;&#10;https://pub.dev/packages/intersperse/versions">
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/base_page/base_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/base_page/base_page.dart" afterDir="false" />
@@ -153,7 +149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688923792235</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Update BasePageButtonArray using Iterable and a modification of the Dart Intersperse package to insert a SizedBox between each element.&#10;&#10;https://pub.dev/packages/intersperse/versions">
+      <created>1688935121230</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1688935121231</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -180,7 +183,8 @@
     <MESSAGE value="Add files_page_specs.dart. Add second item to BasePageSpecs.floatingActionButtonTargetList." />
     <MESSAGE value="Implement prototype FloatingActionButtonArray as a function within _BasePageState." />
     <MESSAGE value="Abstract out fabArray function as BasePageButtonArray." />
-    <option name="LAST_COMMIT_MESSAGE" value="Abstract out fabArray function as BasePageButtonArray." />
+    <MESSAGE value="Update BasePageButtonArray using Iterable and a modification of the Dart Intersperse package to insert a SizedBox between each element.&#10;&#10;https://pub.dev/packages/intersperse/versions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update BasePageButtonArray using Iterable and a modification of the Dart Intersperse package to insert a SizedBox between each element.&#10;&#10;https://pub.dev/packages/intersperse/versions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

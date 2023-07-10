@@ -1,7 +1,10 @@
 // Import external packages.
 import 'package:flutter/material.dart';
+
+// Import project-specific files.
 import 'package:kar_kam/base_page/base_page.dart';
 import 'package:kar_kam/base_page/base_page_route_map.dart';
+import 'package:kar_kam/utils/boxed_container.dart';
 
 class BasePageButtonArray extends StatelessWidget {
   const BasePageButtonArray({
@@ -17,28 +20,32 @@ class BasePageButtonArray extends StatelessWidget {
     // Generate an iterable using [Iterable.generate()].
     Iterable<Widget> buttonArray =
         Iterable.generate(buttonArrayTargetList.length, (index) {
-      return FloatingActionButton(
-        heroTag: null,
-        child: basePageRouteMap[buttonArrayTargetList[index]]?[1],
-        onPressed: () {
-          Navigator.of(context).pushReplacement(
-            MaterialPageRoute(
-              builder: (BuildContext context) => BasePage(
-                basePageSpecs: basePageRouteMap[buttonArrayTargetList[index]]
-                    ?[0],
-              ),
+      return BoxedContainer(
+        child: FloatingActionButton(
+          heroTag: null,
+      child: basePageRouteMap[buttonArrayTargetList[index]]?[1],
+          onPressed: () {
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: (BuildContext context) => BasePage(
+              basePageSpecs: basePageRouteMap[buttonArrayTargetList[index]]
+              ?[0],
             ),
-          );
-        },
+          ),
+        );
+      },
+          ),
       );
     });
 
     // Convert to an instance of [Column] using [intersperseWithSizedBox].
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.end,
-      mainAxisSize: MainAxisSize.min,
-      // verticalDirection: VerticalDirection.up,
-      children: intersperseWithSizedBox(buttonArray).toList(),
+    return BoxedContainer(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        mainAxisSize: MainAxisSize.min,
+        // verticalDirection: VerticalDirection.up,
+        children: intersperseWithSizedBox(buttonArray).toList(),
+      ),
     );
   }
 
