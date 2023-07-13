@@ -7,7 +7,6 @@ import 'package:kar_kam/app_data/get_it_service.dart';
 import 'package:kar_kam/base_page/base_page.dart';
 import 'package:kar_kam/settings/settings_page_specs.dart';
 
-
 /// [KarKam] is the root widget of this application.
 ///
 /// [KarKam] is just a [StatelessWidget] wrapper for [FutureBuilder] which

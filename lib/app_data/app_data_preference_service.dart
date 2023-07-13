@@ -4,7 +4,6 @@ import 'package:kar_kam/app_data/app_data_preference_mixin.dart';
 import 'package:kar_kam/app_data/app_data_manager_mixin.dart';
 import 'package:kar_kam/app_data/get_it_service.dart';
 
-
 /// Implements an app data preference service.
 class AppDataPreferenceService extends AppData
     with AppDataManagerMixin, AppDataPreferenceMixin {

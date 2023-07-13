@@ -7,6 +7,12 @@ abstract class AppData extends ChangeNotifier {
   /// Whether [BoxedContainer] draws bounding boxes or not.
   bool? drawLayoutBounds;
 
+  /// The border width for [SettingsPageListTile].
+  double? settingsPageListTileBorderWidth;
+
+  /// Defines [SettingsPageListTile] corner radius.
+  double? settingsPageListTileRadius;
+
   // ToDo: remove test data.
   bool? testBool;
   double? testDouble;
@@ -32,6 +38,8 @@ abstract class AppData extends ChangeNotifier {
     // ToDo: remove references to test data.
     defaultsMap = {
       'drawLayoutBounds': true,
+      'settingsPageListTileBorderWidth': 1.0,
+      'settingsPageListTileRadius': 5.0,
       'testBool': true,
       'testDouble': 1.2345,
       'testInt': 12345,
@@ -42,6 +50,8 @@ abstract class AppData extends ChangeNotifier {
     // ToDo: remove references to test data.
     getMap = {
       'drawLayoutBounds': () => drawLayoutBounds,
+      'settingsPageListTileBorderWidth':  () => settingsPageListTileBorderWidth,
+      'settingsPageListTileRadius':  () => settingsPageListTileRadius,
       'testBool': () => testBool,
       'testDouble': () => testDouble,
       'testInt': () => testInt,
@@ -52,6 +62,8 @@ abstract class AppData extends ChangeNotifier {
     // ToDo: remove references to test data.
     setMap = {
       'drawLayoutBounds': (bool? value) => drawLayoutBounds = value,
+      'settingsPageListTileBorderWidth': (double? value) => settingsPageListTileBorderWidth = value,
+      'settingsPageListTileRadius': (double? value) => settingsPageListTileRadius = value,
       'testBool': (bool? value) => testBool = value,
       'testDouble': (double? value) => testDouble = value,
       'testInt': (int? value) => testInt = value,
