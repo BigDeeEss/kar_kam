@@ -2,38 +2,52 @@
 import 'package:flutter/material.dart';
 
 // Import project-specific files.
+import 'package:kar_kam/app_data/app_data.dart';
+import 'package:kar_kam/app_data/get_it_service.dart';
 import 'package:kar_kam/base_page/base_page_specs.dart';
-import 'package:kar_kam/settings/settings_ui_list_tile.dart';
+import 'package:kar_kam/settings/settings_page_list_tile.dart';
 
-/// Home layout.
+/// Settings page layout specs.
 BasePageSpecs settingsPageSpecs = BasePageSpecs(
   title: 'Settings',
-  contents: const _SettingsPageSpecs(),
+  contents: const SettingsPageSpecs(),
   floatingActionButtonTargetList: <String>[
     'karKamPageSpecs',
     'filesPageSpecs',
   ],
 );
 
-
-class _SettingsPageSpecs extends StatefulWidget {
-  const _SettingsPageSpecs({super.key});
+/// Implements a ListView.
+class SettingsPageSpecs extends StatefulWidget {
+  const SettingsPageSpecs({super.key});
 
   @override
-  State<_SettingsPageSpecs> createState() => _SettingsPageSpecsState();
+  State<SettingsPageSpecs> createState() => _SettingsPageSpecsState();
 }
 
-class _SettingsPageSpecsState extends State<_SettingsPageSpecs> {
-  // [scrollController] is added to the [ListView] instance below in [build]
-  // in order to get the scroll position [Offset] value.
-  final ScrollController scrollController = ScrollController();
-
+class _SettingsPageSpecsState extends State<SettingsPageSpecs> {
   @override
   Widget build(BuildContext context) {
-    List<Widget> settingsUITileList = [
+    List<Widget> settingsPageTileList = [
+      SettingsPageListTile(
+        leading: const Icon(
+          Icons.circle_notifications_outlined,
+        ),
+        onTap: (() {
+          // Toggle [drawLayoutBounds] variable in [AppData].
+          bool drawLayoutBounds =
+              GetItService.instance<AppData>().drawLayoutBounds!;
+          GetItService.instance<AppData>()
+              .update(string: 'drawLayoutBounds', value: !drawLayoutBounds);
+        }),
+        title: const Text('Click to toggle drawLayoutBounds'),
+        trailing: const Icon(
+          Icons.circle_notifications_outlined,
+        ),
+      ),
       ...List<Widget>.generate(50, (int index) {
-        return SettingsUIListTile(
-          widget: Text(
+        return SettingsPageListTile(
+          title: Text(
             '$index. Some very, very, very, very, very, very, very, very, very, very, very, verylongtext!',
             maxLines: 1,
             softWrap: false,
@@ -42,12 +56,8 @@ class _SettingsPageSpecsState extends State<_SettingsPageSpecs> {
       })
     ];
 
-    return ListView.builder(
-      controller: scrollController,
-      itemCount: settingsUITileList.length,
-      itemBuilder: (context, index) {
-        return settingsUITileList[index];
-      },
+    return ListView(
+      children: settingsPageTileList,
     );
   }
 }

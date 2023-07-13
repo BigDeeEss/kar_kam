@@ -4,11 +4,18 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="398c2f1d-d59b-4632-b499-7ce03f824c85" name="Changes" comment="Update BasePageButtonArray using Iterable and a modification of the Dart Intersperse package to insert a SizedBox between each element.&#10;&#10;https://pub.dev/packages/intersperse/versions">
+    <list default="true" id="398c2f1d-d59b-4632-b499-7ce03f824c85" name="Changes" comment="Reimplement ability for user to set drawLayoutBounds.&#10;&#10;Also add RoundedRectangleBorder shape to Card in SettingsUIListTile.">
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/.filecache" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/.filecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/app.dill" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/app.dill" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/kernel_snapshot.d" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/8c9aa6caf79de67e2b2245abfd1b8a6f/kernel_snapshot.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/version" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/version" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/base_page/base_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/base_page/base_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/base_page/base_page_button_array.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/base_page/base_page_button_array.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/.last_build_id" beforeDir="false" afterPath="$PROJECT_DIR$/build/.last_build_id" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app_data/app_data_manager_mixin.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app_data/app_data_manager_mixin.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/settings/settings_page_specs.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/settings/settings_page_specs.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/settings/settings_ui_list_tile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/settings/settings_page_list_tile.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,7 +163,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688935121231</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Wrap BasePageButtonArray and its elements and AppBar title in BoxedContainer.">
+      <created>1689016071416</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1689016071416</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -184,12 +198,14 @@
     <MESSAGE value="Implement prototype FloatingActionButtonArray as a function within _BasePageState." />
     <MESSAGE value="Abstract out fabArray function as BasePageButtonArray." />
     <MESSAGE value="Update BasePageButtonArray using Iterable and a modification of the Dart Intersperse package to insert a SizedBox between each element.&#10;&#10;https://pub.dev/packages/intersperse/versions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update BasePageButtonArray using Iterable and a modification of the Dart Intersperse package to insert a SizedBox between each element.&#10;&#10;https://pub.dev/packages/intersperse/versions" />
+    <MESSAGE value="Wrap BasePageButtonArray and its elements and AppBar title in BoxedContainer." />
+    <MESSAGE value="Reimplement ability for user to set drawLayoutBounds.&#10;&#10;Also add RoundedRectangleBorder shape to Card in SettingsUIListTile." />
+    <option name="LAST_COMMIT_MESSAGE" value="Reimplement ability for user to set drawLayoutBounds.&#10;&#10;Also add RoundedRectangleBorder shape to Card in SettingsUIListTile." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint type="Dart">
+        <line-breakpoint enabled="true" type="Dart">
           <url>file://$PROJECT_DIR$/lib/main.dart</url>
           <line>27</line>
           <option name="timeStamp" value="3" />
@@ -205,14 +221,24 @@
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint type="Dart">
-          <url>file://$PROJECT_DIR$/lib/app_data/app_data_preference_service.dart</url>
-          <line>12</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
           <url>file://$USER_HOME$/.pub-cache/hosted/pub.dev/intersperse-2.0.0/lib/src/intersperse.dart</url>
           <line>8</line>
           <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint type="Dart">
+          <url>file://$PROJECT_DIR$/lib/app_data/app_data_preference_service.dart</url>
+          <line>12</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/app_data/app_data_preference_service.dart</url>
+          <line>26</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/app_data/app_data_preference_mixin.dart</url>
+          <line>12</line>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
