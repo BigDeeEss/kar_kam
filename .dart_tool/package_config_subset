@@ -98,10 +98,6 @@ plugin_platform_interface
 2.17
 file:///home/damon/.pub-cache/hosted/pub.dev/plugin_platform_interface-2.1.4/
 file:///home/damon/.pub-cache/hosted/pub.dev/plugin_platform_interface-2.1.4/lib/
-process
-2.14
-file:///home/damon/.pub-cache/hosted/pub.dev/process-4.2.4/
-file:///home/damon/.pub-cache/hosted/pub.dev/process-4.2.4/lib/
 shared_preferences
 2.18
 file:///home/damon/.pub-cache/hosted/pub.dev/shared_preferences-2.2.0/
@@ -112,8 +108,8 @@ file:///home/damon/.pub-cache/hosted/pub.dev/shared_preferences_android-2.2.0/
 file:///home/damon/.pub-cache/hosted/pub.dev/shared_preferences_android-2.2.0/lib/
 shared_preferences_foundation
 2.18
-file:///home/damon/.pub-cache/hosted/pub.dev/shared_preferences_foundation-2.3.1/
-file:///home/damon/.pub-cache/hosted/pub.dev/shared_preferences_foundation-2.3.1/lib/
+file:///home/damon/.pub-cache/hosted/pub.dev/shared_preferences_foundation-2.3.2/
+file:///home/damon/.pub-cache/hosted/pub.dev/shared_preferences_foundation-2.3.2/lib/
 shared_preferences_linux
 2.18
 file:///home/damon/.pub-cache/hosted/pub.dev/shared_preferences_linux-2.3.0/
@@ -163,9 +159,9 @@ win32
 file:///home/damon/.pub-cache/hosted/pub.dev/win32-5.0.5/
 file:///home/damon/.pub-cache/hosted/pub.dev/win32-5.0.5/lib/
 xdg_directories
-2.17
-file:///home/damon/.pub-cache/hosted/pub.dev/xdg_directories-1.0.0/
-file:///home/damon/.pub-cache/hosted/pub.dev/xdg_directories-1.0.0/lib/
+2.18
+file:///home/damon/.pub-cache/hosted/pub.dev/xdg_directories-1.0.1/
+file:///home/damon/.pub-cache/hosted/pub.dev/xdg_directories-1.0.1/lib/
 kar_kam
 3.0
 file:///home/damon/StudioProjects/kar_kam/

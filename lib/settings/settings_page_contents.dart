@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 // Import project-specific files.
 import 'package:kar_kam/app_data/app_data.dart';
-import 'package:kar_kam/app_data/get_it_service.dart';
+import 'package:kar_kam/utils/get_it_service.dart';
 import 'package:kar_kam/settings/settings_page_list_tile.dart';
 
 /// Implements a ListView.

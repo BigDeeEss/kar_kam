@@ -5,16 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="398c2f1d-d59b-4632-b499-7ce03f824c85" name="Changes" comment="Reimplement ability for user to set drawLayoutBounds.&#10;&#10;Also add RoundedRectangleBorder shape to Card in SettingsUIListTile.">
-      <change afterPath="$PROJECT_DIR$/lib/settings/settings_page_contents.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config_subset" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config_subset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/linux/x64/debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/build/linux/x64/debug/build.ninja" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app_data/app_data.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app_data/app_data.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app_data/app_data_preference_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app_data/app_data_preference_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app_data/get_it_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/get_it_service.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/kar_kam/kar_kam.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/kar_kam/kar_kam.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/settings/settings_page_list_tile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/settings/settings_page_list_tile.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/settings/settings_page_specs.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/settings/settings_page_specs.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/settings/settings_page_contents.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/settings/settings_page_contents.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/utils/boxed_container.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/boxed_container.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +25,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="7-settings-ui-with-fab" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -46,13 +47,16 @@
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
     "io.flutter.reload.alreadyRun": "true",
-    "last_opened_file_path": "/home/damon/StudioProjects/kar_kam",
+    "last_opened_file_path": "/home/damon/StudioProjects/kar_kam/lib/utils",
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "show.migrate.to.gradle.popup": "false"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/utils" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/lib/utils" />
     </key>
   </component>
