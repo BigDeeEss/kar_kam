@@ -48,7 +48,6 @@ class SettingsPageListTile extends StatelessWidget with GetItMixin {
       child: InkWell(
         onTap: onTap,
         child: BoxedContainer(
-          borderRadius: settingsPageListTileRadius,
           borderWidth: settingsPageListTileBorderWidth,
           child: Row(
             children: <Widget>[
@@ -68,29 +67,28 @@ class SettingsPageListTile extends StatelessWidget with GetItMixin {
         ),
       ),
     );
-    return BoxedContainer(
-      borderRadius: settingsPageListTileRadius,
-      borderWidth: settingsPageListTileBorderWidth,
-      child: ListTile(
-        leading: leading,
-        onTap: onTap,
-        title: title,
-        trailing: trailing,
-      ),
-    );
-    return BoxedContainer(
-      child: Card(
-        shape: RoundedRectangleBorder(
-          // side: BorderSide(),
-          borderRadius: BorderRadius.circular(20.0),
-        ),
-        child: ListTile(
-          leading: leading,
-          onTap: onTap,
-          title: title,
-          trailing: trailing,
-        ),
-      ),
-    );
+    // return BoxedContainer(
+    //   borderWidth: settingsPageListTileBorderWidth,
+    //   child: ListTile(
+    //     leading: leading,
+    //     onTap: onTap,
+    //     title: title,
+    //     trailing: trailing,
+    //   ),
+    // );
+    // return BoxedContainer(
+    //   child: Card(
+    //     shape: RoundedRectangleBorder(
+    //       // side: BorderSide(),
+    //       borderRadius: BorderRadius.circular(20.0),
+    //     ),
+    //     child: ListTile(
+    //       leading: leading,
+    //       onTap: onTap,
+    //       title: title,
+    //       trailing: trailing,
+    //     ),
+    //   ),
+    // );
   }
 }
