@@ -203,7 +203,8 @@ class _BBoxedContainerState extends State<_BBoxedContainer> {
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       log('_BBoxedContainerState, initState...childRect = $childRect');
-      childRect = childKey.globalPaintBounds;
+      childRect =
+          childKey.globalPaintBounds?.inflate(widget.borderWidth ?? 0.1);
       log('_BBoxedContainerState, initState...childRect = $childRect');
       if (widget.drawLayoutBounds) {
         addBorder();

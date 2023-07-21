@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="398c2f1d-d59b-4632-b499-7ce03f824c85" name="Changes" comment="Use IgnorablePointer to allow widgets below the pink square to be clicked.">
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+    <list default="true" id="398c2f1d-d59b-4632-b499-7ce03f824c85" name="Changes" comment="Successfully enclosed ButtonArray with a semi-opaque Container.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app_data/app_data_manager_mixin.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app_data/app_data_manager_mixin.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/utils/bboxed_container.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/bboxed_container.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -201,7 +199,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689947571035</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Successfully enclosed ButtonArray with a semi-opaque Container.">
+      <created>1689949341061</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1689949341061</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -235,7 +240,8 @@
     <MESSAGE value="Successful attempt at using overlays in Fluuter to produce a pink square that can betoggled on and off using SettingsPageListTile.&#10;&#10;Currently only the overarching bounding box for ButtonArray, not individual buttons, is used with BBoxedContainer and overlays. This is for diagnostic/development purposes.&#10;&#10;In order to force a rebuild of _BBoxedContainer in BBoxedContainer a UniqueKey() is supplied." />
     <MESSAGE value="Increase size of pink box to prove that it obscures the clickable SettingsPageListTiles below. Problem." />
     <MESSAGE value="Use IgnorablePointer to allow widgets below the pink square to be clicked." />
-    <option name="LAST_COMMIT_MESSAGE" value="Use IgnorablePointer to allow widgets below the pink square to be clicked." />
+    <MESSAGE value="Successfully enclosed ButtonArray with a semi-opaque Container." />
+    <option name="LAST_COMMIT_MESSAGE" value="Successfully enclosed ButtonArray with a semi-opaque Container." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
