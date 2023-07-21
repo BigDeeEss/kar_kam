@@ -159,7 +159,7 @@ class _BBoxedContainerState extends State<_BBoxedContainer> {
             Container(
               color: Colors.pink,
               child: SizedBox.square(
-                dimension: 20,
+                dimension: 100,
               ),
             ),
           ],

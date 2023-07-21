@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="398c2f1d-d59b-4632-b499-7ce03f824c85" name="Changes" comment="Attempt to fix problem associated with previous commit.&#10;&#10;Introduce an intermediary StatefulWidget, BBoxedContainer, to consider the GetItMix. Add in a secoindary StatefulWidget, _BBoxedContainer, to perform the overlay management fuction.">
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/base_page/base_page_button_array.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/base_page/base_page_button_array.dart" afterDir="false" />
+    <list default="true" id="398c2f1d-d59b-4632-b499-7ce03f824c85" name="Changes" comment="Successful attempt at using overlays in Fluuter to produce a pink square that can betoggled on and off using SettingsPageListTile.&#10;&#10;Currently only the overarching bounding box for ButtonArray, not individual buttons, is used with BBoxedContainer and overlays. This is for diagnostic/development purposes.&#10;&#10;In order to force a rebuild of _BBoxedContainer in BBoxedContainer a UniqueKey() is supplied.">
       <change beforePath="$PROJECT_DIR$/lib/utils/bboxed_container.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/bboxed_container.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -180,7 +177,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689924312393</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Successful attempt at using overlays in Fluuter to produce a pink square that can betoggled on and off using SettingsPageListTile.&#10;&#10;Currently only the overarching bounding box for ButtonArray, not individual buttons, is used with BBoxedContainer and overlays. This is for diagnostic/development purposes.&#10;&#10;In order to force a rebuild of _BBoxedContainer in BBoxedContainer a UniqueKey() is supplied.">
+      <created>1689946575649</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1689946575649</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -211,7 +215,8 @@
     <MESSAGE value="Wrap BasePageButtonArray and its elements and AppBar title in BoxedContainer." />
     <MESSAGE value="Reimplement ability for user to set drawLayoutBounds.&#10;&#10;Also add RoundedRectangleBorder shape to Card in SettingsUIListTile." />
     <MESSAGE value="Attempt to fix problem associated with previous commit.&#10;&#10;Introduce an intermediary StatefulWidget, BBoxedContainer, to consider the GetItMix. Add in a secoindary StatefulWidget, _BBoxedContainer, to perform the overlay management fuction." />
-    <option name="LAST_COMMIT_MESSAGE" value="Attempt to fix problem associated with previous commit.&#10;&#10;Introduce an intermediary StatefulWidget, BBoxedContainer, to consider the GetItMix. Add in a secoindary StatefulWidget, _BBoxedContainer, to perform the overlay management fuction." />
+    <MESSAGE value="Successful attempt at using overlays in Fluuter to produce a pink square that can betoggled on and off using SettingsPageListTile.&#10;&#10;Currently only the overarching bounding box for ButtonArray, not individual buttons, is used with BBoxedContainer and overlays. This is for diagnostic/development purposes.&#10;&#10;In order to force a rebuild of _BBoxedContainer in BBoxedContainer a UniqueKey() is supplied." />
+    <option name="LAST_COMMIT_MESSAGE" value="Successful attempt at using overlays in Fluuter to produce a pink square that can betoggled on and off using SettingsPageListTile.&#10;&#10;Currently only the overarching bounding box for ButtonArray, not individual buttons, is used with BBoxedContainer and overlays. This is for diagnostic/development purposes.&#10;&#10;In order to force a rebuild of _BBoxedContainer in BBoxedContainer a UniqueKey() is supplied." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
