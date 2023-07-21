@@ -7,9 +7,7 @@ import 'package:get_it_mixin/get_it_mixin.dart';
 
 // Import project-specific files.
 import 'package:kar_kam/app_data/app_data.dart';
-
-// import 'package:kar_kam/utils/get_it_service.dart';
-// import 'package:kar_kam/utils/global_key_extension.dart';
+import 'package:kar_kam/utils/global_key_extension.dart';
 
 /// Implements a [Container] and draws its bounding box.
 class BBoxedContainer extends StatelessWidget with GetItMixin {
@@ -58,7 +56,7 @@ class BBoxedContainer extends StatelessWidget with GetItMixin {
     // Watch for changes to [AppData.drawLayoutBounds] registered with GetIt.
     bool? drawLayoutBounds =
         watchOnly((AppData a) => a.drawLayoutBounds) ?? false;
-    log('BBoxedContainer, build...building...');
+    // log('BBoxedContainer, build...building...');
 
     // Switch control of layout bounds from [drawLayoutBounds], which is
     // intended to be a global app setting, to [drawLayoutBoundsOverride]
@@ -135,33 +133,44 @@ class _BBoxedContainer extends StatefulWidget {
 }
 
 class _BBoxedContainerState extends State<_BBoxedContainer> {
-  // The link which connects the layers associated with
-  LayerLink layerLink = LayerLink();
-
-  // An [OverlayEntry] that will ultimately contain just a border
-  // representing the layout bounds for [widget.child].
+  // An [OverlayEntry] that will ultimately contain just a border to
+  // represent the layout bounds for [widget.child].
   OverlayEntry? border;
 
-  // An [OverlayState] object that will border and display it.
+  // Required by [addBorder] to determine the bounding box for [widget.child].
+  final GlobalKey childKey = GlobalKey();
+
+  // Required by [addBorder] to determine the bounding box for [widget.child].
+  Rect? childRect;
+
+  // // The link which connects the layers associated with
+  // LayerLink layerLink = LayerLink();
+
+  // An object that displays [border] if [drawLayoutBounds] is true.
   OverlayState? overlayState;
 
   // Generates the layout bounds for [widget.child].
   void addBorder() {
     // Start with [border] as null.
     removeBorder();
-    log('_BBoxedContainerState, addBorder...executing...');
+    // log('_BBoxedContainerState, addBorder...executing...');
 
     // Create [border].
     border = OverlayEntry(
       builder: (BuildContext context) {
         return Stack(
           children: <Widget>[
-            IgnorePointer(
-              ignoring: true,
-              child: Container(
-                color: Colors.pinkAccent,
-                child: const SizedBox.square(
-                  dimension: 100,
+            Positioned(
+              top: childRect!.top,
+              left: childRect!.left,
+              child: IgnorePointer(
+                ignoring: true,
+                child: Container(
+                  color: Colors.pinkAccent.withOpacity(0.5),
+                  child: SizedBox(
+                    height: childRect!.height,
+                    width: childRect!.width,
+                  ),
                 ),
               ),
             ),
@@ -178,14 +187,14 @@ class _BBoxedContainerState extends State<_BBoxedContainer> {
   // Make sure [border] is removed when the widget is disposed.
   @override
   void dispose() {
-    log('_BBoxedContainerState, dispose...executing...');
+    // log('_BBoxedContainerState, dispose...executing...');
     removeBorder();
     super.dispose();
   }
 
   // Remove [border] and set to null.
   void removeBorder() {
-    log('_BBoxedContainerState, removeBorder...executing...');
+    // log('_BBoxedContainerState, removeBorder...executing...');
     border?.remove();
     border = null;
   }
@@ -193,19 +202,21 @@ class _BBoxedContainerState extends State<_BBoxedContainer> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
+      log('_BBoxedContainerState, initState...childRect = $childRect');
+      childRect = childKey.globalPaintBounds;
+      log('_BBoxedContainerState, initState...childRect = $childRect');
       if (widget.drawLayoutBounds) {
         addBorder();
       }
-
-      // setState(() {
-      //
-      // });
     });
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return widget.child ?? Container();
+    return Container(
+      key: childKey,
+      child: widget.child,
+    );
   }
 }

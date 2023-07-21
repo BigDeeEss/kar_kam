@@ -11,8 +11,8 @@ mixin AppDataManagerMixin on AppData {
     required String string,
     var value,
   }) {
-    print('AppDataManagerMixin, string...$string');
-    print('AppDataManagerMixin, value...$value');
+    // print('AppDataManagerMixin, string...$string');
+    // print('AppDataManagerMixin, value...$value');
     if (value != null) {
       // Set [AppData.field], identified by string, to value.
       setMap?[string]?.call(value);
