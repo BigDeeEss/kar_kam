@@ -156,10 +156,13 @@ class _BBoxedContainerState extends State<_BBoxedContainer> {
       builder: (BuildContext context) {
         return Stack(
           children: <Widget>[
-            Container(
-              color: Colors.pink,
-              child: SizedBox.square(
-                dimension: 100,
+            IgnorePointer(
+              ignoring: true,
+              child: Container(
+                color: Colors.pinkAccent,
+                child: const SizedBox.square(
+                  dimension: 100,
+                ),
               ),
             ),
           ],
