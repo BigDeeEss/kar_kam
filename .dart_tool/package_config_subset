@@ -95,9 +95,9 @@ platform
 file:///home/damon/.pub-cache/hosted/pub.dev/platform-3.1.0/
 file:///home/damon/.pub-cache/hosted/pub.dev/platform-3.1.0/lib/
 plugin_platform_interface
-2.17
-file:///home/damon/.pub-cache/hosted/pub.dev/plugin_platform_interface-2.1.4/
-file:///home/damon/.pub-cache/hosted/pub.dev/plugin_platform_interface-2.1.4/lib/
+2.18
+file:///home/damon/.pub-cache/hosted/pub.dev/plugin_platform_interface-2.1.5/
+file:///home/damon/.pub-cache/hosted/pub.dev/plugin_platform_interface-2.1.5/lib/
 shared_preferences
 2.18
 file:///home/damon/.pub-cache/hosted/pub.dev/shared_preferences-2.2.0/

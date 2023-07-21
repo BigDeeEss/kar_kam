@@ -166,10 +166,16 @@ class _BBoxedContainerState extends State<_BBoxedContainer> {
               child: IgnorePointer(
                 ignoring: true,
                 child: Container(
-                  color: Colors.pinkAccent.withOpacity(0.5),
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      width: widget.borderWidth ?? 0.1,
+                      color: widget.borderColor ?? Colors.black,
+                    ),
+                    color: widget.color,
+                  ),
                   child: SizedBox(
-                    height: childRect!.height,
-                    width: childRect!.width,
+                    height: childRect!.height - 2 * (widget.borderWidth ?? 0.1),
+                    width: childRect!.width - 2 * (widget.borderWidth ?? 0.1),
                   ),
                 ),
               ),
@@ -203,8 +209,8 @@ class _BBoxedContainerState extends State<_BBoxedContainer> {
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       log('_BBoxedContainerState, initState...childRect = $childRect');
-      childRect =
-          childKey.globalPaintBounds?.inflate(widget.borderWidth ?? 0.1);
+      childRect = childKey.globalPaintBounds;
+      // childRect = childKey.globalPaintBounds?.inflate(-(widget.borderWidth ?? 0.1));
       log('_BBoxedContainerState, initState...childRect = $childRect');
       if (widget.drawLayoutBounds) {
         addBorder();

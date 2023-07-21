@@ -41,7 +41,9 @@ class BasePageButtonArray extends StatelessWidget {
 
     // Convert to an instance of [Column] using [intersperseWithSizedBox].
     return BBoxedContainer(
-      color: Colors.green,
+      borderColor: Colors.green.withOpacity(0.2),
+      borderWidth: 6,
+      // color: Colors.green.withOpacity(0.125),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         mainAxisSize: MainAxisSize.min,

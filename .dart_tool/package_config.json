@@ -165,9 +165,9 @@
     },
     {
       "name": "plugin_platform_interface",
-      "rootUri": "file:///home/damon/.pub-cache/hosted/pub.dev/plugin_platform_interface-2.1.4",
+      "rootUri": "file:///home/damon/.pub-cache/hosted/pub.dev/plugin_platform_interface-2.1.5",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "2.18"
     },
     {
       "name": "shared_preferences",
@@ -278,7 +278,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-07-18T18:32:37.119633Z",
+  "generated": "2023-07-21T15:58:25.155378Z",
   "generator": "pub",
   "generatorVersion": "3.0.6"
 }
