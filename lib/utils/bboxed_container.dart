@@ -1,5 +1,7 @@
 // Import flutter packages.
 // import 'dart:developer';
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get_it_mixin/get_it_mixin.dart';
 
@@ -54,8 +56,9 @@ class BBoxedContainer extends StatelessWidget with GetItMixin {
   @override
   Widget build(BuildContext context) {
     // Watch for changes to [AppData.drawLayoutBounds] registered with GetIt.
-    bool drawLayoutBounds =
-        watchOnly((AppData a) => a.drawLayoutBounds ?? false);
+    bool? drawLayoutBounds =
+        watchOnly((AppData a) => a.drawLayoutBounds) ?? false;
+    log('BBoxedContainer, build...building...');
 
     // Switch control of layout bounds from [drawLayoutBounds], which is
     // intended to be a global app setting, to [drawLayoutBoundsOverride]
@@ -65,6 +68,7 @@ class BBoxedContainer extends StatelessWidget with GetItMixin {
     }
 
     return _BBoxedContainer(
+      key: UniqueKey(),
       alignment: alignment,
       borderColor: borderColor,
       borderWidth: borderWidth,
@@ -131,6 +135,72 @@ class _BBoxedContainer extends StatefulWidget {
 }
 
 class _BBoxedContainerState extends State<_BBoxedContainer> {
+  // The link which connects the layers associated with
+  LayerLink layerLink = LayerLink();
+
+  // An [OverlayEntry] that will ultimately contain just a border
+  // representing the layout bounds for [widget.child].
+  OverlayEntry? border;
+
+  // An [OverlayState] object that will border and display it.
+  OverlayState? overlayState;
+
+  // Generates the layout bounds for [widget.child].
+  void addBorder() {
+    // Start with [border] as null.
+    removeBorder();
+    log('_BBoxedContainerState, addBorder...executing...');
+
+    // Create [border].
+    border = OverlayEntry(
+      builder: (BuildContext context) {
+        return Stack(
+          children: <Widget>[
+            Container(
+              color: Colors.pink,
+              child: SizedBox.square(
+                dimension: 20,
+              ),
+            ),
+          ],
+        );
+      },
+    );
+
+    // Insert the [border] OverlayEntry
+    overlayState = Overlay.of(context);
+    overlayState?.insert(border!);
+  }
+
+  // Make sure [border] is removed when the widget is disposed.
+  @override
+  void dispose() {
+    log('_BBoxedContainerState, dispose...executing...');
+    removeBorder();
+    super.dispose();
+  }
+
+  // Remove [border] and set to null.
+  void removeBorder() {
+    log('_BBoxedContainerState, removeBorder...executing...');
+    border?.remove();
+    border = null;
+  }
+
+  @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (widget.drawLayoutBounds) {
+        addBorder();
+      }
+
+      // setState(() {
+      //
+      // });
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return widget.child ?? Container();

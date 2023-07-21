@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="398c2f1d-d59b-4632-b499-7ce03f824c85" name="Changes" comment="Reimplement ability for user to set drawLayoutBounds.&#10;&#10;Also add RoundedRectangleBorder shape to Card in SettingsUIListTile.">
-      <change afterPath="$PROJECT_DIR$/lib/utils/bboxed_container.dart" afterDir="false" />
+    <list default="true" id="398c2f1d-d59b-4632-b499-7ce03f824c85" name="Changes" comment="Attempt to fix problem associated with previous commit.&#10;&#10;Introduce an intermediary StatefulWidget, BBoxedContainer, to consider the GetItMix. Add in a secoindary StatefulWidget, _BBoxedContainer, to perform the overlay management fuction.">
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/base_page/base_page_button_array.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/base_page/base_page_button_array.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/boxed_container.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/boxed_container.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/bboxed_container.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/bboxed_container.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +40,7 @@
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/damon/StudioProjects/kar_kam/lib/utils&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/damon/StudioProjects/overlay_3&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
@@ -174,7 +173,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689271769749</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Attempt to fix problem associated with previous commit.&#10;&#10;Introduce an intermediary StatefulWidget, BBoxedContainer, to consider the GetItMix. Add in a secoindary StatefulWidget, _BBoxedContainer, to perform the overlay management fuction.">
+      <created>1689924312393</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1689924312393</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -204,7 +210,8 @@
     <MESSAGE value="Update BasePageButtonArray using Iterable and a modification of the Dart Intersperse package to insert a SizedBox between each element.&#10;&#10;https://pub.dev/packages/intersperse/versions" />
     <MESSAGE value="Wrap BasePageButtonArray and its elements and AppBar title in BoxedContainer." />
     <MESSAGE value="Reimplement ability for user to set drawLayoutBounds.&#10;&#10;Also add RoundedRectangleBorder shape to Card in SettingsUIListTile." />
-    <option name="LAST_COMMIT_MESSAGE" value="Reimplement ability for user to set drawLayoutBounds.&#10;&#10;Also add RoundedRectangleBorder shape to Card in SettingsUIListTile." />
+    <MESSAGE value="Attempt to fix problem associated with previous commit.&#10;&#10;Introduce an intermediary StatefulWidget, BBoxedContainer, to consider the GetItMix. Add in a secoindary StatefulWidget, _BBoxedContainer, to perform the overlay management fuction." />
+    <option name="LAST_COMMIT_MESSAGE" value="Attempt to fix problem associated with previous commit.&#10;&#10;Introduce an intermediary StatefulWidget, BBoxedContainer, to consider the GetItMix. Add in a secoindary StatefulWidget, _BBoxedContainer, to perform the overlay management fuction." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

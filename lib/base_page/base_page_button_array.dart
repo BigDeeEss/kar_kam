@@ -24,23 +24,24 @@ class BasePageButtonArray extends StatelessWidget {
       return BoxedContainer(
         child: FloatingActionButton(
           heroTag: null,
-      child: basePageRouteMap[buttonArrayTargetList[index]]?[1],
+          child: basePageRouteMap[buttonArrayTargetList[index]]?[1],
           onPressed: () {
-        Navigator.of(context).pushReplacement(
-          MaterialPageRoute(
-            builder: (BuildContext context) => BasePage(
-              basePageSpecs: basePageRouteMap[buttonArrayTargetList[index]]
-              ?[0],
-            ),
-          ),
-        );
-      },
-          ),
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(
+                builder: (BuildContext context) => BasePage(
+                  basePageSpecs: basePageRouteMap[buttonArrayTargetList[index]]
+                      ?[0],
+                ),
+              ),
+            );
+          },
+        ),
       );
     });
 
     // Convert to an instance of [Column] using [intersperseWithSizedBox].
     return BBoxedContainer(
+      color: Colors.green,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         mainAxisSize: MainAxisSize.min,
