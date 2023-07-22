@@ -1,15 +1,16 @@
 // Import external packages.
 import 'package:flutter/material.dart';
 import 'package:get_it_mixin/get_it_mixin.dart';
-import 'package:kar_kam/app_data/app_data.dart';
 
 // Import project-specific files.
+import 'package:kar_kam/app_data/app_data.dart';
 import 'package:kar_kam/utils/boxed_container.dart';
+import 'package:kar_kam/utils/bboxed_container.dart';
 
 class SettingsPageListTile extends StatelessWidget with GetItMixin {
   SettingsPageListTile({
     super.key,
-    required this.height,
+    this.height,
     this.leading,
     this.onTap,
     this.title,
@@ -17,7 +18,7 @@ class SettingsPageListTile extends StatelessWidget with GetItMixin {
   });
 
   /// Height of the bounding box for [SettingsPageListTile].
-  final double height;
+  final double? height;
 
   /// A widget to display on the left within [SettingsPageListTile].
   final Widget? leading;
@@ -44,7 +45,7 @@ class SettingsPageListTile extends StatelessWidget with GetItMixin {
 
     return BoxedContainer(
       padding: const EdgeInsets.all(5),
-      // height: height,
+      height: height,
       child: InkWell(
         onTap: onTap,
         child: BoxedContainer(

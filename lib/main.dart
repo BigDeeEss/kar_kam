@@ -9,7 +9,7 @@ import 'package:kar_kam/kar_kam/kar_kam.dart';
 
 /// App start point.
 void main() {
-  // Avoids an error with error message: 'The "instance" getter on the
+  // Avoids the error with message: 'The "instance" getter on the
   // ServicesBinding binding mixin is only available once that binding
   // has been initialized.'
   //

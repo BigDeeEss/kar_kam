@@ -1,7 +1,4 @@
 // Import flutter packages.
-// import 'dart:developer';
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:get_it_mixin/get_it_mixin.dart';
 
@@ -14,8 +11,8 @@ class BBoxedContainer extends StatelessWidget with GetItMixin {
   BBoxedContainer({
     super.key,
     this.alignment,
-    this.borderColor,
-    this.borderWidth,
+    this.borderColor = Colors.black,
+    this.borderWidth = 1.0,
     this.child,
     this.clipBehavior,
     this.color,
@@ -47,8 +44,8 @@ class BBoxedContainer extends StatelessWidget with GetItMixin {
   final double? width;
 
   // [BoxedContainer]-specific variables.
-  final Color? borderColor;
-  final double? borderWidth;
+  final Color borderColor;
+  final double borderWidth;
   final bool drawLayoutBoundsOverride;
 
   @override
@@ -56,14 +53,11 @@ class BBoxedContainer extends StatelessWidget with GetItMixin {
     // Watch for changes to [AppData.drawLayoutBounds] registered with GetIt.
     bool? drawLayoutBounds =
         watchOnly((AppData a) => a.drawLayoutBounds) ?? false;
-    // log('BBoxedContainer, build...building...');
 
     // Switch control of layout bounds from [drawLayoutBounds], which is
     // intended to be a global app setting, to [drawLayoutBoundsOverride]
     // which is localised at the point of instantiation.
-    if (drawLayoutBoundsOverride && borderWidth != null) {
-      drawLayoutBounds = (borderWidth! > 0.0 ? true : false);
-    }
+    drawLayoutBounds = drawLayoutBounds || drawLayoutBoundsOverride;
 
     return _BBoxedContainer(
       key: UniqueKey(),
@@ -91,8 +85,8 @@ class _BBoxedContainer extends StatefulWidget {
   const _BBoxedContainer({
     Key? key,
     this.alignment,
-    this.borderColor,
-    this.borderWidth,
+    required this.borderColor,
+    required this.borderWidth,
     this.child,
     this.clipBehavior,
     this.color,
@@ -124,8 +118,8 @@ class _BBoxedContainer extends StatefulWidget {
   final double? width;
 
   // [BoxedContainer]-specific variables.
-  final Color? borderColor;
-  final double? borderWidth;
+  final Color borderColor;
+  final double borderWidth;
   final bool drawLayoutBounds;
 
   @override
@@ -137,11 +131,8 @@ class _BBoxedContainerState extends State<_BBoxedContainer> {
   // represent the layout bounds for [widget.child].
   OverlayEntry? border;
 
-  // Required by [addBorder] to determine the bounding box for [widget.child].
+  // Used by [addBorder] for determining the bounding box for [widget.child].
   final GlobalKey childKey = GlobalKey();
-
-  // Required by [addBorder] to determine the bounding box for [widget.child].
-  Rect? childRect;
 
   // // The link which connects the layers associated with
   // LayerLink layerLink = LayerLink();
@@ -150,57 +141,62 @@ class _BBoxedContainerState extends State<_BBoxedContainer> {
   OverlayState? overlayState;
 
   // Generates the layout bounds for [widget.child].
-  void addBorder() {
+  void addBorder(Rect? rect) {
     // Start with [border] as null.
     removeBorder();
-    // log('_BBoxedContainerState, addBorder...executing...');
 
     // Create [border].
-    border = OverlayEntry(
-      builder: (BuildContext context) {
-        return Stack(
-          children: <Widget>[
-            Positioned(
-              top: childRect!.top,
-              left: childRect!.left,
-              child: IgnorePointer(
-                ignoring: true,
-                child: Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      width: widget.borderWidth ?? 0.1,
-                      color: widget.borderColor ?? Colors.black,
+    if (rect is Rect) {
+      // Adjust [rect] to account for [widget.borderWidth].
+      Rect borderRect = rect.inflate(-2 * widget.borderWidth);
+
+      // Avoid creating [border] if [borderRect] dimensions are too small.
+      if (borderRect.shortestSide < 2) return;
+
+      // Create [border].
+      border = OverlayEntry(
+        builder: (BuildContext context) {
+          return Stack(
+            children: <Widget>[
+              Positioned.fromRect(
+                rect: rect!,
+                child: IgnorePointer(
+                  ignoring: true,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        width: widget.borderWidth,
+                        color: widget.borderColor,
+                      ),
+                      color: widget.color,
                     ),
-                    color: widget.color,
-                  ),
-                  child: SizedBox(
-                    height: childRect!.height - 2 * (widget.borderWidth ?? 0.1),
-                    width: childRect!.width - 2 * (widget.borderWidth ?? 0.1),
+                    child: SizedBox(
+                      height: borderRect.height,
+                      width: borderRect.width,
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
-        );
-      },
-    );
+            ],
+          );
+        },
+      );
 
-    // Insert the [border] OverlayEntry
-    overlayState = Overlay.of(context);
-    overlayState?.insert(border!);
+      // Insert the [border] OverlayEntry
+      overlayState = Overlay.of(context);
+      overlayState?.insert(border!);
+    }
   }
 
   // Make sure [border] is removed when the widget is disposed.
   @override
   void dispose() {
-    // log('_BBoxedContainerState, dispose...executing...');
     removeBorder();
     super.dispose();
   }
 
   // Remove [border] and set to null.
   void removeBorder() {
-    // log('_BBoxedContainerState, removeBorder...executing...');
     border?.remove();
     border = null;
   }
@@ -208,12 +204,9 @@ class _BBoxedContainerState extends State<_BBoxedContainer> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      log('_BBoxedContainerState, initState...childRect = $childRect');
-      childRect = childKey.globalPaintBounds;
-      // childRect = childKey.globalPaintBounds?.inflate(-(widget.borderWidth ?? 0.1));
-      log('_BBoxedContainerState, initState...childRect = $childRect');
+      // Get [child] bounding box characteristics if requested.
       if (widget.drawLayoutBounds) {
-        addBorder();
+        addBorder(childKey.globalPaintBounds);
       }
     });
     super.initState();

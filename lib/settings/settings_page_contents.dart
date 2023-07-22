@@ -22,7 +22,7 @@ class _SettingsPageContentsState extends State<SettingsPageContents> {
         leading: const Icon(
           Icons.circle_notifications_outlined,
         ),
-        height: 60.0,
+        // height: 60.0,
         onTap: (() {
           // Toggle [drawLayoutBounds] variable in [AppData].
           bool drawLayoutBounds =
@@ -37,7 +37,7 @@ class _SettingsPageContentsState extends State<SettingsPageContents> {
       ),
       ...List<Widget>.generate(50, (int index) {
         return SettingsPageListTile(
-          height: 60.0,
+          // height: 60.0,
           title: Text(
             '$index. Some very, very, very, very, very, very, very, very, very, very, very, verylongtext!',
             maxLines: 1,

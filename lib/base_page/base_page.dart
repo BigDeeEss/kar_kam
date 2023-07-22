@@ -11,8 +11,8 @@ import 'package:kar_kam/utils/global_key_extension.dart';
 ///
 /// [BasePage] presents a similar screen layout for each page with:
 ///     1. an AppBar at the top with a title,
-///     2. specific screen contents including buttons for navigation
-///        and functionality, and
+///     2. specific screen contents including buttons for navigating app
+///        and app functionality, and
 ///     3. a bottom navigation bar.
 class BasePage extends StatefulWidget {
   const BasePage({
