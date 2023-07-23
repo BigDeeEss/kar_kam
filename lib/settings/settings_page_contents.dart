@@ -19,9 +19,9 @@ class _SettingsPageContentsState extends State<SettingsPageContents> {
   Widget build(BuildContext context) {
     List<Widget> settingsPageTileList = [
       SettingsPageListTile(
-        leading: const Icon(
-          Icons.circle_notifications_outlined,
-        ),
+        // leading: const Icon(
+        //   Icons.circle_notifications_outlined,
+        // ),
         // height: 60.0,
         onTap: (() {
           // Toggle [drawLayoutBounds] variable in [AppData].
@@ -31,9 +31,9 @@ class _SettingsPageContentsState extends State<SettingsPageContents> {
               .update(string: 'drawLayoutBounds', value: !drawLayoutBounds);
         }),
         title: const Text('Click to toggle drawLayoutBounds'),
-        trailing: const Icon(
-          Icons.circle_notifications_outlined,
-        ),
+        // trailing: const Icon(
+        //   Icons.circle_notifications_outlined,
+        // ),
       ),
       ...List<Widget>.generate(50, (int index) {
         return SettingsPageListTile(

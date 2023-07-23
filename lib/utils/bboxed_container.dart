@@ -7,8 +7,8 @@ import 'package:kar_kam/app_data/app_data.dart';
 import 'package:kar_kam/utils/global_key_extension.dart';
 
 /// Implements a [Container] and draws its bounding box.
-class BBoxedContainer extends StatelessWidget with GetItMixin {
-  BBoxedContainer({
+class NewContainer extends StatelessWidget with GetItMixin {
+  NewContainer({
     super.key,
     this.alignment,
     this.borderColor = Colors.black,
@@ -148,7 +148,7 @@ class _BBoxedContainerState extends State<_BBoxedContainer> {
     // Create [border].
     if (rect is Rect) {
       // Adjust [rect] to account for [widget.borderWidth].
-      Rect borderRect = rect.inflate(-2 * widget.borderWidth);
+      Rect borderRect = rect;//.inflate(0* -2 * widget.borderWidth);
 
       // Avoid creating [border] if [borderRect] dimensions are too small.
       if (borderRect.shortestSide < 2) return;
@@ -170,10 +170,8 @@ class _BBoxedContainerState extends State<_BBoxedContainer> {
                       ),
                       color: widget.color,
                     ),
-                    child: SizedBox(
-                      height: borderRect.height,
-                      width: borderRect.width,
-                    ),
+                    height: borderRect.height,
+                    width: borderRect.width,
                   ),
                 ),
               ),

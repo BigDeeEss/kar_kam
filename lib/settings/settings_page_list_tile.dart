@@ -43,24 +43,24 @@ class SettingsPageListTile extends StatelessWidget with GetItMixin {
     double settingsPageListTileRadius =
         watchOnly((AppData a) => a.settingsPageListTileRadius)!;
 
-    return BoxedContainer(
-      padding: const EdgeInsets.all(5),
+    return NewContainer(
+      // padding: const EdgeInsets.all(5),
       height: height,
       child: InkWell(
         onTap: onTap,
-        child: BBoxedContainer(
-          borderWidth: settingsPageListTileBorderWidth,
+        child: NewContainer(
+          // borderWidth: settingsPageListTileBorderWidth,
           child: Row(
             children: <Widget>[
-              BBoxedContainer(
+              NewContainer(
                 child: leading,
               ),
               Expanded(
-                child: BBoxedContainer(
+                child: NewContainer(
                   child: title,
                 ),
               ),
-              BBoxedContainer(
+              NewContainer(
                 child: trailing,
               ),
             ],
