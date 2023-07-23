@@ -35,34 +35,42 @@ class SettingsPageListTile extends StatelessWidget with GetItMixin {
   @override
   Widget build(BuildContext context) {
     // Watch for changes to [AppData.buttonAlignment] registered with [GetIt].
-    double settingsPageListTileBorderWidth =
-        watchOnly((AppData a) => a.settingsPageListTileBorderWidth)!;
+    double? settingsPageListTileBorderWidth =
+        watchOnly((AppData a) => a.settingsPageListTileBorderWidth);
 
     // Watch for changes to [AppData.buttonAlignment] registered with [GetIt].
-    double settingsPageListTileRadius =
-        watchOnly((AppData a) => a.settingsPageListTileRadius)!;
+    double? settingsPageListTileRadius =
+        watchOnly((AppData a) => a.settingsPageListTileRadius);
 
     return BoxedContainer(
-      // padding: const EdgeInsets.all(5),
-      height: height,
-      child: InkWell(
-        onTap: onTap,
-        child: BoxedContainer(
-          // borderWidth: settingsPageListTileBorderWidth,
-          child: Row(
-            children: <Widget>[
-              BoxedContainer(
-                child: leading,
-              ),
-              Expanded(
-                child: BoxedContainer(
-                  child: title,
+      child: Container(
+        decoration: BoxDecoration(
+          border: Border.all(
+            width: settingsPageListTileBorderWidth ?? 0.0
+          ),
+          borderRadius: BorderRadius.circular(settingsPageListTileRadius ?? 0.0),
+        ),
+        // padding: const EdgeInsets.all(5),
+        height: height,
+        child: InkWell(
+          onTap: onTap,
+          child: BoxedContainer(
+            // borderWidth: settingsPageListTileBorderWidth,
+            child: Row(
+              children: <Widget>[
+                BoxedContainer(
+                  child: leading,
                 ),
-              ),
-              BoxedContainer(
-                child: trailing,
-              ),
-            ],
+                Expanded(
+                  child: BoxedContainer(
+                    child: title,
+                  ),
+                ),
+                BoxedContainer(
+                  child: trailing,
+                ),
+              ],
+            ),
           ),
         ),
       ),

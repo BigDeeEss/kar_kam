@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="398c2f1d-d59b-4632-b499-7ce03f824c85" name="Changes" comment="Movement of tiles on settings page fixed with NewContainer.&#10;&#10;NewContainer is a temporary new name for BBoxedContainer to differentiate it from (old) BoxedContainer in order to find and replace all instances of the old type.">
-      <change afterPath="$PROJECT_DIR$/lib/utils/old_boxed_container.dart" afterDir="false" />
+    <list default="true" id="398c2f1d-d59b-4632-b499-7ce03f824c85" name="Changes" comment="Rename NewContainer as BoxedContainer and the original BozedContainer as OldBoxedContainer.">
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app_data/app_data.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app_data/app_data.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/base_page/base_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/base_page/base_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/base_page/base_page_button_array.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/base_page/base_page_button_array.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/settings/settings_page_list_tile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/settings/settings_page_list_tile.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/bboxed_container.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/boxed_container.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/boxed_container.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -240,7 +235,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690099884207</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Rename NewContainer as BoxedContainer and the original BozedContainer as OldBoxedContainer.">
+      <created>1690142240808</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1690142240808</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -279,7 +281,8 @@
     <MESSAGE value="Update BBoxedContainer to account for a very small child.&#10;&#10;Check nullable variables." />
     <MESSAGE value="Implement widget.child null check to avoid zero or negative box constraints." />
     <MESSAGE value="Movement of tiles on settings page fixed with NewContainer.&#10;&#10;NewContainer is a temporary new name for BBoxedContainer to differentiate it from (old) BoxedContainer in order to find and replace all instances of the old type." />
-    <option name="LAST_COMMIT_MESSAGE" value="Movement of tiles on settings page fixed with NewContainer.&#10;&#10;NewContainer is a temporary new name for BBoxedContainer to differentiate it from (old) BoxedContainer in order to find and replace all instances of the old type." />
+    <MESSAGE value="Rename NewContainer as BoxedContainer and the original BozedContainer as OldBoxedContainer." />
+    <option name="LAST_COMMIT_MESSAGE" value="Rename NewContainer as BoxedContainer and the original BozedContainer as OldBoxedContainer." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -290,54 +293,9 @@
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint type="Dart">
-          <url>file://$PROJECT_DIR$/lib/base_page/base_ui_view.dart</url>
-          <line>111</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint type="Dart">
-          <url>file://$PROJECT_DIR$/lib/base_page/base_ui_view.dart</url>
-          <line>73</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint type="Dart">
-          <url>file://$USER_HOME$/.pub-cache/hosted/pub.dev/intersperse-2.0.0/lib/src/intersperse.dart</url>
-          <line>8</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint type="Dart">
-          <url>file://$PROJECT_DIR$/lib/app_data/app_data_preference_service.dart</url>
-          <line>11</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint type="Dart">
-          <url>file://$PROJECT_DIR$/lib/app_data/app_data_preference_service.dart</url>
-          <line>25</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint type="Dart">
-          <url>file://$PROJECT_DIR$/lib/app_data/app_data_preference_mixin.dart</url>
-          <line>12</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint type="Dart">
-          <url>file://$PROJECT_DIR$/lib/utils/old_boxed_container.dart</url>
-          <line>260</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint type="Dart">
-          <url>file://$PROJECT_DIR$/lib/utils/old_boxed_container.dart</url>
-          <line>212</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/utils/old_boxed_container.dart</url>
-          <line>221</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/utils/old_boxed_container.dart</url>
-          <line>234</line>
-          <option name="timeStamp" value="29" />
+          <url>file://$PROJECT_DIR$/lib/settings/settings_page_list_tile.dart</url>
+          <line>44</line>
+          <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
