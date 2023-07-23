@@ -48,19 +48,19 @@ class SettingsPageListTile extends StatelessWidget with GetItMixin {
       height: height,
       child: InkWell(
         onTap: onTap,
-        child: BoxedContainer(
+        child: BBoxedContainer(
           borderWidth: settingsPageListTileBorderWidth,
           child: Row(
             children: <Widget>[
-              BoxedContainer(
+              BBoxedContainer(
                 child: leading,
               ),
               Expanded(
-                child: BoxedContainer(
+                child: BBoxedContainer(
                   child: title,
                 ),
               ),
-              BoxedContainer(
+              BBoxedContainer(
                 child: trailing,
               ),
             ],

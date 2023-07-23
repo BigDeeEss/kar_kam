@@ -159,7 +159,7 @@ class _BBoxedContainerState extends State<_BBoxedContainer> {
           return Stack(
             children: <Widget>[
               Positioned.fromRect(
-                rect: rect!,
+                rect: rect,
                 child: IgnorePointer(
                   ignoring: true,
                   child: Container(
@@ -205,7 +205,7 @@ class _BBoxedContainerState extends State<_BBoxedContainer> {
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       // Get [child] bounding box characteristics if requested.
-      if (widget.drawLayoutBounds) {
+      if (widget.drawLayoutBounds && widget.child != null) {
         addBorder(childKey.globalPaintBounds);
       }
     });
