@@ -5,7 +5,6 @@ import 'package:get_it_mixin/get_it_mixin.dart';
 // Import project-specific files.
 import 'package:kar_kam/app_data/app_data.dart';
 import 'package:kar_kam/utils/boxed_container.dart';
-import 'package:kar_kam/utils/bboxed_container.dart';
 
 class SettingsPageListTile extends StatelessWidget with GetItMixin {
   SettingsPageListTile({
@@ -43,24 +42,24 @@ class SettingsPageListTile extends StatelessWidget with GetItMixin {
     double settingsPageListTileRadius =
         watchOnly((AppData a) => a.settingsPageListTileRadius)!;
 
-    return NewContainer(
+    return BoxedContainer(
       // padding: const EdgeInsets.all(5),
       height: height,
       child: InkWell(
         onTap: onTap,
-        child: NewContainer(
+        child: BoxedContainer(
           // borderWidth: settingsPageListTileBorderWidth,
           child: Row(
             children: <Widget>[
-              NewContainer(
+              BoxedContainer(
                 child: leading,
               ),
               Expanded(
-                child: NewContainer(
+                child: BoxedContainer(
                   child: title,
                 ),
               ),
-              NewContainer(
+              BoxedContainer(
                 child: trailing,
               ),
             ],
@@ -68,28 +67,5 @@ class SettingsPageListTile extends StatelessWidget with GetItMixin {
         ),
       ),
     );
-    // return BoxedContainer(
-    //   borderWidth: settingsPageListTileBorderWidth,
-    //   child: ListTile(
-    //     leading: leading,
-    //     onTap: onTap,
-    //     title: title,
-    //     trailing: trailing,
-    //   ),
-    // );
-    // return BoxedContainer(
-    //   child: Card(
-    //     shape: RoundedRectangleBorder(
-    //       // side: BorderSide(),
-    //       borderRadius: BorderRadius.circular(20.0),
-    //     ),
-    //     child: ListTile(
-    //       leading: leading,
-    //       onTap: onTap,
-    //       title: title,
-    //       trailing: trailing,
-    //     ),
-    //   ),
-    // );
   }
 }

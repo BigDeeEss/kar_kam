@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart';
 
 /// Stores app data.
 abstract class AppData extends ChangeNotifier {
-  /// Whether [BoxedContainer] draws bounding boxes or not.
+  /// Whether [NewContainer] draws bounding boxes or not.
   bool? drawLayoutBounds;
 
   /// The border width for [SettingsPageListTile].
