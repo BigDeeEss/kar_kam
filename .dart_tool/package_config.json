@@ -261,7 +261,7 @@
     },
     {
       "name": "win32",
-      "rootUri": "file:///home/damon/.pub-cache/hosted/pub.dev/win32-5.0.6",
+      "rootUri": "file:///home/damon/.pub-cache/hosted/pub.dev/win32-5.0.5",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
@@ -278,7 +278,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-07-25T15:21:11.838387Z",
+  "generated": "2023-07-21T15:58:25.155378Z",
   "generator": "pub",
   "generatorVersion": "3.0.6"
 }
