@@ -5,6 +5,7 @@ import 'package:get_it_mixin/get_it_mixin.dart';
 // Import project-specific files.
 import 'package:kar_kam/app_data/app_data.dart';
 import 'package:kar_kam/utils/boxed_container.dart';
+import 'package:kar_kam/utils/boxed_container_2.dart';
 
 class SettingsPageListTile extends StatelessWidget with GetItMixin {
   SettingsPageListTile({
@@ -42,7 +43,7 @@ class SettingsPageListTile extends StatelessWidget with GetItMixin {
     double? settingsPageListTileRadius =
         watchOnly((AppData a) => a.settingsPageListTileRadius);
 
-    return BoxedContainer(
+    return BoxedContainer2(
       child: Container(
         decoration: BoxDecoration(
           border: Border.all(

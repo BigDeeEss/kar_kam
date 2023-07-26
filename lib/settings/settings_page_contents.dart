@@ -17,8 +17,8 @@ class SettingsPageContents extends StatefulWidget {
 class _SettingsPageContentsState extends State<SettingsPageContents> {
   @override
   Widget build(BuildContext context) {
-    List<Widget> settingsPageTileList = [
-      SettingsPageListTile(
+    List<Widget> settingsPageTileList = List<Widget>.generate(50, (int index) {
+      return SettingsPageListTile(
         // leading: const Icon(
         //   Icons.circle_notifications_outlined,
         // ),
@@ -26,7 +26,9 @@ class _SettingsPageContentsState extends State<SettingsPageContents> {
         onTap: (() {
           // Toggle [drawLayoutBounds] variable in [AppData].
           bool drawLayoutBounds =
-          GetItService.instance<AppData>().drawLayoutBounds!;
+          GetItService
+              .instance<AppData>()
+              .drawLayoutBounds!;
           GetItService.instance<AppData>()
               .update(string: 'drawLayoutBounds', value: !drawLayoutBounds);
         }),
@@ -34,21 +36,8 @@ class _SettingsPageContentsState extends State<SettingsPageContents> {
         // trailing: const Icon(
         //   Icons.circle_notifications_outlined,
         // ),
-      ),
-      ...List<Widget>.generate(50, (int index) {
-        return SettingsPageListTile(
-          // height: 60.0,
-          title: Text(
-            '$index. Some very, very, very, very, very, very, very, very, very, very, very, verylongtext!',
-            maxLines: 1,
-            softWrap: false,
-          ),
-        );
-      })
-    ];
-
-    return ListView(
-      children: settingsPageTileList,
-    );
+      );
+    });
   }
+  return
 }
