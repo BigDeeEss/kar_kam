@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:kar_kam/base_page/base_page_button_array.dart';
 import 'package:kar_kam/base_page/base_page_specs.dart';
 import 'package:kar_kam/utils/boxed_container.dart';
+import 'package:kar_kam/utils/boxed_container_2.dart';
 import 'package:kar_kam/utils/global_key_extension.dart';
 
 /// Implements a generic page layout design.
@@ -80,7 +81,7 @@ class _BasePageState extends State<BasePage> {
       appBar: AppBar(
         key: appBarKey,
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: BoxedContainer(
+        title: BoxedContainer2(
           child: widget.basePageSpecs.titleWidget,
         ),
       ),

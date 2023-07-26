@@ -17,7 +17,7 @@ class SettingsPageContents extends StatefulWidget {
 class _SettingsPageContentsState extends State<SettingsPageContents> {
   @override
   Widget build(BuildContext context) {
-    List<Widget> settingsPageTileList = List<Widget>.generate(50, (int index) {
+    List<Widget> settingsPageTileList = List<Widget>.generate(150, (int index) {
       return SettingsPageListTile(
         // leading: const Icon(
         //   Icons.circle_notifications_outlined,
@@ -38,6 +38,9 @@ class _SettingsPageContentsState extends State<SettingsPageContents> {
         // ),
       );
     });
+
+    return ListView(
+      children: settingsPageTileList,
+    );
   }
-  return
 }

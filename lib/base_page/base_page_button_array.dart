@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:kar_kam/base_page/base_page.dart';
 import 'package:kar_kam/base_page/base_page_route_map.dart';
 import 'package:kar_kam/utils/boxed_container.dart';
+import 'package:kar_kam/utils/boxed_container_2.dart';
 
 class BasePageButtonArray extends StatelessWidget {
   const BasePageButtonArray({
@@ -20,7 +21,7 @@ class BasePageButtonArray extends StatelessWidget {
     // Generate an iterable using [Iterable.generate()].
     Iterable<Widget> buttonArray =
         Iterable.generate(buttonArrayTargetList.length, (index) {
-      return BoxedContainer(
+      return Container(
         child: FloatingActionButton(
           heroTag: null,
           child: basePageRouteMap[buttonArrayTargetList[index]]?[1],
@@ -39,8 +40,9 @@ class BasePageButtonArray extends StatelessWidget {
     });
 
     // Convert to an instance of [Column] using [intersperseWithSizedBox].
-    return BoxedContainer(
-      borderColor: Colors.red,
+    return Container(
+    // return BoxedContainer2(
+      // borderColor: Colors.red,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         mainAxisSize: MainAxisSize.min,

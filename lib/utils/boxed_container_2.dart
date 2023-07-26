@@ -1,14 +1,17 @@
 // Import flutter packages.
 import 'package:flutter/material.dart';
 import 'package:get_it_mixin/get_it_mixin.dart';
+
+// Import project-specific files.
 import 'package:kar_kam/app_data/app_data.dart';
+import 'package:kar_kam/utils/global_key_extension.dart';
 
 /// Implements a [Container] and draws its bounding box.
-class BoxedContainer2 extends StatelessWidget with GetItMixin {
+class BoxedContainer2 extends StatefulWidget with GetItStatefulWidgetMixin {
   BoxedContainer2({
     super.key,
     this.alignment,
-    this.borderColor = Colors.black,
+    this.borderColor = Colors.red,
     this.borderWidth = 1.0,
     this.child,
     this.clipBehavior,
@@ -45,51 +48,109 @@ class BoxedContainer2 extends StatelessWidget with GetItMixin {
   final double borderWidth;
   final bool drawLayoutBoundsOverride;
 
+  @override
+  State<BoxedContainer2> createState() => _BoxedContainer2State();
+}
+
+class _BoxedContainer2State extends State<BoxedContainer2> with GetItStateMixin {
   // The link which connects the layers associated with
   LayerLink layerLink = LayerLink();
+
+  // Used by [addBorder] for determining the bounding box for [widget.child].
+  final GlobalKey childKey = GlobalKey();
+
+  CompositedTransformFollower? border;
+  bool drawLayoutBounds = false;
+
+  void generateBorder(Rect? rect) {
+    if (rect is Rect) {
+      // Avoid creating [border] if [borderRect] dimensions are too small.
+      if (rect.shortestSide < 2) return;
+
+      print('generateBorder, border = $border');
+      border = CompositedTransformFollower(
+        link: layerLink,
+        child: IgnorePointer(
+          ignoring: true,
+          child: Container(
+            decoration: BoxDecoration(
+              border: Border.all(
+                width: widget.borderWidth,
+                color: widget.borderColor,
+              ),
+              color: widget.color,
+            ),
+            height: rect.height,
+            width: rect.width,
+          ),
+        ),
+      );
+      print('generateBorder, border = $border');
+    }
+  }
+
+  @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      // Get [child] bounding box characteristics if requested.
+      print(drawLayoutBounds);
+      if (widget.child != null) {
+        print('border1, childKey = $border, $childKey');
+        generateBorder(childKey.globalPaintBounds);
+        print('border2, childKey = $border, $childKey');
+      }
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     // Watch for changes to [AppData.drawLayoutBounds] registered with GetIt.
-    bool? drawLayoutBounds =
+    bool drawLayoutBounds =
         watchOnly((AppData a) => a.drawLayoutBounds) ?? false;
 
     // Switch control of layout bounds from [drawLayoutBounds], which is
     // intended to be a global app setting, to [drawLayoutBoundsOverride]
     // which is localised at the point of instantiation.
-    drawLayoutBounds = drawLayoutBounds || drawLayoutBoundsOverride;
+    drawLayoutBounds = drawLayoutBounds || widget.drawLayoutBoundsOverride;
 
-    if (drawLayoutBounds) {
-      return Stack(
+    // print('childKey = $childKey');
+    // print('childKey.globalPaintBounds = ${childKey.globalPaintBounds}');
+    print('border = $border');
+    print('drawLayoutBounds = $drawLayoutBounds');
+    return Container(
+      child: Stack(
         children: <Widget>[
           CompositedTransformTarget(
             link: layerLink,
-            child: child,
-          ),
-          CompositedTransformFollower(
-            link: layerLink,
-            child: IgnorePointer(
-              ignoring: true,
-              child: Container(
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    width: borderWidth,
-                    color: borderColor,
-                  ),
-                  color: color,
-                ),
-                height: 20,
-                width: 50,
-              ),
+            child: Container(
+              key: childKey,
+              child: widget.child,
             ),
           ),
+          drawLayoutBounds ? (border ?? Container()) : Container(),
+          // CompositedTransformFollower(
+          //   link: layerLink,
+          //   child: IgnorePointer(
+          //     ignoring: true,
+          //     child: Positioned.fromRect(
+          //       rect: childKey.globalPaintBounds!,
+          //       child: drawLayoutBounds ? Container(
+          //           decoration: BoxDecoration(
+          //             border: Border.all(
+          //               width: widget.borderWidth,
+          //               color: widget.borderColor,
+          //             ),
+          //             color: widget.color,
+          //           ),
+          //           height: childKey.globalPaintBounds?.height,
+          //           width: childKey.globalPaintBounds?.width
+          //       ) : Container(),
+          //     ),
+          //   ),
+          // ),
         ],
-      );
-    } else {
-      return Stack(
-        children: <Widget>[child ?? Container()],
-      );
-      // return child ?? Container();
-    }
+      ),
+    );
   }
 }

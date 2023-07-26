@@ -134,8 +134,8 @@ class _BoxedContainerState extends State<_BoxedContainer> {
   // Used by [addBorder] for determining the bounding box for [widget.child].
   final GlobalKey childKey = GlobalKey();
 
-  // // The link which connects the layers associated with
-  // LayerLink layerLink = LayerLink();
+  // The link which connects the layers associated with
+  LayerLink layerLink = LayerLink();
 
   // An object that displays [border] if [drawLayoutBounds] is true.
   OverlayState? overlayState;
@@ -156,27 +156,44 @@ class _BoxedContainerState extends State<_BoxedContainer> {
       // Create [border].
       border = OverlayEntry(
         builder: (BuildContext context) {
-          return Stack(
-            children: <Widget>[
-              Positioned.fromRect(
-                rect: rect,
-                child: IgnorePointer(
-                  ignoring: true,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        width: widget.borderWidth,
-                        color: widget.borderColor,
-                      ),
-                      color: widget.color,
-                    ),
-                    height: borderRect.height,
-                    width: borderRect.width,
+          return CompositedTransformFollower(
+            link: layerLink,
+            child: IgnorePointer(
+              ignoring: true,
+              child: Container(
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    width: widget.borderWidth,
+                    color: widget.borderColor,
                   ),
+                  color: widget.color,
                 ),
+                // height: 10,
+                // width: 10,
               ),
-            ],
+            ),
           );
+          // return Stack(
+          //   children: <Widget>[
+          //     Positioned.fromRect(
+          //       rect: rect,
+          //       child: IgnorePointer(
+          //         ignoring: true,
+          //         child: Container(
+          //           decoration: BoxDecoration(
+          //             border: Border.all(
+          //               width: widget.borderWidth,
+          //               color: widget.borderColor,
+          //             ),
+          //             color: widget.color,
+          //           ),
+          //           height: borderRect.height,
+          //           width: borderRect.width,
+          //         ),
+          //       ),
+          //     ),
+          //   ],
+          // );
         },
       );
 
@@ -212,9 +229,12 @@ class _BoxedContainerState extends State<_BoxedContainer> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      key: childKey,
-      child: widget.child,
+    return CompositedTransformTarget(
+      link: layerLink,
+      child: Container(
+        key: childKey,
+        child: widget.child,
+      )
     );
   }
 }
