@@ -15,6 +15,7 @@ class SettingsPageListTile extends StatelessWidget with GetItMixin {
     this.onTap,
     this.title,
     this.trailing,
+    this.diagnostic,
   });
 
   /// Height of the bounding box for [SettingsPageListTile].
@@ -33,6 +34,8 @@ class SettingsPageListTile extends StatelessWidget with GetItMixin {
   /// A widget to display between [leading] and [trailing].
   final Widget? title;
 
+  var diagnostic;
+
   @override
   Widget build(BuildContext context) {
     // Watch for changes to [AppData.buttonAlignment] registered with [GetIt].
@@ -43,7 +46,10 @@ class SettingsPageListTile extends StatelessWidget with GetItMixin {
     double? settingsPageListTileRadius =
         watchOnly((AppData a) => a.settingsPageListTileRadius);
 
+    print('SettingsPageListTile, build: drawLayoutBounds = ${watchOnly((AppData a) => a.drawLayoutBounds)}');
+
     return BoxedContainer2(
+      diagnostic: diagnostic,
       child: Container(
         decoration: BoxDecoration(
           border: Border.all(

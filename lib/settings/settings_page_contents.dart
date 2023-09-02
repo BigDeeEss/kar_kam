@@ -17,8 +17,13 @@ class SettingsPageContents extends StatefulWidget {
 class _SettingsPageContentsState extends State<SettingsPageContents> {
   @override
   Widget build(BuildContext context) {
-    List<Widget> settingsPageTileList = List<Widget>.generate(150, (int index) {
-      return SettingsPageListTile(
+    List<Widget> settingsPageTileList = [
+      ...List<Widget>.generate(20, (int index) {
+        return Container(
+          child: Text('Container #$index'),
+        );
+      }),
+      SettingsPageListTile(
         // leading: const Icon(
         //   Icons.circle_notifications_outlined,
         // ),
@@ -33,11 +38,17 @@ class _SettingsPageContentsState extends State<SettingsPageContents> {
               .update(string: 'drawLayoutBounds', value: !drawLayoutBounds);
         }),
         title: const Text('Click to toggle drawLayoutBounds'),
+        diagnostic: Text('SettingsPageListTile, diagnostic...'),
         // trailing: const Icon(
         //   Icons.circle_notifications_outlined,
         // ),
-      );
-    });
+      ),
+      ...List<Widget>.generate(20, (int index) {
+        return Container(
+          child: Text('Container #${index + 20}'),
+        );
+      }),
+    ];
 
     return ListView(
       children: settingsPageTileList,

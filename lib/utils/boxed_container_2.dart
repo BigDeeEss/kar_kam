@@ -26,6 +26,7 @@ class BoxedContainer2 extends StatefulWidget with GetItStatefulWidgetMixin {
     this.transform,
     this.transformAlignment,
     this.width,
+    this.diagnostic,
   });
 
   // [Container]-specific variables.
@@ -48,6 +49,8 @@ class BoxedContainer2 extends StatefulWidget with GetItStatefulWidgetMixin {
   final double borderWidth;
   final bool drawLayoutBoundsOverride;
 
+  var diagnostic;
+
   @override
   State<BoxedContainer2> createState() => _BoxedContainer2State();
 }
@@ -60,14 +63,14 @@ class _BoxedContainer2State extends State<BoxedContainer2> with GetItStateMixin 
   final GlobalKey childKey = GlobalKey();
 
   CompositedTransformFollower? border;
-  bool drawLayoutBounds = false;
+  // bool drawLayoutBounds = false;
 
   void generateBorder(Rect? rect) {
     if (rect is Rect) {
       // Avoid creating [border] if [borderRect] dimensions are too small.
       if (rect.shortestSide < 2) return;
 
-      print('generateBorder, border = $border');
+      // print('generateBorder, border = $border');
       border = CompositedTransformFollower(
         link: layerLink,
         child: IgnorePointer(
@@ -85,7 +88,7 @@ class _BoxedContainer2State extends State<BoxedContainer2> with GetItStateMixin 
           ),
         ),
       );
-      print('generateBorder, border = $border');
+      // print('generateBorder, border = $border');
     }
   }
 
@@ -93,11 +96,11 @@ class _BoxedContainer2State extends State<BoxedContainer2> with GetItStateMixin 
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       // Get [child] bounding box characteristics if requested.
-      print(drawLayoutBounds);
+      // print(drawLayoutBounds);
       if (widget.child != null) {
-        print('border1, childKey = $border, $childKey');
+        // print('border1, childKey = $border, $childKey');
         generateBorder(childKey.globalPaintBounds);
-        print('border2, childKey = $border, $childKey');
+        // print('border2, childKey = $border, $childKey');
       }
     });
     super.initState();
@@ -116,8 +119,9 @@ class _BoxedContainer2State extends State<BoxedContainer2> with GetItStateMixin 
 
     // print('childKey = $childKey');
     // print('childKey.globalPaintBounds = ${childKey.globalPaintBounds}');
-    print('border = $border');
-    print('drawLayoutBounds = $drawLayoutBounds');
+    // print('border = $border');
+    // print('drawLayoutBounds = $drawLayoutBounds');
+    if (widget.diagnostic != null) print(widget.diagnostic);
     return Container(
       child: Stack(
         children: <Widget>[
