@@ -4,7 +4,6 @@ import 'package:get_it_mixin/get_it_mixin.dart';
 
 // Import project-specific files.
 import 'package:kar_kam/app_data/app_data.dart';
-import 'package:kar_kam/utils/boxed_container.dart';
 import 'package:kar_kam/utils/boxed_container_2.dart';
 
 class SettingsPageListTile extends StatelessWidget with GetItMixin {
@@ -15,7 +14,6 @@ class SettingsPageListTile extends StatelessWidget with GetItMixin {
     this.onTap,
     this.title,
     this.trailing,
-    this.diagnostic,
   });
 
   /// Height of the bounding box for [SettingsPageListTile].
@@ -34,8 +32,6 @@ class SettingsPageListTile extends StatelessWidget with GetItMixin {
   /// A widget to display between [leading] and [trailing].
   final Widget? title;
 
-  var diagnostic;
-
   @override
   Widget build(BuildContext context) {
     // Watch for changes to [AppData.buttonAlignment] registered with [GetIt].
@@ -46,10 +42,8 @@ class SettingsPageListTile extends StatelessWidget with GetItMixin {
     double? settingsPageListTileRadius =
         watchOnly((AppData a) => a.settingsPageListTileRadius);
 
-    print('SettingsPageListTile, build: drawLayoutBounds = ${watchOnly((AppData a) => a.drawLayoutBounds)}');
-
     return BoxedContainer2(
-      diagnostic: diagnostic,
+      diagnostic: true,
       child: Container(
         decoration: BoxDecoration(
           border: Border.all(

@@ -6,6 +6,7 @@ import 'package:get_it_mixin/get_it_mixin.dart';
 import 'package:kar_kam/app_data/app_data.dart';
 import 'package:kar_kam/utils/global_key_extension.dart';
 
+
 /// Implements a [Container] and draws its bounding box.
 class BoxedContainer2 extends StatefulWidget with GetItStatefulWidgetMixin {
   BoxedContainer2({
@@ -26,7 +27,7 @@ class BoxedContainer2 extends StatefulWidget with GetItStatefulWidgetMixin {
     this.transform,
     this.transformAlignment,
     this.width,
-    this.diagnostic,
+    this.diagnostic = false,
   });
 
   // [Container]-specific variables.
@@ -49,7 +50,7 @@ class BoxedContainer2 extends StatefulWidget with GetItStatefulWidgetMixin {
   final double borderWidth;
   final bool drawLayoutBoundsOverride;
 
-  var diagnostic;
+  final bool diagnostic;
 
   @override
   State<BoxedContainer2> createState() => _BoxedContainer2State();
@@ -71,24 +72,25 @@ class _BoxedContainer2State extends State<BoxedContainer2> with GetItStateMixin 
       if (rect.shortestSide < 2) return;
 
       // print('generateBorder, border = $border');
-      border = CompositedTransformFollower(
-        link: layerLink,
-        child: IgnorePointer(
-          ignoring: true,
-          child: Container(
-            decoration: BoxDecoration(
-              border: Border.all(
-                width: widget.borderWidth,
-                color: widget.borderColor,
+      setState(() {
+        border = CompositedTransformFollower(
+          link: layerLink,
+          child: IgnorePointer(
+            ignoring: true,
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border.all(
+                  width: widget.borderWidth,
+                  color: widget.borderColor,
+                ),
+                color: widget.color,
               ),
-              color: widget.color,
+              height: rect.height,
+              width: rect.width,
             ),
-            height: rect.height,
-            width: rect.width,
           ),
-        ),
-      );
-      // print('generateBorder, border = $border');
+        );
+      });
     }
   }
 
@@ -99,6 +101,7 @@ class _BoxedContainer2State extends State<BoxedContainer2> with GetItStateMixin 
       // print(drawLayoutBounds);
       if (widget.child != null) {
         // print('border1, childKey = $border, $childKey');
+        if (widget.diagnostic) print('BoxedContainer2, PostFrameCallback...1');
         generateBorder(childKey.globalPaintBounds);
         // print('border2, childKey = $border, $childKey');
       }
@@ -120,8 +123,8 @@ class _BoxedContainer2State extends State<BoxedContainer2> with GetItStateMixin 
     // print('childKey = $childKey');
     // print('childKey.globalPaintBounds = ${childKey.globalPaintBounds}');
     // print('border = $border');
-    // print('drawLayoutBounds = $drawLayoutBounds');
-    if (widget.diagnostic != null) print(widget.diagnostic);
+    if (widget.diagnostic) print('BoxedContainer2, build...drawLayoutBounds = $drawLayoutBounds');
+    if (widget.diagnostic) print('BoxedContainer2, build...border = $border');
     return Container(
       child: Stack(
         children: <Widget>[
