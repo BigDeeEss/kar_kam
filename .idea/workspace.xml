@@ -4,13 +4,16 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="398c2f1d-d59b-4632-b499-7ce03f824c85" name="Changes" comment="Rename NewContainer as BoxedContainer and the original BozedContainer as OldBoxedContainer.">
+    <list default="true" id="398c2f1d-d59b-4632-b499-7ce03f824c85" name="Changes" comment="Add call to setState in BoxedContainer2 in order to persist the effect of 'drawLayoutBounds = true' through page/route changes.">
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/version" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/version" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/.last_build_id" beforeDir="false" afterPath="$PROJECT_DIR$/build/.last_build_id" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/linux/x64/debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/build/linux/x64/debug/build.ninja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/base_page/base_page_button_array.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/base_page/base_page_button_array.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/settings/settings_page_contents.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/settings/settings_page_contents.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/settings/settings_page_list_tile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/settings/settings_page_list_tile.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/settings/settings_page_specs.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/settings/settings_page_specs.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/boxed_container_2.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/boxed_container_2.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -249,7 +252,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690142240808</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Add call to setState in BoxedContainer2 in order to persist the effect of 'drawLayoutBounds = true' through page/route changes.">
+      <created>1693938030962</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1693938030962</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -264,7 +274,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Rename BaseUILayout to BaseUIContents." />
     <MESSAGE value="Correct AppDataPreferencesMixin.&#10;&#10;Convert getMap and setMap to Map&lt;String, Function&gt; and use .call() and .call(value) respectively to execute. &#10;&#10;The setting of a drawLayoutBounds default appears to be working, but check." />
     <MESSAGE value="Add testBool, testDouble, testInt, testString and testStringList to AppData and print to screen values in _TestBaseUIContents.&#10;&#10;AppDataPreferenceService has been tested and appears to be working. Without the functionality to change AppData field values via the app itself, the .json file that contains the shared_preference information was edited between app builds to simulate this. On rebuild the app displayed the new data." />
     <MESSAGE value="Disable instantiation of bottomAppBar in _BaseUIViewState.&#10;&#10;routeMap in base_ui_route_map.dart modified so that keys are Strings.&#10;&#10;This commit builds and runs as expected." />
@@ -289,7 +298,8 @@
     <MESSAGE value="Implement widget.child null check to avoid zero or negative box constraints." />
     <MESSAGE value="Movement of tiles on settings page fixed with NewContainer.&#10;&#10;NewContainer is a temporary new name for BBoxedContainer to differentiate it from (old) BoxedContainer in order to find and replace all instances of the old type." />
     <MESSAGE value="Rename NewContainer as BoxedContainer and the original BozedContainer as OldBoxedContainer." />
-    <option name="LAST_COMMIT_MESSAGE" value="Rename NewContainer as BoxedContainer and the original BozedContainer as OldBoxedContainer." />
+    <MESSAGE value="Add call to setState in BoxedContainer2 in order to persist the effect of 'drawLayoutBounds = true' through page/route changes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add call to setState in BoxedContainer2 in order to persist the effect of 'drawLayoutBounds = true' through page/route changes." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -301,7 +311,7 @@
         </line-breakpoint>
         <line-breakpoint type="Dart">
           <url>file://$PROJECT_DIR$/lib/settings/settings_page_list_tile.dart</url>
-          <line>45</line>
+          <line>44</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>

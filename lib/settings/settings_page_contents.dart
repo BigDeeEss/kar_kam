@@ -36,7 +36,7 @@ class SettingsPageContents extends StatelessWidget with GetItMixin {
         //   Icons.circle_notifications_outlined,
         // ),
       ),
-      ...List<Widget>.generate(20, (int index) {
+      ...List<Widget>.generate(120, (int index) {
         return Container(
           child: Text('Container #${index + 20}'),
         );

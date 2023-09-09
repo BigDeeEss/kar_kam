@@ -43,7 +43,7 @@ class SettingsPageListTile extends StatelessWidget with GetItMixin {
         watchOnly((AppData a) => a.settingsPageListTileRadius);
 
     return BoxedContainer2(
-      diagnostic: true,
+      // diagnostic: true,
       child: Container(
         decoration: BoxDecoration(
           border: Border.all(
