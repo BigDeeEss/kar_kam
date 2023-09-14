@@ -4,7 +4,12 @@ import 'package:flutter/material.dart';
 // Import project-specific files.
 import 'package:kar_kam/base_page/base_page.dart';
 import 'package:kar_kam/base_page/base_page_route_map.dart';
+import 'package:kar_kam/utils/boxed_container.dart';
 import 'package:kar_kam/utils/boxed_container_2.dart';
+// import 'package:kar_kam/utils/boxed_container_3.dart';
+// import 'package:kar_kam/utils/boxed_container_4.dart';
+import 'package:kar_kam/utils/boxed_container_5.dart';
+import 'package:kar_kam/utils/boxed_container_6.dart';
 
 class BasePageButtonArray extends StatelessWidget {
   const BasePageButtonArray({
@@ -40,8 +45,7 @@ class BasePageButtonArray extends StatelessWidget {
 
     // Convert to an instance of [Column] using [intersperseWithSizedBox].
     // return Container(
-    return BoxedContainer2(
-      diagnostic: true,
+    return BoxedContainer6(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         mainAxisSize: MainAxisSize.min,

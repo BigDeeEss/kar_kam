@@ -5,6 +5,8 @@ import 'package:get_it_mixin/get_it_mixin.dart';
 // Import project-specific files.
 import 'package:kar_kam/app_data/app_data.dart';
 import 'package:kar_kam/utils/boxed_container_2.dart';
+import 'package:kar_kam/utils/boxed_container_5.dart';
+import 'package:kar_kam/utils/boxed_container_6.dart';
 
 class SettingsPageListTile extends StatelessWidget with GetItMixin {
   SettingsPageListTile({
@@ -42,7 +44,9 @@ class SettingsPageListTile extends StatelessWidget with GetItMixin {
     double? settingsPageListTileRadius =
         watchOnly((AppData a) => a.settingsPageListTileRadius);
 
-    return BoxedContainer2(
+    // print('SettingsPageListTile, build...height = $height');
+    // print('SettingsPageListTile, build...screen size = ${MediaQuery.of(context).size}');
+    return Container(
       // diagnostic: true,
       child: Container(
         decoration: BoxDecoration(
@@ -55,7 +59,8 @@ class SettingsPageListTile extends StatelessWidget with GetItMixin {
         height: height,
         child: InkWell(
           onTap: onTap,
-          child: BoxedContainer2(
+          // child: Container(
+          child: BoxedContainer6(
             // borderWidth: settingsPageListTileBorderWidth,
             child: Row(
               children: <Widget>[

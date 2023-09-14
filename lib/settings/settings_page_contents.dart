@@ -14,14 +14,14 @@ class SettingsPageContents extends StatelessWidget with GetItMixin {
   @override
   Widget build(BuildContext context) {
     List<Widget> settingsPageTileList = [
-      ...List<Widget>.generate(20, (int index) {
+      ...List<Widget>.generate(40, (int index) {
         return Text('Container #$index');
       }),
       SettingsPageListTile(
         // leading: const Icon(
         //   Icons.circle_notifications_outlined,
         // ),
-        // height: 60.0,
+        height: 60.0,
         onTap: (() {
           // Toggle [drawLayoutBounds] variable in [AppData].
           bool drawLayoutBounds =

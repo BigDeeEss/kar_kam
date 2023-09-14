@@ -71,6 +71,8 @@ class _BoxedContainer2State extends State<BoxedContainer2> with GetItStateMixin 
       // Avoid creating [border] if [borderRect] dimensions are too small.
       if (rect.shortestSide < 2) return;
 
+      print('rect = $rect');
+
       // print('generateBorder, border = $border');
       setState(() {
         border = CompositedTransformFollower(
