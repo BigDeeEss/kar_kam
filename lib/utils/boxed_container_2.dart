@@ -76,7 +76,9 @@ class _BoxedContainer2State extends State<BoxedContainer2> with GetItStateMixin 
       // print('generateBorder, border = $border');
       setState(() {
         border = CompositedTransformFollower(
+          followerAnchor: Alignment.center,
           link: layerLink,
+          targetAnchor: Alignment.center,
           child: IgnorePointer(
             ignoring: true,
             child: Container(
@@ -127,39 +129,38 @@ class _BoxedContainer2State extends State<BoxedContainer2> with GetItStateMixin 
     // print('border = $border');
     if (widget.diagnostic) print('BoxedContainer2, build...drawLayoutBounds = $drawLayoutBounds');
     if (widget.diagnostic) print('BoxedContainer2, build...border = $border');
-    return Container(
-      child: Stack(
-        children: <Widget>[
-          CompositedTransformTarget(
-            link: layerLink,
-            child: Container(
-              key: childKey,
-              child: widget.child,
+
+    if (drawLayoutBounds && border != null) {
+      return Container(
+        child: Stack(
+          // alignment: AlignmentDirectional.center,
+          children: <Widget>[
+            CompositedTransformTarget(
+              link: layerLink,
+              child: Container(
+                key: childKey,
+                child: widget.child,
+              ),
             ),
-          ),
-          drawLayoutBounds ? (border ?? Container()) : Container(),
-          // CompositedTransformFollower(
-          //   link: layerLink,
-          //   child: IgnorePointer(
-          //     ignoring: true,
-          //     child: Positioned.fromRect(
-          //       rect: childKey.globalPaintBounds!,
-          //       child: drawLayoutBounds ? Container(
-          //           decoration: BoxDecoration(
-          //             border: Border.all(
-          //               width: widget.borderWidth,
-          //               color: widget.borderColor,
-          //             ),
-          //             color: widget.color,
-          //           ),
-          //           height: childKey.globalPaintBounds?.height,
-          //           width: childKey.globalPaintBounds?.width
-          //       ) : Container(),
-          //     ),
-          //   ),
-          // ),
-        ],
-      ),
-    );
+            border!,
+          ],
+        ),
+      );
+    } else {
+      return Container(
+        child: Stack(
+          // alignment: AlignmentDirectional.center,
+          children: <Widget>[
+            CompositedTransformTarget(
+              link: layerLink,
+              child: Container(
+                key: childKey,
+                child: widget.child,
+              ),
+            ),
+          ],
+        ),
+      );
+    }
   }
 }

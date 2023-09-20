@@ -7,6 +7,8 @@ import 'package:kar_kam/app_data/app_data.dart';
 import 'package:kar_kam/utils/boxed_container_2.dart';
 import 'package:kar_kam/utils/boxed_container_5.dart';
 import 'package:kar_kam/utils/boxed_container_6.dart';
+import 'package:kar_kam/utils/boxed_container_7.dart';
+import 'package:kar_kam/utils/boxed_container_8.dart';
 
 class SettingsPageListTile extends StatelessWidget with GetItMixin {
   SettingsPageListTile({
@@ -60,7 +62,7 @@ class SettingsPageListTile extends StatelessWidget with GetItMixin {
         child: InkWell(
           onTap: onTap,
           // child: Container(
-          child: BoxedContainer6(
+          child: BoxedContainer2(
             // borderWidth: settingsPageListTileBorderWidth,
             child: Row(
               children: <Widget>[

@@ -82,7 +82,7 @@ class _BasePageState extends State<BasePage> {
       appBar: AppBar(
         key: appBarKey,
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Container(
+        title: BoxedContainer2(
           child: widget.basePageSpecs.titleWidget,
         ),
       ),

@@ -10,6 +10,8 @@ import 'package:kar_kam/utils/boxed_container_2.dart';
 // import 'package:kar_kam/utils/boxed_container_4.dart';
 import 'package:kar_kam/utils/boxed_container_5.dart';
 import 'package:kar_kam/utils/boxed_container_6.dart';
+import 'package:kar_kam/utils/boxed_container_7.dart';
+import 'package:kar_kam/utils/boxed_container_8.dart';
 
 class BasePageButtonArray extends StatelessWidget {
   const BasePageButtonArray({
@@ -25,10 +27,13 @@ class BasePageButtonArray extends StatelessWidget {
     // Generate an iterable using [Iterable.generate()].
     Iterable<Widget> buttonArray =
         Iterable.generate(buttonArrayTargetList.length, (index) {
-      return Container(
+      return BoxedContainer2(
         child: FloatingActionButton(
           heroTag: null,
-          child: basePageRouteMap[buttonArrayTargetList[index]]?[1],
+          child: BoxedContainer2(
+            child: basePageRouteMap[buttonArrayTargetList[index]]?[1],
+          ),
+          // child: basePageRouteMap[buttonArrayTargetList[index]]?[1],
           onPressed: () {
             Navigator.of(context).pushReplacement(
               MaterialPageRoute(
@@ -45,7 +50,7 @@ class BasePageButtonArray extends StatelessWidget {
 
     // Convert to an instance of [Column] using [intersperseWithSizedBox].
     // return Container(
-    return BoxedContainer6(
+    return Container(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         mainAxisSize: MainAxisSize.min,

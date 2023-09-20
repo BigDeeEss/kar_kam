@@ -4,20 +4,17 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="398c2f1d-d59b-4632-b499-7ce03f824c85" name="Changes" comment="The effect of drawLayoutBounds persists correctly through page/route changes; unfortunately the use of Stack messes up the location of the FAB associated with BsePage.&#10;&#10;Save branch before tweaking the use of Overlays in BoxedContainer2.">
-      <change afterPath="$PROJECT_DIR$/lib/utils/boxed_container_3.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/utils/boxed_container_4.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/utils/boxed_container_5.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/utils/boxed_container_6.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/version" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/version" afterDir="false" />
+    <list default="true" id="398c2f1d-d59b-4632-b499-7ce03f824c85" name="Changes" comment="BoxedContainer6 implements the effect of drawLayoutBounds persisting correctly through page/route changes. The instance of Stack was removed fixed the wondering FAB.&#10;&#10;There may still be issues associated with a FAB ghost appearing on screen.">
+      <change afterPath="$PROJECT_DIR$/lib/utils/boxed_container_7.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/.last_build_id" beforeDir="false" afterPath="$PROJECT_DIR$/build/.last_build_id" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/linux/x64/debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/linux/x64/debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/linux/x64/debug/CMakeFiles/CMakeConfigureLog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/build/linux/x64/debug/CMakeFiles/CMakeConfigureLog.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/linux/x64/debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/build/linux/x64/debug/build.ninja" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/base_page/base_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/base_page/base_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/base_page/base_page_button_array.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/base_page/base_page_button_array.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/settings/settings_page_contents.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/settings/settings_page_contents.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/kar_kam/kar_kam_page_specs.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/kar_kam/kar_kam_page_specs.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/settings/settings_page_list_tile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/settings/settings_page_list_tile.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/utils/boxed_container_2.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/boxed_container_2.dart" afterDir="false" />
     </list>
@@ -34,6 +31,12 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file:///opt/flutter/packages/flutter/lib/src/services/platform_channel.dart" root0="SKIP_INSPECTION" />
+    <setting file="file:///opt/flutter/packages/flutter/lib/src/services/system_chrome.dart" root0="SKIP_INSPECTION" />
+    <setting file="file:///opt/flutter/packages/flutter/lib/src/widgets/notification_listener.dart" root0="SKIP_INSPECTION" />
+    <setting file="file:///opt/flutter/packages/flutter/lib/src/widgets/scrollable.dart" root0="SKIP_INSPECTION" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -49,6 +52,7 @@
     &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;com.android.tools.idea.devicemanager.tab&quot;: &quot;Physical&quot;,
     &quot;com.google.services.firebase.aqiPopupShown&quot;: &quot;true&quot;,
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
@@ -56,7 +60,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;AndroidSdkUpdater&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
     &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
 }</component>
@@ -272,7 +276,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694251970394</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="BoxedContainer6 implements the effect of drawLayoutBounds persisting correctly through page/route changes. The instance of Stack was removed fixed the wondering FAB.&#10;&#10;There may still be issues associated with a FAB ghost appearing on screen.">
+      <created>1694717372198</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1694717372198</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -287,7 +298,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add testBool, testDouble, testInt, testString and testStringList to AppData and print to screen values in _TestBaseUIContents.&#10;&#10;AppDataPreferenceService has been tested and appears to be working. Without the functionality to change AppData field values via the app itself, the .json file that contains the shared_preference information was edited between app builds to simulate this. On rebuild the app displayed the new data." />
     <MESSAGE value="Disable instantiation of bottomAppBar in _BaseUIViewState.&#10;&#10;routeMap in base_ui_route_map.dart modified so that keys are Strings.&#10;&#10;This commit builds and runs as expected." />
     <MESSAGE value="Reconfigure key-value pairs for routeMap." />
     <MESSAGE value="Add _SettingsUIContents, a new StatefulWidget in settings_ui_contents.dart." />
@@ -312,65 +322,21 @@
     <MESSAGE value="Rename NewContainer as BoxedContainer and the original BozedContainer as OldBoxedContainer." />
     <MESSAGE value="Add call to setState in BoxedContainer2 in order to persist the effect of 'drawLayoutBounds = true' through page/route changes." />
     <MESSAGE value="The effect of drawLayoutBounds persists correctly through page/route changes; unfortunately the use of Stack messes up the location of the FAB associated with BsePage.&#10;&#10;Save branch before tweaking the use of Overlays in BoxedContainer2." />
-    <option name="LAST_COMMIT_MESSAGE" value="The effect of drawLayoutBounds persists correctly through page/route changes; unfortunately the use of Stack messes up the location of the FAB associated with BsePage.&#10;&#10;Save branch before tweaking the use of Overlays in BoxedContainer2." />
+    <MESSAGE value="BoxedContainer6 implements the effect of drawLayoutBounds persisting correctly through page/route changes. The instance of Stack was removed fixed the wondering FAB.&#10;&#10;There may still be issues associated with a FAB ghost appearing on screen." />
+    <option name="LAST_COMMIT_MESSAGE" value="BoxedContainer6 implements the effect of drawLayoutBounds persisting correctly through page/route changes. The instance of Stack was removed fixed the wondering FAB.&#10;&#10;There may still be issues associated with a FAB ghost appearing on screen." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/main.dart</url>
-          <line>27</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint type="Dart">
-          <url>file://$PROJECT_DIR$/lib/settings/settings_page_list_tile.dart</url>
-          <line>48</line>
-          <option name="timeStamp" value="30" />
+          <url>file://$PROJECT_DIR$/lib/utils/boxed_container_8.dart</url>
+          <line>81</line>
+          <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/utils/boxed_container_5.dart</url>
-          <line>219</line>
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/utils/boxed_container_5.dart</url>
-          <line>237</line>
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/utils/boxed_container_5.dart</url>
-          <line>145</line>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/utils/boxed_container_5.dart</url>
-          <line>228</line>
-          <option name="timeStamp" value="36" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/utils/boxed_container_5.dart</url>
-          <line>157</line>
-          <option name="timeStamp" value="37" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/utils/boxed_container_5.dart</url>
-          <line>136</line>
-          <option name="timeStamp" value="38" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/utils/boxed_container_5.dart</url>
-          <line>138</line>
-          <option name="timeStamp" value="39" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/utils/boxed_container_5.dart</url>
-          <line>221</line>
-          <option name="timeStamp" value="40" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/utils/boxed_container_5.dart</url>
-          <line>230</line>
-          <option name="timeStamp" value="41" />
+          <url>file://$PROJECT_DIR$/lib/utils/boxed_container_8.dart</url>
+          <line>82</line>
+          <option name="timeStamp" value="43" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

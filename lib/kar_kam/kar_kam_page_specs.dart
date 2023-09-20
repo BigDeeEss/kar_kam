@@ -7,11 +7,11 @@ import 'package:kar_kam/base_page/base_page_specs.dart';
 /// Home layout.
 BasePageSpecs karKamPageSpecs = BasePageSpecs(
   title: 'KarKam',
-  contents: Center(child: test()),
+  // contents: Center(child: test()),
   // contents: const Center(child: ClickableTooltipWidget()),
-  // contents: const Center(
-  //   child: Text('KarKam'),
-  // ),
+  contents: const Center(
+    child: Text('KarKam'),
+  ),
   floatingActionButtonTargetList: <String>[
     'filesPageSpecs',
     'settingsPageSpecs',
