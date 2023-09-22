@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart';
 
 /// Stores app data.
 abstract class AppData extends ChangeNotifier {
-  /// Whether [NewContainer] draws bounding boxes or not.
+  /// Whether [BoxedContainer] draws bounding boxes or not.
   bool? drawLayoutBounds;
 
   /// The border width for [SettingsPageListTile].
@@ -50,8 +50,8 @@ abstract class AppData extends ChangeNotifier {
     // ToDo: remove references to test data.
     getMap = {
       'drawLayoutBounds': () => drawLayoutBounds,
-      'settingsPageListTileBorderWidth':  () => settingsPageListTileBorderWidth,
-      'settingsPageListTileRadius':  () => settingsPageListTileRadius,
+      'settingsPageListTileBorderWidth': () => settingsPageListTileBorderWidth,
+      'settingsPageListTileRadius': () => settingsPageListTileRadius,
       'testBool': () => testBool,
       'testDouble': () => testDouble,
       'testInt': () => testInt,
@@ -85,7 +85,7 @@ abstract class AppData extends ChangeNotifier {
         setMap?.keys.toList(growable: false)));
   }
 
-  /// Updates fields in [AppData] with [newValue] using [identifier] to
+  /// Updates fields in [AppData] with [value] using [string] to
   /// determine which field to change.
   void update({
     bool? notify,

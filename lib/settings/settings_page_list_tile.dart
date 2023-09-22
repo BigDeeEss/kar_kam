@@ -5,11 +5,8 @@ import 'package:get_it_mixin/get_it_mixin.dart';
 // Import project-specific files.
 import 'package:kar_kam/app_data/app_data.dart';
 import 'package:kar_kam/utils/boxed_container_2.dart';
-import 'package:kar_kam/utils/boxed_container_5.dart';
-import 'package:kar_kam/utils/boxed_container_6.dart';
-import 'package:kar_kam/utils/boxed_container_7.dart';
-import 'package:kar_kam/utils/boxed_container_8.dart';
 
+/// Implements a generic list tile.
 class SettingsPageListTile extends StatelessWidget with GetItMixin {
   SettingsPageListTile({
     super.key,
@@ -46,39 +43,33 @@ class SettingsPageListTile extends StatelessWidget with GetItMixin {
     double? settingsPageListTileRadius =
         watchOnly((AppData a) => a.settingsPageListTileRadius);
 
-    // print('SettingsPageListTile, build...height = $height');
-    // print('SettingsPageListTile, build...screen size = ${MediaQuery.of(context).size}');
-    return Container(
-      // diagnostic: true,
-      child: Container(
-        decoration: BoxDecoration(
-          border: Border.all(
-            width: settingsPageListTileBorderWidth ?? 0.0
-          ),
-          borderRadius: BorderRadius.circular(settingsPageListTileRadius ?? 0.0),
+    return BoxedContainer2(
+      decoration: BoxDecoration(
+        border: Border.all(
+          width: settingsPageListTileBorderWidth ?? 0.0
         ),
-        // padding: const EdgeInsets.all(5),
-        height: height,
-        child: InkWell(
-          onTap: onTap,
-          // child: Container(
-          child: BoxedContainer2(
-            // borderWidth: settingsPageListTileBorderWidth,
-            child: Row(
-              children: <Widget>[
-                Container(
-                  child: leading,
+        borderRadius: BorderRadius.circular(settingsPageListTileRadius ?? 0.0),
+      ),
+      // padding: const EdgeInsets.all(5),
+      height: height,
+      child: InkWell(
+        onTap: onTap,
+        child: BoxedContainer2(
+          // borderWidth: settingsPageListTileBorderWidth,
+          child: Row(
+            children: <Widget>[
+              Container(
+                child: leading,
+              ),
+              Expanded(
+                child: Container(
+                  child: title,
                 ),
-                Expanded(
-                  child: Container(
-                    child: title,
-                  ),
-                ),
-                Container(
-                  child: trailing,
-                ),
-              ],
-            ),
+              ),
+              Container(
+                child: trailing,
+              ),
+            ],
           ),
         ),
       ),

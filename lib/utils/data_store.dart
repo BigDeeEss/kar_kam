@@ -64,7 +64,7 @@ class _DataStoreService<T> extends InheritedWidget {
     required this.data,
   }) : super(key: key, child: child);
 
-  /// Required for extending the the search for further instances of
+  /// Required for extending the search for further instances of
   /// [_DataStoreService] up the widget tree.
   final BuildContext context;
 

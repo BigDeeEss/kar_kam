@@ -6,8 +6,7 @@ import 'package:get_it_mixin/get_it_mixin.dart';
 import 'package:kar_kam/app_data/app_data.dart';
 import 'package:kar_kam/utils/global_key_extension.dart';
 
-
-/// Implements a [Container] and draws its bounding box.
+/// Draws a bounding box around it's [child].
 class BoxedContainer2 extends StatefulWidget with GetItStatefulWidgetMixin {
   BoxedContainer2({
     super.key,
@@ -27,7 +26,6 @@ class BoxedContainer2 extends StatefulWidget with GetItStatefulWidgetMixin {
     this.transform,
     this.transformAlignment,
     this.width,
-    this.diagnostic = false,
   });
 
   // [Container]-specific variables.
@@ -45,37 +43,49 @@ class BoxedContainer2 extends StatefulWidget with GetItStatefulWidgetMixin {
   final AlignmentGeometry? transformAlignment;
   final double? width;
 
-  // [NewContainer]-specific variables.
+  // [BoxedContainer]-specific variables.
   final Color borderColor;
   final double borderWidth;
   final bool drawLayoutBoundsOverride;
-
-  final bool diagnostic;
 
   @override
   State<BoxedContainer2> createState() => _BoxedContainer2State();
 }
 
 class _BoxedContainer2State extends State<BoxedContainer2> with GetItStateMixin {
-  // The link which connects the layers associated with
+  /// The link which connects [child] and [childBorder].
   LayerLink layerLink = LayerLink();
 
-  // Used by [addBorder] for determining the bounding box for [widget.child].
+  /// Used by [generateChildBorder] to determine the bounding box for [child].
   final GlobalKey childKey = GlobalKey();
 
-  CompositedTransformFollower? border;
-  // bool drawLayoutBounds = false;
+  /// The bounding box for [child].
+  CompositedTransformFollower? childBorder;
 
-  void generateBorder(Rect? rect) {
+  /// [widget.child] refactored as an instance of [CompositedTransformTarget].
+  CompositedTransformTarget? child;
+
+  /// Generates [child].
+  void generateChild() {
+    if (widget.child != null) {
+      child =  CompositedTransformTarget(
+        link: layerLink,
+        child: Container(
+          key: childKey,
+          child: widget.child,
+        ),
+      );
+    }
+  }
+
+  /// Generates the bounding box for [child].
+  void generateChildBorder(Rect? rect) {
     if (rect is Rect) {
-      // Avoid creating [border] if [borderRect] dimensions are too small.
+      // Avoid creating [border] if [rect] dimensions are too small.
       if (rect.shortestSide < 2) return;
 
-      print('rect = $rect');
-
-      // print('generateBorder, border = $border');
       setState(() {
-        border = CompositedTransformFollower(
+        childBorder = CompositedTransformFollower(
           followerAnchor: Alignment.center,
           link: layerLink,
           targetAnchor: Alignment.center,
@@ -98,16 +108,16 @@ class _BoxedContainer2State extends State<BoxedContainer2> with GetItStateMixin 
     }
   }
 
+  /// Defines [child] and creates [childBorder] in a post frame callback.
   @override
   void initState() {
+    // Firstly create [child] from [widget.child].
+    generateChild();
+
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      // Get [child] bounding box characteristics if requested.
-      // print(drawLayoutBounds);
-      if (widget.child != null) {
-        // print('border1, childKey = $border, $childKey');
-        if (widget.diagnostic) print('BoxedContainer2, PostFrameCallback...1');
-        generateBorder(childKey.globalPaintBounds);
-        // print('border2, childKey = $border, $childKey');
+      // Create [childBorder].
+      if (child != null) {
+        generateChildBorder(childKey.globalPaintBounds);
       }
     });
     super.initState();
@@ -116,6 +126,8 @@ class _BoxedContainer2State extends State<BoxedContainer2> with GetItStateMixin 
   @override
   Widget build(BuildContext context) {
     // Watch for changes to [AppData.drawLayoutBounds] registered with GetIt.
+    //
+    // Used to triggering a rebuild whenever [AppData.drawLayoutBounds] changes.
     bool drawLayoutBounds =
         watchOnly((AppData a) => a.drawLayoutBounds) ?? false;
 
@@ -124,42 +136,20 @@ class _BoxedContainer2State extends State<BoxedContainer2> with GetItStateMixin 
     // which is localised at the point of instantiation.
     drawLayoutBounds = drawLayoutBounds || widget.drawLayoutBoundsOverride;
 
-    // print('childKey = $childKey');
-    // print('childKey.globalPaintBounds = ${childKey.globalPaintBounds}');
-    // print('border = $border');
-    if (widget.diagnostic) print('BoxedContainer2, build...drawLayoutBounds = $drawLayoutBounds');
-    if (widget.diagnostic) print('BoxedContainer2, build...border = $border');
-
-    if (drawLayoutBounds && border != null) {
-      return Container(
-        child: Stack(
-          // alignment: AlignmentDirectional.center,
-          children: <Widget>[
-            CompositedTransformTarget(
-              link: layerLink,
-              child: Container(
-                key: childKey,
-                child: widget.child,
-              ),
-            ),
-            border!,
-          ],
-        ),
+    if (drawLayoutBounds && child != null && childBorder != null) {
+      // Build [child] and [childBorder].
+      return Stack(
+        children: <Widget>[
+          child!,
+          childBorder!,
+        ],
       );
     } else {
-      return Container(
-        child: Stack(
-          // alignment: AlignmentDirectional.center,
-          children: <Widget>[
-            CompositedTransformTarget(
-              link: layerLink,
-              child: Container(
-                key: childKey,
-                child: widget.child,
-              ),
-            ),
-          ],
-        ),
+      // Only build [child].
+      return Stack(
+        children: <Widget>[
+          child!,
+        ],
       );
     }
   }

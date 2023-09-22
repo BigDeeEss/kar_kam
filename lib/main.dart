@@ -29,34 +29,4 @@ void main() {
 
   // Run the app.
   runApp(KarKam());
-  // runApp(Test1());
-}
-
-
-class Test1 extends StatelessWidget {
-  Test1({super.key});
-
-  // Used by [addBorder] for determining the bounding box for [widget.child].
-  final GlobalKey childKey = GlobalKey();
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Test',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: Test2(key: childKey),
-    );
-  }
-}
-
-class Test2 extends StatelessWidget {
-  const Test2({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Text('Hello');
-  }
 }

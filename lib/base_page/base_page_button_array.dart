@@ -4,15 +4,9 @@ import 'package:flutter/material.dart';
 // Import project-specific files.
 import 'package:kar_kam/base_page/base_page.dart';
 import 'package:kar_kam/base_page/base_page_route_map.dart';
-import 'package:kar_kam/utils/boxed_container.dart';
 import 'package:kar_kam/utils/boxed_container_2.dart';
-// import 'package:kar_kam/utils/boxed_container_3.dart';
-// import 'package:kar_kam/utils/boxed_container_4.dart';
-import 'package:kar_kam/utils/boxed_container_5.dart';
-import 'package:kar_kam/utils/boxed_container_6.dart';
-import 'package:kar_kam/utils/boxed_container_7.dart';
-import 'package:kar_kam/utils/boxed_container_8.dart';
 
+/// Generates an array of [FloatingActionButton]s.
 class BasePageButtonArray extends StatelessWidget {
   const BasePageButtonArray({
     super.key,
@@ -33,7 +27,6 @@ class BasePageButtonArray extends StatelessWidget {
           child: BoxedContainer2(
             child: basePageRouteMap[buttonArrayTargetList[index]]?[1],
           ),
-          // child: basePageRouteMap[buttonArrayTargetList[index]]?[1],
           onPressed: () {
             Navigator.of(context).pushReplacement(
               MaterialPageRoute(
