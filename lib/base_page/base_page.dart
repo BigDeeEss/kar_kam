@@ -10,7 +10,7 @@ import 'package:kar_kam/utils/global_key_extension.dart';
 /// Implements a generic page layout design.
 ///
 /// [BasePage] presents a similar screen layout for each page with:
-///     1. an AppBar at the top with a title,
+///     1. an [AppBar] at the top with a title,
 ///     2. specific screen contents including buttons for navigating app
 ///        and app functionality, and
 ///     3. a bottom navigation bar.
@@ -65,13 +65,18 @@ class _BasePageState extends State<BasePage> {
     
     // [_BasePageState] is built in two phases:
     //    1. with [bottomAppBar], which is null initially, and then
-    //    2. with [bottomAppBar] with height given by [bottomAppBarHeight].
+    //    2. with [bottomAppBar] only if [height], given by
+    //    [bottomAppBarHeight], is positive.
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      setState(() {
-        bottomAppBar = BottomAppBar(
-          height: bottomAppBarHeight,
-        );
-      });
+      // To save time, only rebuild if [height] is positive.
+      double height = bottomAppBarHeight;
+      if (height > 0) {
+        setState(() {
+          bottomAppBar = BottomAppBar(
+            height: bottomAppBarHeight,
+          );
+        });
+      }
     });
     super.initState();
   }
