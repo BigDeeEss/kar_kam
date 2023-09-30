@@ -1,15 +1,16 @@
 // Import external packages.
 import 'package:flutter/material.dart';
 import 'package:get_it_mixin/get_it_mixin.dart';
-import 'package:kar_kam/app_data/app_data.dart';
 
 // Import project-specific files.
+import 'package:kar_kam/app_data/app_data.dart';
 import 'package:kar_kam/utils/boxed_container.dart';
 
+/// Implements a generic list tile.
 class SettingsPageListTile extends StatelessWidget with GetItMixin {
   SettingsPageListTile({
     super.key,
-    required this.height,
+    this.height,
     this.leading,
     this.onTap,
     this.title,
@@ -17,7 +18,7 @@ class SettingsPageListTile extends StatelessWidget with GetItMixin {
   });
 
   /// Height of the bounding box for [SettingsPageListTile].
-  final double height;
+  final double? height;
 
   /// A widget to display on the left within [SettingsPageListTile].
   final Widget? leading;
@@ -35,60 +36,42 @@ class SettingsPageListTile extends StatelessWidget with GetItMixin {
   @override
   Widget build(BuildContext context) {
     // Watch for changes to [AppData.buttonAlignment] registered with [GetIt].
-    double settingsPageListTileBorderWidth =
-        watchOnly((AppData a) => a.settingsPageListTileBorderWidth)!;
+    double? settingsPageListTileBorderWidth =
+        watchOnly((AppData a) => a.settingsPageListTileBorderWidth);
 
-    // Watch for changes to [AppData.buttonAlignment] registered with [GetIt].
-    double settingsPageListTileRadius =
-        watchOnly((AppData a) => a.settingsPageListTileRadius)!;
+    // Watch for changes to [AppData.settingsPageListTileRadius] registered
+    // with [GetIt].
+    double? settingsPageListTileRadius =
+        watchOnly((AppData a) => a.settingsPageListTileRadius);
 
     return BoxedContainer(
-      padding: const EdgeInsets.all(5),
-      // height: height,
+      decoration: BoxDecoration(
+        border: Border.all(
+          width: settingsPageListTileBorderWidth ?? 0.0
+        ),
+        borderRadius: BorderRadius.circular(settingsPageListTileRadius ?? 0.0),
+      ),
+      // padding: const EdgeInsets.all(5),
+      height: height,
       child: InkWell(
         onTap: onTap,
         child: BoxedContainer(
-          borderRadius: settingsPageListTileRadius,
-          borderWidth: settingsPageListTileBorderWidth,
+          // borderWidth: settingsPageListTileBorderWidth,
           child: Row(
             children: <Widget>[
-              BoxedContainer(
+              Container(
                 child: leading,
               ),
               Expanded(
-                child: BoxedContainer(
+                child: Container(
                   child: title,
                 ),
               ),
-              BoxedContainer(
+              Container(
                 child: trailing,
               ),
             ],
           ),
-        ),
-      ),
-    );
-    return BoxedContainer(
-      borderRadius: settingsPageListTileRadius,
-      borderWidth: settingsPageListTileBorderWidth,
-      child: ListTile(
-        leading: leading,
-        onTap: onTap,
-        title: title,
-        trailing: trailing,
-      ),
-    );
-    return BoxedContainer(
-      child: Card(
-        shape: RoundedRectangleBorder(
-          // side: BorderSide(),
-          borderRadius: BorderRadius.circular(20.0),
-        ),
-        child: ListTile(
-          leading: leading,
-          onTap: onTap,
-          title: title,
-          trailing: trailing,
         ),
       ),
     );

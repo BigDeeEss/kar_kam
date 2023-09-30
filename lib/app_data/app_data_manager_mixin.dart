@@ -1,31 +1,28 @@
 // Import project-specific files.
 import 'package:kar_kam/app_data/app_data.dart';
 
-/// Maintains [AppData].
+/// Manages the data within [AppData].
 mixin AppDataManagerMixin on AppData {
   /// Updates fields in [AppData] with [value] using [string] to
-  /// determine which field to change
+  /// determine which field to change.
   @override
   void update({
     bool? notify,
     required String string,
     var value,
   }) {
-    print('AppDataManagerMixin, string...$string');
-    print('AppDataManagerMixin, value...$value');
     if (value != null) {
       // Set [AppData.field], identified by string, to value.
       setMap?[string]?.call(value);
 
       // Notify listeners only if instructed to do so. Default is to notify.
       if (notify ?? true) {
-        // If [notify] is true.
         notifyListeners();
       }
     }
   }
 
-  /// Sets [AppData] field values to default valuess if null.
+  /// Sets [AppData] field values to default values if null.
   void setDefaults() {
     // [defaultsMap.keys] can't be null in a for-in loop.
     //

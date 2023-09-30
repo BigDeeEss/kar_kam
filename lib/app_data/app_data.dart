@@ -29,8 +29,8 @@ abstract class AppData extends ChangeNotifier {
   Map<String, dynamic>? getMap;
 
   /// A map that relates a string representation of [AppData.field]
-  /// to a function that sets fields. So, for instance,
-  /// 'test' to '(String? value) => test = value'.
+  /// to a function that sets fields. So, for instance, 'test' to
+  /// '(String? value) => test = value'.
   Map<String, Function>? setMap;
 
   /// Initialises [getMap] and [setMap].
@@ -50,8 +50,8 @@ abstract class AppData extends ChangeNotifier {
     // ToDo: remove references to test data.
     getMap = {
       'drawLayoutBounds': () => drawLayoutBounds,
-      'settingsPageListTileBorderWidth':  () => settingsPageListTileBorderWidth,
-      'settingsPageListTileRadius':  () => settingsPageListTileRadius,
+      'settingsPageListTileBorderWidth': () => settingsPageListTileBorderWidth,
+      'settingsPageListTileRadius': () => settingsPageListTileRadius,
       'testBool': () => testBool,
       'testDouble': () => testDouble,
       'testInt': () => testInt,
@@ -85,7 +85,7 @@ abstract class AppData extends ChangeNotifier {
         setMap?.keys.toList(growable: false)));
   }
 
-  /// Updates fields in [AppData] with [newValue] using [identifier] to
+  /// Updates fields in [AppData] with [value] using [string] to
   /// determine which field to change.
   void update({
     bool? notify,

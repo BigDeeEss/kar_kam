@@ -4,17 +4,25 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="398c2f1d-d59b-4632-b499-7ce03f824c85" name="Changes" comment="Reimplement ability for user to set drawLayoutBounds.&#10;&#10;Also add RoundedRectangleBorder shape to Card in SettingsUIListTile.">
-      <change afterPath="$PROJECT_DIR$/lib/settings/settings_page_contents.dart" afterDir="false" />
+    <list default="true" id="398c2f1d-d59b-4632-b499-7ce03f824c85" name="Changes" comment="Make the rebuild in BasePage a dependency rather than a necessary using a height &gt; 0 check before setState.">
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/linux/x64/debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/linux/x64/debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/linux/x64/debug/CMakeFiles/CMakeConfigureLog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/build/linux/x64/debug/CMakeFiles/CMakeConfigureLog.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/linux/x64/debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/build/linux/x64/debug/build.ninja" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app_data/app_data.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app_data/app_data.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app_data/app_data_preference_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app_data/app_data_preference_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app_data/app_data_manager_mixin.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app_data/app_data_manager_mixin.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/base_page/base_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/base_page/base_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/base_page/base_page_button_array.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/base_page/base_page_button_array.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/base_page/base_page_route_map.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/base_page/base_page_route_map.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/base_page/base_page_specs.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/base_page/base_page_specs.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/kar_kam/kar_kam.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/kar_kam/kar_kam.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/kar_kam/kar_kam_page_specs.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/kar_kam/kar_kam_page_specs.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/settings/settings_page_contents.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/settings/settings_page_contents.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/settings/settings_page_list_tile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/settings/settings_page_list_tile.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/settings/settings_page_specs.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/settings/settings_page_specs.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/boxed_container.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/boxed_container.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/boxed_container_2.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/boxed_container.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/data_store.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/data_store.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,10 +32,16 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="7-settings-ui-with-fab" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file:///opt/flutter/packages/flutter/lib/src/services/platform_channel.dart" root0="SKIP_INSPECTION" />
+    <setting file="file:///opt/flutter/packages/flutter/lib/src/services/system_chrome.dart" root0="SKIP_INSPECTION" />
+    <setting file="file:///opt/flutter/packages/flutter/lib/src/widgets/notification_listener.dart" root0="SKIP_INSPECTION" />
+    <setting file="file:///opt/flutter/packages/flutter/lib/src/widgets/scrollable.dart" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -37,22 +51,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "cidr.known.project.marker": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "io.flutter.reload.alreadyRun": "true",
-    "last_opened_file_path": "/home/damon/StudioProjects/kar_kam",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "show.migrate.to.gradle.popup": "false"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;com.android.tools.idea.devicemanager.tab&quot;: &quot;Physical&quot;,
+    &quot;com.google.services.firebase.aqiPopupShown&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/damon/StudioProjects/kar_kam&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/utils" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/lib/utils" />
     </key>
   </component>
@@ -176,7 +198,119 @@
       <option name="project" value="LOCAL" />
       <updated>1689271769749</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Attempt to fix problem associated with previous commit.&#10;&#10;Introduce an intermediary StatefulWidget, BBoxedContainer, to consider the GetItMix. Add in a secoindary StatefulWidget, _BBoxedContainer, to perform the overlay management fuction.">
+      <created>1689924312393</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1689924312393</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Successful attempt at using overlays in Fluuter to produce a pink square that can betoggled on and off using SettingsPageListTile.&#10;&#10;Currently only the overarching bounding box for ButtonArray, not individual buttons, is used with BBoxedContainer and overlays. This is for diagnostic/development purposes.&#10;&#10;In order to force a rebuild of _BBoxedContainer in BBoxedContainer a UniqueKey() is supplied.">
+      <created>1689946575649</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1689946575649</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Increase size of pink box to prove that it obscures the clickable SettingsPageListTiles below. Problem.">
+      <created>1689946784462</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1689946784462</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Use IgnorablePointer to allow widgets below the pink square to be clicked.">
+      <created>1689947571035</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1689947571035</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Successfully enclosed ButtonArray with a semi-opaque Container.">
+      <created>1689949341061</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1689949341061</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Address offset caused by adjusting childRect to account for borderWidth in _BBoxedContainerState.">
+      <created>1689964722986</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1689964722986</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Update BBoxedContainer to account for a very small child.&#10;&#10;Check nullable variables.">
+      <created>1690037323939</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1690037323939</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Implement widget.child null check to avoid zero or negative box constraints.">
+      <created>1690097553846</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1690097553846</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Movement of tiles on settings page fixed with NewContainer.&#10;&#10;NewContainer is a temporary new name for BBoxedContainer to differentiate it from (old) BoxedContainer in order to find and replace all instances of the old type.">
+      <created>1690099884207</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1690099884207</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Rename NewContainer as BoxedContainer and the original BozedContainer as OldBoxedContainer.">
+      <created>1690142240808</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1690142240808</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Add call to setState in BoxedContainer2 in order to persist the effect of 'drawLayoutBounds = true' through page/route changes.">
+      <created>1693938030962</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1693938030962</updated>
+    </task>
+    <task id="LOCAL-00027" summary="The effect of drawLayoutBounds persists correctly through page/route changes; unfortunately the use of Stack messes up the location of the FAB associated with BsePage.&#10;&#10;Save branch before tweaking the use of Overlays in BoxedContainer2.">
+      <created>1694251970394</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1694251970394</updated>
+    </task>
+    <task id="LOCAL-00028" summary="BoxedContainer6 implements the effect of drawLayoutBounds persisting correctly through page/route changes. The instance of Stack was removed fixed the wondering FAB.&#10;&#10;There may still be issues associated with a FAB ghost appearing on screen.">
+      <created>1694717372198</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1694717372198</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Save.&#10;&#10;BoxedContainer2 offers an improved implementation of drawing layout bounds around widgets. This implementation appears to correctly persist the effect of drawlLayoutBounds through page/route changes.">
+      <created>1695228310734</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1695228310734</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Update BasePage with a reduced build time.&#10;&#10;Check BoxedContainer2 functionality and delete other attempts.&#10;&#10;Update comments.">
+      <created>1695408075335</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1695408075335</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Make the rebuild in BasePage a dependency rather than a necessary using a height &gt; 0 check before setState.">
+      <created>1696066085297</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1696066085297</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -191,12 +325,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Rename BaseUILayout to BaseUIContents." />
-    <MESSAGE value="Correct AppDataPreferencesMixin.&#10;&#10;Convert getMap and setMap to Map&lt;String, Function&gt; and use .call() and .call(value) respectively to execute. &#10;&#10;The setting of a drawLayoutBounds default appears to be working, but check." />
-    <MESSAGE value="Add testBool, testDouble, testInt, testString and testStringList to AppData and print to screen values in _TestBaseUIContents.&#10;&#10;AppDataPreferenceService has been tested and appears to be working. Without the functionality to change AppData field values via the app itself, the .json file that contains the shared_preference information was edited between app builds to simulate this. On rebuild the app displayed the new data." />
-    <MESSAGE value="Disable instantiation of bottomAppBar in _BaseUIViewState.&#10;&#10;routeMap in base_ui_route_map.dart modified so that keys are Strings.&#10;&#10;This commit builds and runs as expected." />
-    <MESSAGE value="Reconfigure key-value pairs for routeMap." />
-    <MESSAGE value="Add _SettingsUIContents, a new StatefulWidget in settings_ui_contents.dart." />
     <MESSAGE value="Resolve issue associated with Scaffold.geometryOf being triggered by instance of BottomAppBar.&#10;&#10;This commit includes removal of base_ui_view.dart. The functionality that this wiget offered is subsumed within BaseUI.&#10;&#10;This commit also includes an additional FloatingActionButton as a test.&#10;&#10;Need to tidy up" />
     <MESSAGE value="Rename BaseUI -&gt; BasePage, BaseUIContents -&gt; BasePageSpecs.&#10;&#10;Delete base_ui_view.dart." />
     <MESSAGE value="Update comments and ToDo list." />
@@ -206,47 +334,22 @@
     <MESSAGE value="Update BasePageButtonArray using Iterable and a modification of the Dart Intersperse package to insert a SizedBox between each element.&#10;&#10;https://pub.dev/packages/intersperse/versions" />
     <MESSAGE value="Wrap BasePageButtonArray and its elements and AppBar title in BoxedContainer." />
     <MESSAGE value="Reimplement ability for user to set drawLayoutBounds.&#10;&#10;Also add RoundedRectangleBorder shape to Card in SettingsUIListTile." />
-    <option name="LAST_COMMIT_MESSAGE" value="Reimplement ability for user to set drawLayoutBounds.&#10;&#10;Also add RoundedRectangleBorder shape to Card in SettingsUIListTile." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/main.dart</url>
-          <line>27</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint type="Dart">
-          <url>file://$PROJECT_DIR$/lib/base_page/base_ui_view.dart</url>
-          <line>111</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint type="Dart">
-          <url>file://$PROJECT_DIR$/lib/base_page/base_ui_view.dart</url>
-          <line>73</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint type="Dart">
-          <url>file://$USER_HOME$/.pub-cache/hosted/pub.dev/intersperse-2.0.0/lib/src/intersperse.dart</url>
-          <line>8</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint type="Dart">
-          <url>file://$PROJECT_DIR$/lib/app_data/app_data_preference_service.dart</url>
-          <line>11</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/app_data/app_data_preference_service.dart</url>
-          <line>25</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/app_data/app_data_preference_mixin.dart</url>
-          <line>12</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Attempt to fix problem associated with previous commit.&#10;&#10;Introduce an intermediary StatefulWidget, BBoxedContainer, to consider the GetItMix. Add in a secoindary StatefulWidget, _BBoxedContainer, to perform the overlay management fuction." />
+    <MESSAGE value="Successful attempt at using overlays in Fluuter to produce a pink square that can betoggled on and off using SettingsPageListTile.&#10;&#10;Currently only the overarching bounding box for ButtonArray, not individual buttons, is used with BBoxedContainer and overlays. This is for diagnostic/development purposes.&#10;&#10;In order to force a rebuild of _BBoxedContainer in BBoxedContainer a UniqueKey() is supplied." />
+    <MESSAGE value="Increase size of pink box to prove that it obscures the clickable SettingsPageListTiles below. Problem." />
+    <MESSAGE value="Use IgnorablePointer to allow widgets below the pink square to be clicked." />
+    <MESSAGE value="Successfully enclosed ButtonArray with a semi-opaque Container." />
+    <MESSAGE value="Address offset caused by adjusting childRect to account for borderWidth in _BBoxedContainerState." />
+    <MESSAGE value="Update BBoxedContainer to account for a very small child.&#10;&#10;Check nullable variables." />
+    <MESSAGE value="Implement widget.child null check to avoid zero or negative box constraints." />
+    <MESSAGE value="Movement of tiles on settings page fixed with NewContainer.&#10;&#10;NewContainer is a temporary new name for BBoxedContainer to differentiate it from (old) BoxedContainer in order to find and replace all instances of the old type." />
+    <MESSAGE value="Rename NewContainer as BoxedContainer and the original BozedContainer as OldBoxedContainer." />
+    <MESSAGE value="Add call to setState in BoxedContainer2 in order to persist the effect of 'drawLayoutBounds = true' through page/route changes." />
+    <MESSAGE value="The effect of drawLayoutBounds persists correctly through page/route changes; unfortunately the use of Stack messes up the location of the FAB associated with BsePage.&#10;&#10;Save branch before tweaking the use of Overlays in BoxedContainer2." />
+    <MESSAGE value="BoxedContainer6 implements the effect of drawLayoutBounds persisting correctly through page/route changes. The instance of Stack was removed fixed the wondering FAB.&#10;&#10;There may still be issues associated with a FAB ghost appearing on screen." />
+    <MESSAGE value="Save.&#10;&#10;BoxedContainer2 offers an improved implementation of drawing layout bounds around widgets. This implementation appears to correctly persist the effect of drawlLayoutBounds through page/route changes." />
+    <MESSAGE value="Update BasePage with a reduced build time.&#10;&#10;Check BoxedContainer2 functionality and delete other attempts.&#10;&#10;Update comments." />
+    <MESSAGE value="Make the rebuild in BasePage a dependency rather than a necessary using a height &gt; 0 check before setState." />
+    <option name="LAST_COMMIT_MESSAGE" value="Make the rebuild in BasePage a dependency rather than a necessary using a height &gt; 0 check before setState." />
   </component>
 </project>

@@ -12,7 +12,7 @@ class BasePageSpecs {
   /// The [contents] associated with each page/route.
   final Widget contents;
 
-  /// Prototype FAB specifier.
+  /// Specifies the FABs to be sued for each page/route.
   final List<String>? floatingActionButtonTargetList;
 
   /// A [title] for each page/route.

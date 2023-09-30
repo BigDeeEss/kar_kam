@@ -10,10 +10,13 @@ import 'package:kar_kam/utils/global_key_extension.dart';
 /// Implements a generic page layout design.
 ///
 /// [BasePage] presents a similar screen layout for each page with:
-///     1. an AppBar at the top with a title,
-///     2. specific screen contents including buttons for navigation
-///        and functionality, and
+///     1. an [AppBar] at the top with a title,
+///     2. specific screen contents including buttons for navigating app
+///        and app functionality, and
 ///     3. a bottom navigation bar.
+/// [BasePage] is built in two phases:
+///     1. with [bottomAppBar], which is null initially, and then
+///     2. with [bottomAppBar] with height given by [bottomAppBarHeight].
 class BasePage extends StatefulWidget {
   const BasePage({
     super.key,
@@ -29,15 +32,15 @@ class BasePage extends StatefulWidget {
 }
 
 class _BasePageState extends State<BasePage> {
+  /// Passed to [AppBar] in [build] and used by [bottomAppBarHeight].
   GlobalKey appBarKey = GlobalKey();
-  GlobalKey bottomAppBarKey = GlobalKey();
-  GlobalKey basePageButtonArrayKey = GlobalKey();
 
-  // If not null, an instance of [BottomAppBar] to include in [Scaffold].
+  /// If not null, an instance of [BottomAppBar] to include in [Scaffold].
   BottomAppBar? bottomAppBar;
 
-  // If not null, an instance of [BasePageButtonArray] to include in [Scaffold].
-  Widget? fabArray;
+  /// If not null, an instance of [BasePageButtonArray] to include in
+  /// [Scaffold].
+  Widget? floatingActionButtonArray;
 
   /// Calculates the height of [bottomAppBar].
   double get bottomAppBarHeight {
@@ -45,37 +48,42 @@ class _BasePageState extends State<BasePage> {
     return appBarKey.globalPaintBounds?.height ?? 0.0;
   }
 
+  // Necessary in order to force a rebuild so that the height of 
+  // [BottomAppBar] can be calculated.
   @override
   void initState() {
+    // A copy of [widget.basePageSpecs.floatingActionButtonTargetList]
+    // so that it can be promoted from [String?] to [String] below.
+    List<String>? floatingActionButtonTargetList =
+        widget.basePageSpecs.floatingActionButtonTargetList;
+
+    if (floatingActionButtonTargetList is List<String>) {
+      floatingActionButtonArray = BasePageButtonArray(
+        buttonArrayTargetList: floatingActionButtonTargetList,
+      );
+    }
+    
     // [_BasePageState] is built in two phases:
-    //    (i) with [bottomAppBar], which is null initially, and then
-    //    (ii) with [bottomAppBar] with height given by [bottomAppBarHeight].
+    //    1. with [bottomAppBar], which is null initially, and then
+    //    2. with [bottomAppBar] only if [height], given by
+    //    [bottomAppBarHeight], is positive.
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      setState(() {
-        bottomAppBar = BottomAppBar(
-          key: bottomAppBarKey,
-          height: bottomAppBarHeight,
-        );
-      });
+      // To save time, only rebuild if [height] is positive.
+      double height = bottomAppBarHeight;
+      if (height > 0) {
+        setState(() {
+          bottomAppBar = BottomAppBar(
+            height: bottomAppBarHeight,
+          );
+        });
+      }
     });
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    // A copy of [widget.basePageSpecs.floatingActionButtonTargetList]
-    // so that it can be promoted from [String?] to [String].
-    List<String>? floatingActionButtonTargetList =
-        widget.basePageSpecs.floatingActionButtonTargetList;
-
-    if (floatingActionButtonTargetList is List<String>) {
-      fabArray = BasePageButtonArray(
-        key: basePageButtonArrayKey,
-        buttonArrayTargetList: floatingActionButtonTargetList,
-      );
-    }
-
-    // Uses [appBarKey], [basePageButtonArrayKey] and [bottomAppBarKey].
+    // Uses [appBarKey] and [bottomAppBarKey].
     return Scaffold(
       appBar: AppBar(
         key: appBarKey,
@@ -86,7 +94,8 @@ class _BasePageState extends State<BasePage> {
       ),
       body: widget.basePageSpecs.contents,
       bottomNavigationBar: bottomAppBar,
-      floatingActionButton: fabArray,
+      floatingActionButton: floatingActionButtonArray,
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }

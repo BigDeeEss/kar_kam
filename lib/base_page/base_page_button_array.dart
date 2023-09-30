@@ -6,6 +6,7 @@ import 'package:kar_kam/base_page/base_page.dart';
 import 'package:kar_kam/base_page/base_page_route_map.dart';
 import 'package:kar_kam/utils/boxed_container.dart';
 
+/// Generates an array of [FloatingActionButton].
 class BasePageButtonArray extends StatelessWidget {
   const BasePageButtonArray({
     super.key,
@@ -17,35 +18,36 @@ class BasePageButtonArray extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Generate an iterable using [Iterable.generate()].
+    // Generate an [Iterable<Widget>]. Used in the below return statement for 
+    // inserting a spacer between buttons.
     Iterable<Widget> buttonArray =
         Iterable.generate(buttonArrayTargetList.length, (index) {
       return BoxedContainer(
         child: FloatingActionButton(
           heroTag: null,
-      child: basePageRouteMap[buttonArrayTargetList[index]]?[1],
+          child: BoxedContainer(
+            child: basePageRouteMap[buttonArrayTargetList[index]]?[1],
+          ),
           onPressed: () {
-        Navigator.of(context).pushReplacement(
-          MaterialPageRoute(
-            builder: (BuildContext context) => BasePage(
-              basePageSpecs: basePageRouteMap[buttonArrayTargetList[index]]
-              ?[0],
-            ),
-          ),
-        );
-      },
-          ),
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(
+                builder: (BuildContext context) => BasePage(
+                  basePageSpecs: basePageRouteMap[buttonArrayTargetList[index]]
+                      ?[0],
+                ),
+              ),
+            );
+          },
+        ),
       );
     });
 
     // Convert to an instance of [Column] using [intersperseWithSizedBox].
-    return BoxedContainer(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        mainAxisSize: MainAxisSize.min,
-        // verticalDirection: VerticalDirection.up,
-        children: intersperseWithSizedBox(buttonArray).toList(),
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.end,
+      mainAxisSize: MainAxisSize.min,
+      // verticalDirection: VerticalDirection.up,
+      children: intersperseWithSizedBox(buttonArray).toList(),
     );
   }
 
