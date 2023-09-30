@@ -32,8 +32,8 @@ class KarKam extends StatelessWidget with GetItMixin{
           } else {
             // For the 'has no data' case, where the load of app settings
             // is still in progress, present a progress indicator.
+            // ToDo: Create screen contents for when initialising add data.
             return const Column(
-              // ToDo: Create screen contents for when initialising add data.
               mainAxisAlignment: MainAxisAlignment.center,
               mainAxisSize: MainAxisSize.min,
               children: [

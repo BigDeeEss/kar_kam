@@ -6,8 +6,7 @@ import 'package:kar_kam/files/files_page_specs.dart';
 import 'package:kar_kam/kar_kam/kar_kam_page_specs.dart';
 import 'package:kar_kam/settings/settings_page_specs.dart';
 
-/// Specifies target pages associated with [floatingActionButtonArray]
-/// in [BasePage].
+/// Specifies page/route specs for [floatingActionButtonArray] in [BasePage].
 Map<String, List<dynamic>> basePageRouteMap = {
   'filesPageSpecs': [filesPageSpecs, const FaIcon(FontAwesomeIcons.fileVideo),],
   'karKamPageSpecs': [karKamPageSpecs, const FaIcon(FontAwesomeIcons.video)],

@@ -7,8 +7,8 @@ import 'package:kar_kam/app_data/app_data.dart';
 import 'package:kar_kam/utils/global_key_extension.dart';
 
 /// Draws a bounding box around it's [child].
-class BoxedContainer2 extends StatefulWidget with GetItStatefulWidgetMixin {
-  BoxedContainer2({
+class BoxedContainer extends StatefulWidget with GetItStatefulWidgetMixin {
+  BoxedContainer({
     super.key,
     this.alignment,
     this.borderColor = Colors.red,
@@ -49,10 +49,10 @@ class BoxedContainer2 extends StatefulWidget with GetItStatefulWidgetMixin {
   final bool drawLayoutBoundsOverride;
 
   @override
-  State<BoxedContainer2> createState() => _BoxedContainer2State();
+  State<BoxedContainer> createState() => _BoxedContainerState();
 }
 
-class _BoxedContainer2State extends State<BoxedContainer2> with GetItStateMixin {
+class _BoxedContainerState extends State<BoxedContainer> with GetItStateMixin {
   /// The link which connects [child] and [childBorder].
   LayerLink layerLink = LayerLink();
 

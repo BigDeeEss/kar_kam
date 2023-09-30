@@ -4,7 +4,7 @@ import 'package:get_it_mixin/get_it_mixin.dart';
 
 // Import project-specific files.
 import 'package:kar_kam/app_data/app_data.dart';
-import 'package:kar_kam/utils/boxed_container_2.dart';
+import 'package:kar_kam/utils/boxed_container.dart';
 
 /// Implements a generic list tile.
 class SettingsPageListTile extends StatelessWidget with GetItMixin {
@@ -39,11 +39,12 @@ class SettingsPageListTile extends StatelessWidget with GetItMixin {
     double? settingsPageListTileBorderWidth =
         watchOnly((AppData a) => a.settingsPageListTileBorderWidth);
 
-    // Watch for changes to [AppData.buttonAlignment] registered with [GetIt].
+    // Watch for changes to [AppData.settingsPageListTileRadius] registered
+    // with [GetIt].
     double? settingsPageListTileRadius =
         watchOnly((AppData a) => a.settingsPageListTileRadius);
 
-    return BoxedContainer2(
+    return BoxedContainer(
       decoration: BoxDecoration(
         border: Border.all(
           width: settingsPageListTileBorderWidth ?? 0.0
@@ -54,7 +55,7 @@ class SettingsPageListTile extends StatelessWidget with GetItMixin {
       height: height,
       child: InkWell(
         onTap: onTap,
-        child: BoxedContainer2(
+        child: BoxedContainer(
           // borderWidth: settingsPageListTileBorderWidth,
           child: Row(
             children: <Widget>[

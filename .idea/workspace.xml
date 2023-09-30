@@ -4,28 +4,25 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="398c2f1d-d59b-4632-b499-7ce03f824c85" name="Changes" comment="Save.&#10;&#10;BoxedContainer2 offers an improved implementation of drawing layout bounds around widgets. This implementation appears to correctly persist the effect of drawlLayoutBounds through page/route changes.">
+    <list default="true" id="398c2f1d-d59b-4632-b499-7ce03f824c85" name="Changes" comment="Make the rebuild in BasePage a dependency rather than a necessary using a height &gt; 0 check before setState.">
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/linux/x64/debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/linux/x64/debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/linux/x64/debug/CMakeFiles/CMakeConfigureLog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/build/linux/x64/debug/CMakeFiles/CMakeConfigureLog.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/linux/x64/debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/build/linux/x64/debug/build.ninja" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app_data/app_data.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app_data/app_data.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app_data/app_data_manager_mixin.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app_data/app_data_manager_mixin.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/base_page/base_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/base_page/base_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/base_page/base_page_button_array.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/base_page/base_page_button_array.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/base_page/base_page_route_map.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/base_page/base_page_route_map.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/base_page/base_page_specs.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/base_page/base_page_specs.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/kar_kam/kar_kam.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/kar_kam/kar_kam.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/kar_kam/kar_kam_page_specs.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/kar_kam/kar_kam_page_specs.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/settings/settings_page_contents.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/settings/settings_page_contents.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/settings/settings_page_list_tile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/settings/settings_page_list_tile.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/boxed_container.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/boxed_container_2.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/boxed_container_2.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/boxed_container_3.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/boxed_container_4.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/boxed_container_5.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/boxed_container_6.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/boxed_container_7.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/boxed_container_2.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/boxed_container.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/utils/data_store.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/data_store.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/global_key_extension.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/global_key_extension.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/old_boxed_container.dart" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -299,7 +296,21 @@
       <option name="project" value="LOCAL" />
       <updated>1695228310734</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Update BasePage with a reduced build time.&#10;&#10;Check BoxedContainer2 functionality and delete other attempts.&#10;&#10;Update comments.">
+      <created>1695408075335</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1695408075335</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Make the rebuild in BasePage a dependency rather than a necessary using a height &gt; 0 check before setState.">
+      <created>1696066085297</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1696066085297</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -314,8 +325,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Reconfigure key-value pairs for routeMap." />
-    <MESSAGE value="Add _SettingsUIContents, a new StatefulWidget in settings_ui_contents.dart." />
     <MESSAGE value="Resolve issue associated with Scaffold.geometryOf being triggered by instance of BottomAppBar.&#10;&#10;This commit includes removal of base_ui_view.dart. The functionality that this wiget offered is subsumed within BaseUI.&#10;&#10;This commit also includes an additional FloatingActionButton as a test.&#10;&#10;Need to tidy up" />
     <MESSAGE value="Rename BaseUI -&gt; BasePage, BaseUIContents -&gt; BasePageSpecs.&#10;&#10;Delete base_ui_view.dart." />
     <MESSAGE value="Update comments and ToDo list." />
@@ -339,6 +348,8 @@
     <MESSAGE value="The effect of drawLayoutBounds persists correctly through page/route changes; unfortunately the use of Stack messes up the location of the FAB associated with BsePage.&#10;&#10;Save branch before tweaking the use of Overlays in BoxedContainer2." />
     <MESSAGE value="BoxedContainer6 implements the effect of drawLayoutBounds persisting correctly through page/route changes. The instance of Stack was removed fixed the wondering FAB.&#10;&#10;There may still be issues associated with a FAB ghost appearing on screen." />
     <MESSAGE value="Save.&#10;&#10;BoxedContainer2 offers an improved implementation of drawing layout bounds around widgets. This implementation appears to correctly persist the effect of drawlLayoutBounds through page/route changes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Save.&#10;&#10;BoxedContainer2 offers an improved implementation of drawing layout bounds around widgets. This implementation appears to correctly persist the effect of drawlLayoutBounds through page/route changes." />
+    <MESSAGE value="Update BasePage with a reduced build time.&#10;&#10;Check BoxedContainer2 functionality and delete other attempts.&#10;&#10;Update comments." />
+    <MESSAGE value="Make the rebuild in BasePage a dependency rather than a necessary using a height &gt; 0 check before setState." />
+    <option name="LAST_COMMIT_MESSAGE" value="Make the rebuild in BasePage a dependency rather than a necessary using a height &gt; 0 check before setState." />
   </component>
 </project>

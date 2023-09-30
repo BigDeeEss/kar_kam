@@ -16,7 +16,7 @@ BasePageSpecs karKamPageSpecs = BasePageSpecs(
   ],
 );
 
-// ToDp: add [karKamPageSpecs] functionality.
+// ToDo: add [karKamPageSpecs] functionality.
 class ClickableTooltipWidget extends StatefulWidget {
   const ClickableTooltipWidget({super.key});
 

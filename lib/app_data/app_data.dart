@@ -29,8 +29,8 @@ abstract class AppData extends ChangeNotifier {
   Map<String, dynamic>? getMap;
 
   /// A map that relates a string representation of [AppData.field]
-  /// to a function that sets fields. So, for instance,
-  /// 'test' to '(String? value) => test = value'.
+  /// to a function that sets fields. So, for instance, 'test' to
+  /// '(String? value) => test = value'.
   Map<String, Function>? setMap;
 
   /// Initialises [getMap] and [setMap].

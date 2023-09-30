@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 // Import project-specific files.
 import 'package:kar_kam/base_page/base_page.dart';
 import 'package:kar_kam/base_page/base_page_route_map.dart';
-import 'package:kar_kam/utils/boxed_container_2.dart';
+import 'package:kar_kam/utils/boxed_container.dart';
 
-/// Generates an array of [FloatingActionButton]s.
+/// Generates an array of [FloatingActionButton].
 class BasePageButtonArray extends StatelessWidget {
   const BasePageButtonArray({
     super.key,
@@ -18,13 +18,14 @@ class BasePageButtonArray extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Generate an iterable using [Iterable.generate()].
+    // Generate an [Iterable<Widget>]. Used in the below return statement for 
+    // inserting a spacer between buttons.
     Iterable<Widget> buttonArray =
         Iterable.generate(buttonArrayTargetList.length, (index) {
-      return BoxedContainer2(
+      return BoxedContainer(
         child: FloatingActionButton(
           heroTag: null,
-          child: BoxedContainer2(
+          child: BoxedContainer(
             child: basePageRouteMap[buttonArrayTargetList[index]]?[1],
           ),
           onPressed: () {
@@ -42,14 +43,11 @@ class BasePageButtonArray extends StatelessWidget {
     });
 
     // Convert to an instance of [Column] using [intersperseWithSizedBox].
-    // return Container(
-    return Container(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        mainAxisSize: MainAxisSize.min,
-        // verticalDirection: VerticalDirection.up,
-        children: intersperseWithSizedBox(buttonArray).toList(),
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.end,
+      mainAxisSize: MainAxisSize.min,
+      // verticalDirection: VerticalDirection.up,
+      children: intersperseWithSizedBox(buttonArray).toList(),
     );
   }
 

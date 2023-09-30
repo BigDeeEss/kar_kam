@@ -16,9 +16,8 @@ void main() {
   // Required by [shared_preferences].
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Use [GetItService] as the single point of access to [GetIt] and
-  // register an instance of [AppData] using the extension,
-  // [AppDataPreferenceService].
+  // Use [GetItService] as the single point of access to [GetIt] and register
+  // an instance of [AppData] via the extension, [AppDataPreferenceService].
   //
   // The constructor for [AppDataPreferenceService] loads preferences from
   // file and/or applies defaults.
