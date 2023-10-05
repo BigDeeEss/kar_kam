@@ -27,3 +27,19 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### Flutter/Dart/Pub ###
+.dart_tool/
+.idea/
+build/
+linux/
+test/
+.flutter-plugins-dependencies
+.metadata
+analysis_options.yaml
+kar_kam.iml
+pubspec.lock
+
+
+
+
