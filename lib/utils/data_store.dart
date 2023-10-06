@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 class DataStore<T> extends StatelessWidget {
   const DataStore({
     required Key key,
-    required this.child,
+    this.child,
     required this.data,
   }) : super(key: key);
 
   /// The immediate descendant of [DataStore].
-  final Widget child;
+  final Widget? child;
 
   /// Is passed to [DataStoreService] and made available to all descendants.
   final T data;
@@ -50,7 +50,7 @@ class DataStore<T> extends StatelessWidget {
       key: key,
       context: context,
       data: data,
-      child: child,
+      child: child ?? Container(),
     );
   }
 }
@@ -64,7 +64,7 @@ class DataStoreService<T> extends InheritedWidget {
     required this.data,
   }) : super(key: key, child: child);
 
-  /// Required for extending the the search for further instances of
+  /// Required for extending the search for further instances of
   /// [DataStoreService] up the widget tree.
   final BuildContext context;
 
